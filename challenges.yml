@@ -31,7 +31,7 @@ letswritephp_simple_echo_coding:
 letswritephp_jobofechomc:
     question: >
         What's the job of the `echo` statement?
-    explanation:
+    explanation: >
         `echo` - as in `echo 'this question was no problem';` - is used to print anything
         out. There are a few other ways to print stuff, but `echo` is by far the most important.
         You rock `echo`!
