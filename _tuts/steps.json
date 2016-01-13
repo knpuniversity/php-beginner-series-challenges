@@ -24,7 +24,17 @@
             "id": "createvariable-solution",
             "name": "CreateVariable: Solution",
             "description": null
+        },
+        {
+            "id": "fixmissingsemicolon-setup",
+            "name": "FixMissingSemicolon: Setup",
+            "description": null
+        },
+        {
+            "id": "fixmissingsemicolon-solution",
+            "name": "FixMissingSemicolon: Solution",
+            "description": null
         }
     ],
-    "sha": "eeee05e8b1313e85368cab10eaea0c962f7cae75"
+    "sha": "760165adfbf867322c09fd30c66a032a60d43680"
 }
