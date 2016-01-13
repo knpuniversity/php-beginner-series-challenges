@@ -14,7 +14,17 @@
             "id": "start-basic-echo",
             "name": "Start: Basic echo",
             "description": null
+        },
+        {
+            "id": "createvariable-setup-for-variable",
+            "name": "CreateVariable: Setup for variable",
+            "description": null
+        },
+        {
+            "id": "createvariable-solution",
+            "name": "CreateVariable: Solution",
+            "description": null
         }
     ],
-    "sha": "ddd49d3193a449d73e1f45f717c3db04c8b21c29"
+    "sha": "eeee05e8b1313e85368cab10eaea0c962f7cae75"
 }

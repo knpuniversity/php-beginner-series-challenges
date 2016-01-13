@@ -1,0 +1,13 @@
+diff --git a/index.php b/index.php
+index 7b46385..05f905a 100644
+--- a/index.php
++++ b/index.php
+@@ -1,6 +1,5 @@
+-<!-- create the variable here -->
++<?php $airpupTag = 'I luv puppies'; ?>
+ 
+-<!-- remove the text and print the variable here -->
+ <h2>
+-    <?php echo 'i luv puppies'; ?>
++    <?php echo $airpupTag; ?>
+ </h2>
