@@ -1,0 +1,20 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "start-empty-index-php",
+            "name": "Start: Empty index.php",
+            "description": null
+        },
+        {
+            "id": "start-basic-echo",
+            "name": "Start: Basic echo",
+            "description": null
+        }
+    ],
+    "sha": "ddd49d3193a449d73e1f45f717c3db04c8b21c29"
+}
