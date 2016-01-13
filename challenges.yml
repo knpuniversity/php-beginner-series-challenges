@@ -17,7 +17,7 @@ letswritephp_openphpmc:
             correct: b
     grading: []
 
-letswritephp_simple_echo_coding:
+letswritephp_simpleechocoding:
     question: >
         AirPupNMeow needs you to create their site! It's a humble beginning.
         Start by opening PHP, then echo their tag line: "I luv puppies"
