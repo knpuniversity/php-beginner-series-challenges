@@ -27,7 +27,19 @@ letswritephp_simpleechocoding:
     features:
         editor: ~
         browser: ~
-    grading: []
+    grading:
+        look_for_echo:
+            type: php
+            expect: input("index.php") matches "/echo/"
+            failure: I don't see "echo" in your file
+        check_output:
+            type: http
+            expect: body() matches "I luv puppies"
+            failure: I don't see `I luv puppies` anywhere - did you print this?
+        check_h2:
+            type: http
+            expect: css("h2:contains('I luv puppies')")
+            failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
 
 letswritephp_jobofechomc:
     question: >
@@ -58,7 +70,24 @@ letswritephp_createvariablecoding:
     features:
         editor: ~
         browser: ~
-    grading: []
+    grading:
+        check_variable:
+            type: php
+            expect: get_variable('airpupTag') == 'I luv kittens'
+            failure: "Make sure the `$airpupTag` variable is set to `I luv kittens`"
+        look_for_echo:
+            type: php
+            expect: input("index.php") matches "/echo/"
+            failure: I don't see "echo" in your file
+        check_output:
+            type: http
+            expect: body() matches "I luv puppies"
+            failure: I don't see `I luv puppies` anywhere - did you print this?
+        check_h2:
+            type: http
+            expect: css("h2:contains('I luv puppies')")
+            failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
+
 
 letswritephp_fixmissingsemicoloncoding:
     question: >
@@ -71,4 +100,16 @@ letswritephp_fixmissingsemicoloncoding:
     features:
         editor: ~
         browser: ~
-    grading: []
+    grading:
+        check_output:
+            type: http
+            expect: body() matches "I luv puppies"
+            failure: I don't see `I luv puppies` anywhere - did you print this?
+        check_h2:
+            type: http
+            expect: css("h2:contains('I luv puppies')")
+            failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
+        check_h2_2015:
+            type: http
+            expect: css("h2:contains('2015')")
+            failure: "Make sure the `2015` text is being printed *inside* an `h2` tag"
