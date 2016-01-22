@@ -34,7 +34,7 @@ letswritephp_simpleechocoding:
             failure: I don't see "echo" in your file
         check_output:
             type: http
-            expect: body() matches "I luv puppies"
+            expect: body() matches "/I luv puppies/"
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
@@ -81,7 +81,7 @@ letswritephp_createvariablecoding:
             failure: I don't see "echo" in your file
         check_output:
             type: http
-            expect: body() matches "I luv puppies"
+            expect: body() matches "/I luv puppies/"
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
@@ -103,7 +103,7 @@ letswritephp_fixmissingsemicoloncoding:
     grading:
         check_output:
             type: http
-            expect: body() matches "I luv puppies"
+            expect: body() matches "/I luv puppies/"
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
