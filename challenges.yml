@@ -38,7 +38,7 @@ letswritephp_simpleechocoding:
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
-            expect: css("h2:contains('I luv puppies')")
+            expect: css("h2:contains('I luv puppies').count() > 0")
             failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
 
 letswritephp_jobofechomc:
