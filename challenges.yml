@@ -39,7 +39,7 @@ letswritephp_simpleechocoding:
         check_h2:
             type: http
             assertTrue: css("h2:contains('I luv puppies').count() > 0")
-            failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
+            failure: Make sure the `I luv puppies` text is being printed *inside* an `h2` tag
 
 letswritephp_jobofechomc:
     question: >
@@ -74,7 +74,7 @@ letswritephp_createvariablecoding:
         check_variable:
             type: php
             assertTrue: get_variable('airpupTag') == 'I luv kittens'
-            failure: "Make sure the `$airpupTag` variable is set to `I luv kittens`"
+            failure: Make sure the `$airpupTag` variable is set to `I luv kittens`
         look_for_echo:
             type: php
             assertTrue: input("index.php") matches "/echo/"
@@ -86,7 +86,7 @@ letswritephp_createvariablecoding:
         check_h2:
             type: http
             assertTrue: css("h2:contains('I luv puppies')")
-            failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
+            failure: Make sure the `I luv puppies` text is being printed *inside* an `h2` tag
 
 
 letswritephp_fixmissingsemicoloncoding:
@@ -108,8 +108,8 @@ letswritephp_fixmissingsemicoloncoding:
         check_h2:
             type: http
             assertTrue: css("h2:contains('I luv puppies')")
-            failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
+            failure: Make sure the `I luv puppies` text is being printed *inside* an `h2` tag
         check_h2_2015:
             type: http
             assertTrue: css("h2:contains('2015')")
-            failure: "Make sure the `2015` text is being printed *inside* an `h2` tag"
+            failure: Make sure the `2015` text is being printed *inside* an `h2` tag
