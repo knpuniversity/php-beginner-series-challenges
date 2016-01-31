@@ -355,9 +355,8 @@ arrays2_addnewkeycoding:
     grading:
         check_array_key:
             type: php
-            # @TODO Add missing `array_key_exists()` function to the PhpExpressionProvider (don't sure about failure message)
             assertFalse: array_key_exists('breed', $waggyPig)
-            failure: The $waggyPig variable doesn't have a `breed` key!
+            failure: The `$waggyPig` variable doesn't have a `breed` key!
         assert_variable:
             type: php
             # @TODO Add missing `variable()` function to the PhpExpressionProvider (don't sure about failure message)
