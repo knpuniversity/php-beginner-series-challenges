@@ -30,15 +30,15 @@ letswritephp_simpleechocoding:
     grading:
         look_for_echo:
             type: php
-            expect: input("index.php") matches "/echo/"
+            assertTrue: input("index.php") matches "/echo/"
             failure: I don't see "echo" in your file
         check_output:
             type: http
-            expect: body() matches "/I luv puppies/"
+            assertTrue: body() matches "/I luv puppies/"
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
-            expect: css("h2:contains('I luv puppies').count() > 0")
+            assertTrue: css("h2:contains('I luv puppies').count() > 0")
             failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
 
 letswritephp_jobofechomc:
@@ -73,19 +73,19 @@ letswritephp_createvariablecoding:
     grading:
         check_variable:
             type: php
-            expect: get_variable('airpupTag') == 'I luv kittens'
+            assertTrue: get_variable('airpupTag') == 'I luv kittens'
             failure: "Make sure the `$airpupTag` variable is set to `I luv kittens`"
         look_for_echo:
             type: php
-            expect: input("index.php") matches "/echo/"
+            assertTrue: input("index.php") matches "/echo/"
             failure: I don't see "echo" in your file
         check_output:
             type: http
-            expect: body() matches "/I luv puppies/"
+            assertTrue: body() matches "/I luv puppies/"
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
-            expect: css("h2:contains('I luv puppies')")
+            assertTrue: css("h2:contains('I luv puppies')")
             failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
 
 
@@ -103,13 +103,13 @@ letswritephp_fixmissingsemicoloncoding:
     grading:
         check_output:
             type: http
-            expect: body() matches "/I luv puppies/"
+            assertTrue: body() matches "/I luv puppies/"
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
-            expect: css("h2:contains('I luv puppies')")
+            assertTrue: css("h2:contains('I luv puppies')")
             failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
         check_h2_2015:
             type: http
-            expect: css("h2:contains('2015')")
+            assertTrue: css("h2:contains('2015')")
             failure: "Make sure the `2015` text is being printed *inside* an `h2` tag"
