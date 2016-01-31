@@ -23,7 +23,8 @@ letswritephp_simpleechocoding:
         Start by opening PHP, then echo their tag line: "I luv puppies"
         inside an `<h2>` tag.
     step: start-empty-index-php
-    files: ['index.php']
+    files:
+        index.php: ~
     features:
         editor: ~
         browser: ~
@@ -66,7 +67,8 @@ letswritephp_createvariablecoding:
         a variable called `airpupTag` and set it to the `I luv puppies` text. Then
         print this inside the `<h2>` tag.
     step: createvariable-setup-for-variable
-    files: ['index.php']
+    files:
+        index.php: ~
     features:
         editor: ~
         browser: ~
@@ -96,7 +98,8 @@ letswritephp_fixmissingsemicoloncoding:
         ice cream to make up for it. While they're gone, fix the errors
         in this file for them.
     step: fixmissingsemicolon-setup
-    files: ['index.php']
+    files:
+        index.php: ~
     features:
         editor: ~
         browser: ~
