@@ -568,3 +568,93 @@ filesjsonbooleans_fileputcontentscoding:
             type: http
             assertTrue: css("h2:contains('Dogs rule!')")
             failure: I don't see the `Dogs rule!` text inside the `h2` tag
+
+ifstatement_ifnotoycolorcoding:
+    question: >
+        Oh no! Some of the toys are missing a `color` key and now the page
+        is giving us a huge error!  Use an `if` statement to fix this.
+        If we don't know the color, print `no color`.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_if:
+            type: php
+            assertTrue: input("index.php") matches "/if/"
+            failure: I don't see `if` statement in your file
+        look_for_array_key_exists:
+            type: php
+            assertTrue: input("index.php") matches "/array_key_exists(/"
+            failure: I don't see `array_key_exists()` function in your file
+        check_output:
+            type: http
+            assertTrue: body() matches "/no color/"
+            failure: The `Bacon Bone` doesn't have a color, so it *should* say "no color" for that toy.
+        check_heading:
+            type: http
+            assertTrue: css("h4:contains('Yellow')")
+            failure: I don't see the `Yellow` text inside the `h4` tag
+
+ifstatement_ifelseifelsecoding:
+    question: >
+        The toys are really getting complicated now, so be careful!
+        Use an `if - elseif - else` statement to handle these three possible
+        situations:
+
+        #. If the `color` key exists and is set to `multiple`, print "Multiple Colors".
+        #. If the `color` key does not exist, print "no color"
+        #. Otherwise, print the actual color value
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_if:
+            type: php
+            assertTrue: input("index.php") matches "/if/"
+            failure: I don't see `if` statement in your file
+        check_heading_1:
+            type: http
+            assertTrue: css("h4:contains('Yellow')")
+            failure: I don't see the `Yellow` text inside the `h4` tag
+        check_heading_2:
+            type: http
+            assertTrue: css("h4:contains('Multiple Colors')")
+            failure: I don't see the `Multiple Colors` text inside the `h4` tag
+        check_heading_3:
+            type: http
+            assertTrue: css("h4:contains('no color')")
+            failure: I don't see the `no color` text inside the `h4` tag
+
+ifstatement_fixerrorsifelsecoding:
+    question: >
+        Oh no, management tried coding again, someone put a pin code
+        on the github repo! Fix the errors below.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_if:
+            type: php
+            assertTrue: input("index.php") matches "/if/"
+            failure: I don't see `if` statement in your file
+        check_heading_1:
+            type: http
+            assertTrue: css("h4:contains('Surprise Color')")
+            failure: I don't see the `Surprise Color` text inside the `h4` tag
+        check_heading_2:
+            type: http
+            assertTrue: css("h4:contains('Yellow')")
+            failure: The Tennis ball is printing as `Surprise Color!`, but it *should* be `Yellow`. There's a more subtle mistake in the first part of the `if` statement...
+        check_heading_3:
+            type: http
+            assertTrue: css("h4:contains('no color')")
+            failure: I don't see the `no color` text inside the `h4` tag
