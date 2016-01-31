@@ -116,3 +116,87 @@ letswritephp_fixmissingsemicoloncoding:
             type: http
             assertTrue: css("h2:contains('2015')")
             failure: Make sure the `2015` text is being printed *inside* an `h2` tag
+
+functions_userandfunctioncoding:
+    question: >
+        It's hard to keep track of how many loveable pets we have
+        at a time. To save time (read: make management happy) just print
+        a random number - between 100 and 200 - for the number of tail-wagging
+        pets we have available.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        check_output:
+            type: http
+            assertTrue: body() matches "/I luv puppies/"
+            failure: I don't see `I luv puppies` anywhere - did you print this?
+        look_for_rand:
+            type: php
+            assertTrue: input("index.php") matches "/rand(/"
+            failure: I don't see "rand()" function in your file
+        # @TODO Could we do this check? Seems it require both php and http expression providers at once
+        #$text = trim($htmlGrader->getCrawler()->filter('h3 span')->text());
+        #if (!is_numeric($text)) {
+        #    throw new GradingException(sprintf(
+        #        'Are you printing the random number inside the span tag? I see "%s"',
+        #        $text
+        #    ));
+        #}
+        check_range:
+            type: http
+            assertTrue: 100 > css("h3 span").text() || 200 < css("h3 span").text()
+            failure: Make sure the `rand()` function only returns numbers between 100 and 200
+
+functions_reverseandlowercasecoding:
+    question: >
+        Someone was working at midnight, and started printing out
+        things in reverse! Don't worry! We've sent them on holiday and
+        now it's your job to fix things. As a challenge, see if you
+        can reverse and set all characters to lowercase in one line
+        using functions.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_strrev:
+            type: php
+            assertTrue: input("index.php") matches "/strrev(/"
+            failure: I don't see "strrev()" function in your file
+        look_for_strtolower:
+            type: php
+            assertTrue: input("index.php") matches "/strtolower(/"
+            failure: I don't see "strtolower()" function in your file
+        check_output:
+            type: http
+            assertTrue: body() matches "/our pets are purrfectly pawesome!/"
+            failure: I don't see `our pets are purrfectly pawesome!` anywhere - did you print this?
+
+functions_nestedfunctionsmc:
+    question: >
+        Clearly the dev team has been drinking too much Red Bull.
+        Things have gotten out of hand with all these reversed words. See if you
+        can figure out what this prints:
+        ```php
+        <?php echo str_replace('ri', 'aa', strrev(strtolower('SQUIRREL!'))); ?>
+        ```
+    explanation: >
+        Think about the order that things happen:
+        #. `SQUIRREL!` is passed to `strtolower` and becomes `squirrel!`.
+        #. `squirrel!` is passed to `strrev` and becomes `!lerriuqs`.
+        #. Finally, the `ri` in `!lerriuqs` is replaced with `aa`, giving us `!leraauqs`.
+    features:
+        multiple_choice:
+            choices:
+                a: !lerriuqs
+                b: !lerraaiuqs
+                c: !leraauqs
+                d: lerriauqs
+            correct: c
+    grading: []
