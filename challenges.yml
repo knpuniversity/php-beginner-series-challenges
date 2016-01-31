@@ -138,14 +138,10 @@ functions_userandfunctioncoding:
             type: php
             assertTrue: input("index.php") matches "/rand(/"
             failure: I don't see "rand()" function in your file
-        # @TODO Could we do this check? Seems it require both php and http expression providers at once
-        #$text = trim($htmlGrader->getCrawler()->filter('h3 span')->text());
-        #if (!is_numeric($text)) {
-        #    throw new GradingException(sprintf(
-        #        'Are you printing the random number inside the span tag? I see "%s"',
-        #        $text
-        #    ));
-        #}
+        check_number:
+            type: http
+            assertTrue: css("h3 span").text() matches "/^\s+\d+\s+$/"
+            failure: Are you printing the random number inside the `span` tag?
         check_range:
             type: http
             assertTrue: 100 > css("h3 span").text() || 200 < css("h3 span").text()
