@@ -196,3 +196,105 @@ functions_nestedfunctionsmc:
                 d: lerriauqs
             correct: c
     grading: []
+
+arraysloops_createarraycoding:
+    question: >
+        We're testing out a new feature: find someone to walk your
+        dog! At first, our boss's kids will be the three dog walkers:
+        `Kitty`, `Tiger`, and `Jay`. Assign each dog walker to three
+        new variables - `$walker1`, `$walker2` and `$walker3`. Then,
+        put them into a `$dogWalkers` array.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        assert_variable:
+            type: php
+            # @TODO Add missing `variable()` function to the PhpExpressionProvider (don't sure about failure message)
+            assertTrue: variable('dogWalkers') == ['Kitty', 'Tiger', 'Jay']
+            failure: Can't assert that `$dogWalkers` variable equal to the ['Kitty', 'Tiger', 'Jay'] array
+
+arraysloops_foreachcoding:
+    question: >
+        The kids are ready to work! Let's advertise the new service.
+        Use a `foreach` loop to print each kid's name in an `h3` tag.
+        Include a `<button>Schedule me</button>` under each kid's name:
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_foreach:
+            type: php
+            assertTrue: input("index.php") matches "/foreach/"
+            failure: I don't see `foreach` construct in your file
+        check_tiger:
+            type: http
+            assertTrue: css("h3:contains('Tiger')")
+            failure: Make sure the `Tiger` text is being printed *inside* an `h3` tag
+        check_kitty:
+            type: http
+            assertTrue: css("h3:contains('Kitty')")
+            failure: Make sure the `Kitty` text is being printed *inside* an `h3` tag
+        check_jay:
+            type: http
+            assertTrue: css("h3:contains('Jay')")
+            failure: Make sure the `Jay` text is being printed *inside* an `h3` tag
+        check_zero_buttons:
+            type: http
+            assertTrue: css("body:contains('<button>').count() == 0")
+            failure: Don\'t forget to add a `<button>Schedule me</button>` inside the `foreach` for each walker!
+        check_single_button:
+            type: http
+            assertTrue: css("body:contains('<button>').count() == 1")
+            failure: I only see 1 `<button>` - make sure to include this *inside* the `foreach` loop so that 3 are printed
+        check_three_buttons:
+            type: http
+            assertFalse: css("body:contains('<button>').count() == 3")
+            failure: There should be 3 `<button>` element exactly
+
+arraysloops_vardumpcoding:
+    question: >
+        The boss is worried that one of his kids was left off the
+        list! Use the `var_dump` function to show him that all three
+        kids are in the array.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_var_dump:
+            type: php
+            assertTrue: input("index.php") matches "/var_dump(/"
+            failure: I don't see `var_dump()` function in your file
+        check_tiger:
+            type: http
+            assertTrue: body() matches "/Kitty.+Tiger.+Jay/"
+            failure: I don't see `Kitty`, `Tiger` and `Jay` text. Did you print them all?
+
+arraysloops_arraykeysmc:
+    question: >
+        ```php
+        $brands = array('SuperDog', 'Doggie-Os', 'Beef Bites', 'Puppy Gruel', 'Fancy Feast');
+        ```
+        Puppies love dinner time! Which option below will print "Puppy Gruel"?
+    explanation: >
+        The keys are automatically assigned, starting with *zero*. This means that
+        `SuperDog` is key 0, `Doggie-Os` is key `1` and eventually `Puppy Gruel` is
+        key `3`.
+    features:
+        multiple_choice:
+            choices:
+                a: echo $brands[\'Puppy Gruel\']
+                b: echo $brands(4)
+                c: echo $brands[4]
+                d: echo $brands[3]
+            correct: d
+    grading: []
