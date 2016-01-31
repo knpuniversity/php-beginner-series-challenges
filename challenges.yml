@@ -474,3 +474,97 @@ arrays3_countandvariablereordercoding:
             type: http
             assertTrue: css("h4:contains(3)")
             failure: I don't see the number `3` inside the `h4` tag. Are you printing the `count()` there?
+
+filesjsonbooleans_jsonencodemc:
+    question: >
+        Pop Quiz: `json_encode()` does which of the following?
+    explanation: >
+        The first argument to `json_encode` is a PHP array. It then encodes this and
+        returns the equivalent JSON string:
+
+        ```php
+        <?php echo json_encode('lions', 'tigers', 'bears'); ?>
+        ```
+
+        This would print:
+
+        ```json
+        [
+            "lions",
+            "tigers",
+            "bears"
+        ]
+        ```
+    features:
+        multiple_choice:
+            choices:
+                a: Encodes JSON into a PHP array
+                b: Encodes a PHP array into JSON
+                c: Reads a JSON file and sets it into a PHP array
+            correct: b
+    grading: []
+
+filesjsonbooleans_readfilejsondecodecoding:
+    question: >
+        The toy inventory lives in a `toys.json` file. Great! Let's
+        read this file, and use `json_decode` to turn it into a big array.
+        Make sure the `foreach` is still correctly printing each toy's details.
+        And be careful to make sure the keys from `toys.json` match what you're
+        printing out!
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_file_get_contents:
+            type: php
+            assertTrue: input("index.php") matches "/file_get_contents(/"
+            failure: I don't see "file_get_contents()" function in your file
+        look_for_json_decode:
+            type: php
+            assertTrue: input("index.php") matches "/json_decode(/"
+            failure: I don't see "json_decode()" function in your file
+        check_h3:
+            type: http
+            assertTrue: css("h3:contains('Bacon Bone')")
+            failure: I don't see the `Bacon Bone` text inside the `h3` tag
+        check_h4:
+            type: http
+            assertTrue: css("h4:contains('Bacon-colored')")
+            failure: I don't see the `Bacon-colored` text inside the `h4` tag
+
+filesjsonbooleans_fileputcontentscoding:
+    question: >
+        We're going to totally troll the cats on the site,
+        use `file_put_contents()` to save the text `Dogs rule!` into a
+        new file called `doglife.txt`. Then read that file and print
+        the string into the `<h2>` tag
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_file_put_contents:
+            type: php
+            assertTrue: input("index.php") matches "/file_put_contents(/"
+            failure: I don't see `file_put_contents()` function in your file
+        look_for_doglife.txt:
+            type: php
+            assertTrue: input("index.php") matches "/doglife.txt/"
+            failure: I don't see `doglife.txt` text in your file
+        look_for_text:
+            type: php
+            assertTrue: input("index.php") matches "/Dogs rule!/"
+            failure: I don't see `Dogs rule!` text in your file
+        look_for_file_get_contents:
+            type: php
+            assertTrue: input("index.php") matches "/file_get_contents(/"
+            failure: I don't see "file_get_contents()" function in your file
+        check_heading:
+            type: http
+            assertTrue: css("h2:contains('Dogs rule!')")
+            failure: I don't see the `Dogs rule!` text inside the `h2` tag
