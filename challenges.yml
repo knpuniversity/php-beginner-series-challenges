@@ -177,8 +177,9 @@ functions_reverseandlowercasecoding:
 functions_nestedfunctionsmc:
     question: >
         Clearly the dev team has been drinking too much Red Bull.
-        Things have gotten out of hand with all these reversed words. See if you
-        can figure out what this prints:
+        Things have gotten out of hand with all these reversed words.
+        See if you can figure out what this prints:
+
         ```php
         <?php echo str_replace('ri', 'aa', strrev(strtolower('SQUIRREL!'))); ?>
         ```
@@ -248,7 +249,7 @@ arraysloops_foreachcoding:
         check_zero_buttons:
             type: http
             assertTrue: css("body:contains('<button>').count() == 0")
-            failure: Don\'t forget to add a `<button>Schedule me</button>` inside the `foreach` for each walker!
+            failure: Don't forget to add a `<button>Schedule me</button>` inside the `foreach` for each walker!
         check_single_button:
             type: http
             assertTrue: css("body:contains('<button>').count() == 1")
@@ -292,9 +293,112 @@ arraysloops_arraykeysmc:
     features:
         multiple_choice:
             choices:
-                a: echo $brands[\'Puppy Gruel\']
+                a: echo $brands['Puppy Gruel']
                 b: echo $brands(4)
                 c: echo $brands[4]
                 d: echo $brands[3]
             correct: d
+    grading: []
+
+arrays2_converttoassociativecoding:
+    question: >
+        Our favorite pet - Waggy Pig - is a cute white silly dog. Update
+        the code below to use an associative array: set they keys of the array
+        to `name`, `weight`, `age` and `bio`. Then, update the code below so
+        Waggy Pig's bio still prints out!
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        assert_variable:
+            type: php
+            # @TODO Add missing `variable()` function to the PhpExpressionProvider (don't sure about failure message)
+            assertTrue: variable('waggyPig') == ['name' => 'Waggy Pig', 'weight' => 10, 'age' => 7, 'bio' => 'Sleepy white fluffy dog']
+            failure: Can't assert that `$waggyPig` variable equal to the ['name' => 'Waggy Pig', 'weight' => 10, 'age' => 7, 'bio' => 'Sleepy white fluffy dog'] array
+        check_h2:
+            type: http
+            assertTrue: css("h2:contains('Waggy Pig')")
+            failure: Make sure the `Waggy Pig` text is being printed *inside* an `h2` tag
+        check_reversed:
+            type: http
+            assertTrue: css(".age").text() == 10
+            failure: >
+                Careful! Be sure to print the `age` key in the `.age` element and the
+                `weight` key in the `.weight` element. You might have them reversed.
+        check_age:
+            type: http
+            assertTrue: css(".age").text() == 7
+            failure: Make sure the *age* (`7`) is being printed *inside* a tag with an `.age` class
+        check_weight:
+            type: http
+            assertTrue: css(".weight").text() == 10
+            failure: Make sure the *weight* value (`10`) is being printed *inside* a tag with a `.weight` class
+        check_paragraph:
+            type: http
+            assertTrue: css("p:contains('Sleepy white fluffy dog')")
+            failure: Make sure the `Sleepy white fluffy dog` text is being printed *inside* a `p` tag
+
+arrays2_addnewkeycoding:
+    question: >
+        We went to ancestry.com and have discovered Waggy Pig's breed:
+        `bichon`. Add a new `breed` key on a new line after the `$waggyPig`
+        array has already been created. Print this new info below!
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        check_array_key:
+            type: php
+            # @TODO Add missing `array_key_exists()` function to the PhpExpressionProvider (don't sure about failure message)
+            assertFalse: array_key_exists('breed', $waggyPig)
+            failure: The $waggyPig variable doesn't have a `breed` key!
+        assert_variable:
+            type: php
+            # @TODO Add missing `variable()` function to the PhpExpressionProvider (don't sure about failure message)
+            assertFalse: variable($waggyPig['breed']) == 'bichon'
+            failure: Can't assert that `$waggyPig['breed']` variable equal to the `bichon` value
+        look_for_variable:
+            type: php
+            assertTrue: input("index.php") matches "/$waggyPig[/"
+            failure: Add the `breed` key *after* the `$waggyPig` variable is created using the `['breed']` syntax
+        check_breed:
+            type: http
+            assertTrue: css(".breed:contains('bichon')")
+            failure: Make sure the `bichon` text is being printed *inside* a tag with a `.breed` class
+
+arrays2_guessautokeymc:
+    question: >
+        The dog-walking service is a hit! So, we've added `Bear` to the
+        list:
+
+        ```php
+        <?php
+        $walker1 = 'Kitty';
+        $walker2 = 'Tiger';
+        $walker3 = 'Jay';
+
+        $dogWalkers = array($walker1, $walker2, $walker3);
+        $dogWalkers[] = 'Bear';
+        ?>
+        ```
+
+        What array key will PHP automatically assign to `Bear`?
+    explanation: >
+        The keys are automatically assigned, starting with *zero*, and when you add a new
+        item to the array later, it uses the first available number. Since `$walker3`
+        was assigned the `2` index, `Bear` gets the next available number: `3`.
+    features:
+        multiple_choice:
+            choices:
+                a: 0
+                b: 3
+                c: 4
+                d: Bear
+            correct: b
     grading: []
