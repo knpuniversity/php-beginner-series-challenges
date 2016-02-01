@@ -842,7 +842,7 @@ requireinclude_noclosingphptagmc:
         multiple_choice:
             choices:
                 a: This code has no issues. Well done!
-                b: This code will have an error: it's missing the closing `?>` at the bottom
+                b: "This code will have an error: it's missing the closing `?>` at the bottom"
                 c: This code has no error, but it *should* have a `?>` at the bottom
                 d: This code will have an error, because you can't put a comment at the bottom of the file
             correct: a
@@ -879,7 +879,7 @@ simplelayout_layoutwithrequirecoding:
         look_for_variable:
             type: php
             assertTrue: input("index.php") matches "/$airpupTagLine =/"
-            failure: Keep the `$airpupTagLine = ...` code inside `index.php`: that's code that is used for just *this* page, and shouldn't be in the header
+            failure: "Keep the `$airpupTagLine = ...` code inside `index.php`: that's code that is used for just *this* page, and shouldn't be in the header"
         look_for_require:
             type: php
             assertTrue: input("index.php") matches "/require/"
@@ -918,7 +918,7 @@ simplelayout_requireandvariablesmc:
         multiple_choice:
             choices:
                 a: This would print `engage` in the `<header>` tag
-                b: This would cause an error: the `$secretWord` variable is defined in `index.php`, not in `header.php`
+                b: "This would cause an error: the `$secretWord` variable is defined in `index.php`, not in `header.php`"
                 c: There would be no error, but nothing would print inside the `<header>` tag
             correct: a
     grading: []
