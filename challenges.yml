@@ -700,3 +700,86 @@ systemsetup_localhostportfilenamemc: ~
                     `index.php` is executed and returned
             correct: d
     grading: []
+
+creatingfunctions_funwithcommentsmc:
+    question: >
+        Put on your thinking cap and look carefully: what does this print?
+
+        ```php
+        <?php
+        /*
+         * A Functions!
+         */
+        function cat()
+        {
+            $dog = dog();
+            // $dog = strtoupper($dog);
+
+            return $dog;
+        }
+
+        /* Another function */
+        function dog()
+        {
+            return 'Molly';
+        }
+
+        $var = cat();
+        echo $var; echo ' the dog'; // echo '!';
+        ```
+    explanation: >
+        Phew! First, we call `cat()`, which calls `dog()` and sets `$dog` to `Molly`. But
+        the next `strtoupper()` line is commented out with `//` so it *never* runs. This
+        means that `cat()` returns `Molly`, which is set to `$var`. Finally, we print this
+        with `echo`, and it *is* legal to have multiple PHP statements on a single line,
+        as long as each ends with `;`. But, the last `echo '!';` is commented out, and never
+        runs. That gives us `Molly the dog`.
+
+        Oh, and `/*` is another way to start a comment. The difference is that - instead of
+        commenting out the rest of the line, it comments out everything until it sees a
+        closing `*/`.
+    features:
+        multiple_choice:
+            choices:
+                a: Trick question! This will have an error!
+                b: MOLLY the dog!
+                c: Molly the dog
+                d: MOLLY the dog
+            correct: c
+    grading: []
+
+creatingfunctions_createfunctioncoding: ~
+    question: >
+        Being able to read all the toys from `toys.json` is pretty useful, and soon, it
+        might be handy to re-use this in other places too. Create a new `get_great_pet_toys()`
+        function that reads `toys.json`, decodes the contents, and returns the toys.
+        Call this to get the toys array.
+    step: ~
+    files:
+        index.php: ~
+        toys.json:
+            read_only: true
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        check_function:
+            type: php
+            assertFalse: function_exists('get_great_pet_toys')
+            failure: The `get_great_pet_toys()` function doesn't exist
+        look_for_function:
+            type: php
+            assertTrue: input("index.php") matches "/get_great_pet_toys(/"
+            failure: I don't see "get_great_pet_toys()" function in your file
+        check_heading_1:
+            type: http
+            assertTrue: css("h4:contains('Yellow')")
+            failure: Make sure the `Yellow` text is being printed *inside* a `h4` tag
+        check_heading_2:
+            type: http
+            assertTrue: css("h4:contains('Multiple Colors')")
+            failure: Make sure the `Multiple Colors` text is being printed *inside* a `h4` tag
+        check_heading_3:
+            type: http
+            assertTrue: css("h3:contains('Bacon Bone')")
+            failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
