@@ -847,3 +847,78 @@ requireinclude_noclosingphptagmc:
                 d: This code will have an error, because you can't put a comment at the bottom of the file
             correct: a
     grading: [] # @TODO Do we really need to add `grading` key with empty array? I think we could get rid of it in MC
+
+simplelayout_layoutwithrequirecoding:
+    question: >
+        The site has just one page - `index.php` - and people *love* it (trust us)!
+        Now we've created a second page - `aboutUs.php`, but boy is it ugly! Woof.
+        We need to re-use the layout that's in `index.php` to make it prettier.
+
+        To do that, move all the header HTML into `header.php`, move all the footer HTML
+        into `footer.php`, and then `require` each of these files in `index.php` and `aboutUs.php`
+        to get the same, "nice" layout in both of our pages.
+    step: ~
+    files:
+        index.php: ~
+        aboutUs.php: ~
+        layout/header.php: ~
+        layout/footer.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /aboutUs.php
+    grading:
+        look_for_html_opening_tag:
+            type: php
+            assertTrue: input("layout/header.php") matches "/<html>/"
+            failure: I don't see `html` opening tag in `layout/header.php` file
+        look_for_html_closing_tag:
+            type: php
+            assertTrue: input("layout/footer.php") matches "/<\/html>/"
+            failure: I don't see `html` closing tag in `layout/footer.php` file
+        look_for_variable:
+            type: php
+            assertTrue: input("index.php") matches "/$airpupTagLine =/"
+            failure: Keep the `$airpupTagLine = ...` code inside `index.php`: that's code that is used for just *this* page, and shouldn't be in the header
+        look_for_require:
+            type: php
+            assertTrue: input("index.php") matches "/require/"
+            failure: I don't see `require` statement in `index.php` file
+        # @TODO Dont know how to converts next grading:
+#        $htmlGrader->assertOutputContains('<html>', 'Don\'t forget to require the `header.php` file in `aboutUs.php` so that it has the nice layout');
+#        $htmlGrader->assertOutputContains('</html>', 'Don\'t forget to require the `footer.php` file in `aboutUs.php` so that it has the nice layout');
+
+simplelayout_requireandvariablesmc:
+    question: >
+        Suppose your `index.php` file creates a variable and includes a `header.php` file:
+
+        ```php
+        <!-- index.php -->
+        <?php
+            $secretWord = 'engage';
+
+            require 'header.php';
+        ?>
+        ```
+
+        Inside of `header.php`, what would happen if you tried to access this `$secretWord` variable?
+
+        ```php
+        <!-- header.php -->
+        <header>
+            <?php echo $secretWord; ?>
+        </header>
+        ```
+    explanation: >
+        When you `require` or `include` a file, all variables that you currently have access
+        to  - like `$secretWord` - are still accessible in the new file. When you use `require`,
+        it's almost like someone copies the contents of `header.php` and pastes it into
+        `index.php`.
+    features:
+        multiple_choice:
+            choices:
+                a: This would print `engage` in the `<header>` tag
+                b: This would cause an error: the `$secretWord` variable is defined in `index.php`, not in `header.php`
+                c: There would be no error, but nothing would print inside the `<header>` tag
+            correct: a
+    grading: []
