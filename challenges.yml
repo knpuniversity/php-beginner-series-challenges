@@ -674,7 +674,7 @@ systemsetup_dnsfairymc:
             correct: b
     grading: []
 
-systemsetup_localhostportfilenamemc: ~
+systemsetup_localhostportfilenamemc:
     question: >
         Suppose I put `http://localhost:8000` into my browser. Which of the following is true:
     explanation: >
@@ -748,7 +748,7 @@ creatingfunctions_funwithcommentsmc:
             correct: c
     grading: []
 
-creatingfunctions_createfunctioncoding: ~
+creatingfunctions_createfunctioncoding:
     question: >
         Being able to read all the toys from `toys.json` is pretty useful, and soon, it
         might be handy to re-use this in other places too. Create a new `get_great_pet_toys()`
@@ -783,3 +783,67 @@ creatingfunctions_createfunctioncoding: ~
             type: http
             assertTrue: css("h3:contains('Bacon Bone')")
             failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
+
+requireinclude_isolatefunctionuserequirecoding:
+    question: >
+        The pet toy business is really taking off! The site is getting
+        bigger and we need to stay organized! Move the `get_great_pet_toys()` function
+        out of `index.php` and into the new `lib/functions.php` file so we can
+        re-use it later.
+    step: ~
+    files:
+        index.php: ~
+        lib/functions.php: ~
+        toys.json:
+            read_only: true
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        check_function:
+            type: php
+            assertFalse: function_exists('get_great_pet_toys')
+            failure: The `get_great_pet_toys()` function doesn't exist
+        look_for_function:
+            type: php
+            assertTrue: input("lib/functions.php") matches "/get_great_pet_toys(/"
+            failure: I don't see "get_great_pet_toys()" function in the `lib/functions.php` file
+        look_for_require:
+            type: php
+            assertTrue: input("index.php") matches "/require/"
+            failure: I don't see "require" statement in the `index.php` file
+        check_heading:
+            type: http
+            assertTrue: css("h3:contains('Bacon Bone')")
+            failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
+
+requireinclude_noclosingphptagmc:
+    question: >
+        Look at the following piece of code:
+
+        ```php
+        <?php
+            $site = 'AirPup';
+        ?>
+
+        <?php echo $site;
+
+        // end of the file
+        ```
+
+        Which is true?
+    explanation: >
+        Whenever you open PHP with `<?php`, you need to close it later in that file with `?>`...
+        **unless** the `?>` would be at the end of the file. In other words, if you forget
+        to write `?>` at the bottom of the file, PHP basically writes this for you - so it's
+        not needed. In fact, for reasons you'll learn later, it's best *not* to add the `?>`
+        at the bottom of the file when you don't need to.
+    features:
+        multiple_choice:
+            choices:
+                a: This code has no issues. Well done!
+                b: This code will have an error: it's missing the closing `?>` at the bottom
+                c: This code has no error, but it *should* have a `?>` at the bottom
+                d: This code will have an error, because you can't put a comment at the bottom of the file
+            correct: a
+    grading: [] # @TODO Do we really need to add `grading` key with empty array? I think we could get rid of it in MC
