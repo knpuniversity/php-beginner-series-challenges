@@ -87,19 +87,19 @@ createform_createhtmlformcoding: ~
             failure: Did you create a `form` tag yet?
         check_action:
             type: http
-            assertFalse: css('form').attr('action') == '/new_toy.php'
+            assertTrue: css('form').attr('action') == '/new_toy.php'
             failure: Make sure your form submits to `/new_toy.php`
         check_method:
             type: http
-            assertFalse: css('form').attr('method') matches "/POST/i"
+            assertTrue: css('form').attr('method') matches "/POST/i"
             failure: Make sure your form has a `method` attribute on your `form` set to `POST`
         check_field_name:
             type: http
-            assertFalse: css('form').form().has('name')
+            assertTrue: css('form').form().has('name')
             failure: I don't see any field with `name="name"`
         check_field_description:
             type: http
-            assertFalse: css('form').form().has('description')
+            assertTrue: css('form').form().has('description')
             failure: I don't see any field with `name="description"`
 
 readingformdata_fetchpostdatacoding:
