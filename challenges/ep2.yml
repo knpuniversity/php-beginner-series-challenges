@@ -38,3 +38,66 @@ requestnewpage_requestpostdatamc:
                     and the data on the bottom is what they filled in for the form fields.'
             correct: d
     grading: []
+
+createform_postversusgetmc:
+    question: >
+        When you surf to a page, the user makes a GET request for that URL. When you
+        submit a form, the user makes a POST request to that URL. Which of the following
+        is NOT true about GET and POST requests:
+    explanation: >
+        Even though `POST` requests are typically used to send data, data can be sent via
+        both `POST` and `GET` requests (with, for example, a `<form method="GET">` form).
+        So really, there's nothing you can do with a GET request that you can't do with a
+        POST request and vice-versa. But don't be confused: in practice, POST requests are
+        used for almost all form submits and GET requests are used everywhere else.
+    features:
+        multiple_choice:
+            choices:
+                a: >
+                    POST is used when the user needs to send data. GET is used when a user
+                    just wants to fetch a page
+                b: A GET request cannot send any data (i.e. filled-in form fields)
+                c: >
+                    After making both GET and POST requests, the server sends back a response
+                    (often the next HTML page to display)
+                d: >
+                    There's no *real* difference between GET and POST requests: both can send data,
+                    both cause a response to be returned, but *typically* POST is used to send data.
+            correct: b
+    grading: []
+
+createform_createhtmlformcoding: ~
+    question: >
+        The pet toy business is *so* popular that we're becoming the Etsy of dog toys:
+        allowing other people to post their own vintage, organic, vegan toys on our
+        site to sell. Create an HTML form that submits a POST request to `/new_toy.php`
+        and give it 2 fields: an input text field called `name` and a `textarea` field
+        called `description`:
+    step: ~
+    files:
+        new_toy.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+        look_for_form:
+            type: php
+            assertTrue: input("new_toy.php") matches "/<form/"
+            failure: Did you create a `form` tag yet?
+        check_action:
+            type: http
+            assertFalse: css('form').attr('action') == '/new_toy.php'
+            failure: Make sure your form submits to `/new_toy.php`
+        check_method:
+            type: http
+            assertFalse: css('form').attr('method') matches "/POST/i"
+            failure: Make sure your form has a `method` attribute on your `form` set to `POST`
+        check_field_name:
+            type: http
+            assertFalse: css('form').form().has('name')
+            failure: I don't see any field with `name="name"`
+        check_field_description:
+            type: http
+            assertFalse: css('form').form().has('description')
+            failure: I don't see any field with `name="description"`
