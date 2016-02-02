@@ -1,0 +1,22 @@
+diff --git a/index.php b/index.php
+index 35ed26d..8f169d7 100644
+--- a/index.php
++++ b/index.php
+@@ -1,8 +1,13 @@
+ <?php
+ $airpupTag = 'I luv puppies';
+-$yearFounded = 2015;
+ ?>
+ 
+-<h2>
+-    <?php echo $airpupTag; ?> (founded <?php echo $yearFounded; ?>)
+-</h2>
++<h2><?php echo $airpupTag; ?></h2>
++
++<h3>
++    <span>
++        <!-- print a random number here -->
++    </span>
++
++    pets waiting to meet you
++</h3>

@@ -1,0 +1,19 @@
+diff --git a/index.php b/index.php
+index 3f5d442..664837b 100644
+--- a/index.php
++++ b/index.php
+@@ -1,13 +1 @@
+-<?php
+-$airpupTag = 'I luv puppies';
+-?>
+-
+-<h2><?php echo $airpupTag; ?></h2>
+-
+-<h3>
+-    <span>
+-        <?php echo rand(100, 200); ?>
+-    </span>
+-
+-    pets waiting to meet you
+-</h3>
++<?php echo '!emosewaP yltcefrruP erA steP ruO'; ?>
