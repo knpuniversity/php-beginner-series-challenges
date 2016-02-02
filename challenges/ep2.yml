@@ -372,3 +372,28 @@ artofredirecting_redirectresponsemc:
                     ```
             correct: b
     grading: []
+
+cleaningupwithsavedpets_refactortoysavingcoding:
+    question: >
+        Users are now able to enter new toys they want to sell and you're a hero in the office!
+        Put the finishing touches on this by reorganizing the toy-saving logic into a new function
+        called `save_toys()`. Be sure to call this function to keep things working!
+    step: ~
+    files:
+        new_toy.php: ~
+        functions.php: ~
+        toys.json:
+            read_only: true
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+        look_for_function_declaration:
+            type: php
+            assertTrue: input("functions.php") matches "/function save_toys(/"
+            failure: Put the `save_toys()` function declaration into `functions.php` for organization
+        look_for_function_usage:
+            type: php
+            assertTrue: input("new_toy.php") matches "/save_toys(/"
+            failure: Be sure to call the `save_toys()` function from within `new_toy.php`
