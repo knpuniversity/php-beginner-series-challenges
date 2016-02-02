@@ -101,3 +101,116 @@ createform_createhtmlformcoding: ~
             type: http
             assertFalse: css('form').form().has('description')
             failure: I don't see any field with `name="description"`
+
+readingformdata_fetchpostdatacoding:
+    question: >
+        Our toy form is setup! Now, when the user submits the form, we need to capture
+        the information. Set the submitted name to a `$name` variable, the description
+        to a `$description` variable, then `var_dump()` both variables to see what's being
+        submitted.
+
+        Behind the scenes, we'll fill out the fields with a new toy idea we have and submit
+        so you can see what the data looks like.
+    step: ~
+    files:
+        new_toy.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+        look_for_echo:
+            type: php
+            assertTrue: input("new_toy.php") matches "/$_POST/"
+            failure: I don't see `$_POST` in your file
+        check_variable_1:
+            type: php
+            assertTrue: get_variable('name') == 'Fluffy Pig Stuffed Animal'
+            failure: Make sure the `$name` variable is set to `Fluffy Pig Stuffed Animal`
+        check_variable_2:
+            type: php
+            assertTrue: get_variable('description') == 'Your dog will *love* to chew and destroy this adorable pig!'
+            failure: Make sure the `$description` variable is set to `Your dog will *love* to chew and destroy this adorable pig!`
+        look_for_var_dump:
+            type: php
+            assertTrue: input("index.php") matches "/var_dump(/"
+            failure: I don't see "var_dump()" function in your file
+
+readingformdata_checkhttpmethodcoding:
+    question: >
+        Great! When you press the submit button, we're printing out whatever was entered
+        into the form. Pretty soon, we'll start saving and selling the newest and loudest
+        squeeky toy ever invented!
+
+        But now, we're just surfing to the page directly and getting an error!
+        Add an `if` statement around our logic so that it only runs when the user submits
+        the form (i.e. makes a POST request).
+    step: ~
+    files:
+        new_toy.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+        look_for_server:
+            type: php
+            assertTrue: input("new_toy.php") matches "/$_SERVER/"
+            failure: I don't see `$_SERVER` in your file
+        look_for_request_method:
+            type: php
+            assertTrue: input("new_toy.php") matches "/REQUEST_METHOD/"
+            failure: I don't see `$_SERVER['REQUEST_METHOD']` in your file
+        look_for_post:
+            type: php
+            assertTrue: input("new_toy.php") matches "/POST/"
+            failure: Are you checking that the request method equals `POST`?
+
+readingformdata_arraykeyexistsissetmc:
+    question: What's the difference between `array_key_exists()` and `isset()`?
+    explanation: >
+        You can use both `array_key_exists()` and `isset()` interchangeably to see if a key
+        exists on an array. `isset()` is a little shorter, so I like it.
+
+        There *are* a few subtle differences between the two, and `isset()` can also be used
+        to see if a variable has been defined. You'll learn more about that stuff later.
+    features:
+        multiple_choice:
+            choices:
+                a: There's not much difference: both do basically the same thing.
+                b: >
+                    `array_key_exists()` returns false if a key does not exist on an array.
+                    But `isset()` returns a warning in this case.
+                c: >
+                    `array_key_exists()` can be used on all arrays, but `isset()` can only
+                    be used with associative arrays
+            correct: a
+    grading: []
+
+readingformdata_playingwithservercoding:
+    question: >
+        Dump the `$_SERVER` variable and run your code to figure out which key stores information
+        about what browser you're using. It's OK that you'll have a wrong answer at first to
+        figure this out. *Hint* The browser information is a big long string that (in this
+        example) will include `Mozilla` in it.
+    step: ~
+    files:
+        new_toy.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+#$htmlGrader->assertOutputContains('');
+        look_for_server:
+            type: php
+            assertTrue: input("new_toy.php") matches "/$_SERVER/"
+            failure: I don't see `$_SERVER` in your file
+        look_for_request_method:
+            type: php
+            assertTrue: input("new_toy.php") matches "/HTTP_USER_AGENT/"
+            failure: I don't see `$_SERVER['HTTP_USER_AGENT']` in your file
+        look_for_post:
+            type: php
+            assertTrue: body("new_toy.php") matches "/Mozilla\/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit\/531.21.10/"
+            failure: Are you printing the `$_SERVER['HTTP_USER_AGENT']`?
