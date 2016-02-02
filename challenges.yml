@@ -123,7 +123,7 @@ functions_userandfunctioncoding:
         at a time. To save time (read: make management happy) just print
         a random number - between 100 and 200 - for the number of tail-wagging
         pets we have available.
-    step: ~
+    step: functions-setup-for-rand-function
     files:
         index.php: ~
     features:
@@ -154,7 +154,7 @@ functions_reverseandlowercasecoding:
         now it's your job to fix things. As a challenge, see if you
         can reverse and set all characters to lowercase in one line
         using functions.
-    step: ~
+    step: functions-output-reversed-string
     files:
         index.php: ~
     features:
