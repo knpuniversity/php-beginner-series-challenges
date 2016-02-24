@@ -15,7 +15,6 @@ letswritephp_openphpmc:
                 c: ?>
                 d: echo
             correct: b
-    grading: []
 
 letswritephp_simpleechocoding:
     question: >
@@ -57,7 +56,6 @@ letswritephp_jobofechomc:
                 c: to end the file
                 d: to create a variable
             correct: a
-    grading: []
 
 letswritephp_createvariablecoding:
     question: >
@@ -196,7 +194,6 @@ functions_nestedfunctionsmc:
                 c: !leraauqs
                 d: lerriauqs
             correct: c
-    grading: []
 
 arraysloops_createarraycoding:
     question: >
@@ -298,7 +295,6 @@ arraysloops_arraykeysmc:
                 c: echo $brands[4]
                 d: echo $brands[3]
             correct: d
-    grading: []
 
 arrays2_converttoassociativecoding:
     question: >
@@ -400,7 +396,6 @@ arrays2_guessautokeymc:
                 c: 4
                 d: Bear
             correct: b
-    grading: []
 
 arrays3_multiarraykeyscoding:
     question: >
@@ -501,7 +496,6 @@ filesjsonbooleans_jsonencodemc:
                 b: Encodes a PHP array into JSON
                 c: Reads a JSON file and sets it into a PHP array
             correct: b
-    grading: []
 
 filesjsonbooleans_readfilejsondecodecoding:
     question: >
@@ -672,7 +666,6 @@ systemsetup_dnsfairymc:
                 c: To listen on a port for a request
                 d: To pass the request to the web server
             correct: b
-    grading: []
 
 systemsetup_localhostportfilenamemc:
     question: >
@@ -699,7 +692,6 @@ systemsetup_localhostportfilenamemc:
                     The request routes back to port 8000 on my local computer and
                     `index.php` is executed and returned
             correct: d
-    grading: []
 
 creatingfunctions_funwithcommentsmc:
     question: >
@@ -746,7 +738,6 @@ creatingfunctions_funwithcommentsmc:
                 c: Molly the dog
                 d: MOLLY the dog
             correct: c
-    grading: []
 
 creatingfunctions_createfunctioncoding:
     question: >
@@ -846,7 +837,6 @@ requireinclude_noclosingphptagmc:
                 c: This code has no error, but it *should* have a `?>` at the bottom
                 d: This code will have an error, because you can't put a comment at the bottom of the file
             correct: a
-    grading: [] # @TODO Do we really need to add `grading` key with empty array? I think we could get rid of it in MC
 
 simplelayout_layoutwithrequirecoding:
     question: >
@@ -921,4 +911,3 @@ simplelayout_requireandvariablesmc:
                 b: "This would cause an error: the `$secretWord` variable is defined in `index.php`, not in `header.php`"
                 c: There would be no error, but nothing would print inside the `<header>` tag
             correct: a
-    grading: []
