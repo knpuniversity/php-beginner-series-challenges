@@ -908,6 +908,7 @@ simplelayout_requireandvariablesmc:
         multiple_choice:
             choices:
                 a: This would print `engage` in the `<header>` tag
+                # String with colon inside should be quoted:
                 b: "This would cause an error: the `$secretWord` variable is defined in `index.php`, not in `header.php`"
                 c: There would be no error, but nothing would print inside the `<header>` tag
             correct: a
