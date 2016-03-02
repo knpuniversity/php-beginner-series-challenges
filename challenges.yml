@@ -1,9 +1,9 @@
 letswritephp_openphpmc:
-    question: >
+    question: |
         Everything in a PHP file is just HTML code at first. If you want
         to write some dynamic PHP code, you'll activate PHP mode by always
         writing this first:
-    explanation: >    
+    explanation: |
         As soon as you write `<?php` you are in PHP mode. So, `<?php echo 'Hello'; ?>`
         gets you into PHP mode and executes `echo 'Hello'`. The `?>` gets
         you *out* of PHP mode, and back into normal HTML land.
@@ -17,7 +17,7 @@ letswritephp_openphpmc:
             correct: b
 
 letswritephp_simpleechocoding:
-    question: >
+    question: |
         AirPupNMeow needs you to create their site! It's a humble beginning.
         Start by opening PHP, then echo their tag line: "I luv puppies"
         inside an `<h2>` tag.
@@ -42,9 +42,9 @@ letswritephp_simpleechocoding:
             failure: Make sure the `I luv puppies` text is being printed *inside* an `h2` tag
 
 letswritephp_jobofechomc:
-    question: >
+    question: |
         What's the job of the `echo` statement?
-    explanation: >
+    explanation: |
         `echo` - as in `echo 'this question was no problem';` - is used to print anything
         out. There are a few other ways to print stuff, but `echo` is by far the most important.
         You rock `echo`!
@@ -58,7 +58,7 @@ letswritephp_jobofechomc:
             correct: a
 
 letswritephp_createvariablecoding:
-    question: >
+    question: |
         The management of AirPupNMeow is always changing its mind. To simplify
         the life of our devs, let's use a variable so that when management
         changes the tag line, we only have to update one spot. Create
@@ -90,7 +90,7 @@ letswritephp_createvariablecoding:
 
 
 letswritephp_fixmissingsemicoloncoding:
-    question: >
+    question: |
         Poor devs. Management was so excited about variables that they
         tried to edit the code themselves. We've sent the dev team for
         ice cream to make up for it. While they're gone, fix the errors
@@ -116,7 +116,7 @@ letswritephp_fixmissingsemicoloncoding:
             failure: Make sure the `2015` text is being printed *inside* an `h2` tag
 
 functions_userandfunctioncoding:
-    question: >
+    question: |
         It's hard to keep track of how many loveable pets we have
         at a time. To save time (read: make management happy) just print
         a random number - between 100 and 200 - for the number of tail-wagging
@@ -146,7 +146,7 @@ functions_userandfunctioncoding:
             failure: Make sure the `rand()` function only returns numbers between 100 and 200
 
 functions_reverseandlowercasecoding:
-    question: >
+    question: |
         Someone was working at midnight, and started printing out
         things in reverse! Don't worry! We've sent them on holiday and
         now it's your job to fix things. As a challenge, see if you
@@ -173,7 +173,7 @@ functions_reverseandlowercasecoding:
             failure: I don't see `our pets are purrfectly pawesome!` anywhere - did you print this?
 
 functions_nestedfunctionsmc:
-    question: >
+    question: |
         Clearly the dev team has been drinking too much Red Bull.
         Things have gotten out of hand with all these reversed words.
         See if you can figure out what this prints:
@@ -181,7 +181,7 @@ functions_nestedfunctionsmc:
         ```php
         <?php echo str_replace('ri', 'aa', strrev(strtolower('SQUIRREL!'))); ?>
         ```
-    explanation: >
+    explanation: |
         Think about the order that things happen:
         #. `SQUIRREL!` is passed to `strtolower` and becomes `squirrel!`.
         #. `squirrel!` is passed to `strrev` and becomes `!lerriuqs`.
@@ -196,7 +196,7 @@ functions_nestedfunctionsmc:
             correct: c
 
 arraysloops_createarraycoding:
-    question: >
+    question: |
         We're testing out a new feature: find someone to walk your
         dog! At first, our boss's kids will be the three dog walkers:
         `Kitty`, `Tiger`, and `Jay`. Assign each dog walker to three
@@ -216,7 +216,7 @@ arraysloops_createarraycoding:
             failure: Can't assert that `$dogWalkers` variable equal to the ['Kitty', 'Tiger', 'Jay'] array
 
 arraysloops_foreachcoding:
-    question: >
+    question: |
         The kids are ready to work! Let's advertise the new service.
         Use a `foreach` loop to print each kid's name in an `h3` tag.
         Include a `<button>Schedule me</button>` under each kid's name:
@@ -257,7 +257,7 @@ arraysloops_foreachcoding:
             failure: There should be 3 `<button>` element exactly
 
 arraysloops_vardumpcoding:
-    question: >
+    question: |
         The boss is worried that one of his kids was left off the
         list! Use the `var_dump` function to show him that all three
         kids are in the array.
@@ -278,12 +278,12 @@ arraysloops_vardumpcoding:
             failure: I don't see `Kitty`, `Tiger` and `Jay` text. Did you print them all?
 
 arraysloops_arraykeysmc:
-    question: >
+    question: |
         ```php
         $brands = array('SuperDog', 'Doggie-Os', 'Beef Bites', 'Puppy Gruel', 'Fancy Feast');
         ```
         Puppies love dinner time! Which option below will print "Puppy Gruel"?
-    explanation: >
+    explanation: |
         The keys are automatically assigned, starting with *zero*. This means that
         `SuperDog` is key 0, `Doggie-Os` is key `1` and eventually `Puppy Gruel` is
         key `3`.
@@ -297,7 +297,7 @@ arraysloops_arraykeysmc:
             correct: d
 
 arrays2_converttoassociativecoding:
-    question: >
+    question: |
         Our favorite pet - Waggy Pig - is a cute white silly dog. Update
         the code below to use an associative array: set they keys of the array
         to `name`, `weight`, `age` and `bio`. Then, update the code below so
@@ -321,7 +321,7 @@ arrays2_converttoassociativecoding:
         check_reversed:
             type: http
             assertTrue: css(".age").text() == 10
-            failure: >
+            failure: |
                 Careful! Be sure to print the `age` key in the `.age` element and the
                 `weight` key in the `.weight` element. You might have them reversed.
         check_age:
@@ -338,7 +338,7 @@ arrays2_converttoassociativecoding:
             failure: Make sure the `Sleepy white fluffy dog` text is being printed *inside* a `p` tag
 
 arrays2_addnewkeycoding:
-    question: >
+    question: |
         We went to ancestry.com and have discovered Waggy Pig's breed:
         `bichon`. Add a new `breed` key on a new line after the `$waggyPig`
         array has already been created. Print this new info below!
@@ -368,7 +368,7 @@ arrays2_addnewkeycoding:
             failure: Make sure the `bichon` text is being printed *inside* a tag with a `.breed` class
 
 arrays2_guessautokeymc:
-    question: >
+    question: |
         The dog-walking service is a hit! So, we've added `Bear` to the
         list:
 
@@ -384,7 +384,7 @@ arrays2_guessautokeymc:
         ```
 
         What array key will PHP automatically assign to `Bear`?
-    explanation: >
+    explanation: |
         The keys are automatically assigned, starting with *zero*, and when you add a new
         item to the array later, it uses the first available number. Since `$walker3`
         was assigned the `2` index, `Bear` gets the next available number: `3`.
@@ -398,7 +398,7 @@ arrays2_guessautokeymc:
             correct: b
 
 arrays3_multiarraykeyscoding:
-    question: >
+    question: |
         Let's get to know one of the friendliest pets in town!
         Access the bio on Pancake and print it inside the `<h1>` tag.
     step: ~
@@ -418,7 +418,7 @@ arrays3_multiarraykeyscoding:
             failure: Make sure the `Breakfast is my favorite!` text is being printed *inside* a `h1` tag
 
 arrays3_foreachassociativecoding:
-    question: >
+    question: |
         The site is *so* popular that we're adding a store that
         sells the world's squeekiest dog toys. Using the `$toys`
         array below, create a `foreach` statement and print each toy's
@@ -450,7 +450,7 @@ arrays3_foreachassociativecoding:
             failure: Make sure the `Yellow` text is being printed *inside* a `h4` tag
 
 arrays3_countandvariablereordercoding:
-    question: >
+    question: |
         Using the `count()` function, print the total number of pet toys
         that we're selling in the `<h4>` tag.
     step: ~
@@ -470,9 +470,9 @@ arrays3_countandvariablereordercoding:
             failure: I don't see the number `3` inside the `h4` tag. Are you printing the `count()` there?
 
 filesjsonbooleans_jsonencodemc:
-    question: >
+    question: |
         Pop Quiz: `json_encode()` does which of the following?
-    explanation: >
+    explanation: |
         The first argument to `json_encode` is a PHP array. It then encodes this and
         returns the equivalent JSON string:
 
@@ -498,7 +498,7 @@ filesjsonbooleans_jsonencodemc:
             correct: b
 
 filesjsonbooleans_readfilejsondecodecoding:
-    question: >
+    question: |
         The toy inventory lives in a `toys.json` file. Great! Let's
         read this file, and use `json_decode` to turn it into a big array.
         Make sure the `foreach` is still correctly printing each toy's details.
@@ -529,7 +529,7 @@ filesjsonbooleans_readfilejsondecodecoding:
             failure: I don't see the `Bacon-colored` text inside the `h4` tag
 
 filesjsonbooleans_fileputcontentscoding:
-    question: >
+    question: |
         We're going to totally troll the cats on the site,
         use `file_put_contents()` to save the text `Dogs rule!` into a
         new file called `doglife.txt`. Then read that file and print
@@ -563,7 +563,7 @@ filesjsonbooleans_fileputcontentscoding:
             failure: I don't see the `Dogs rule!` text inside the `h2` tag
 
 ifstatement_ifnotoycolorcoding:
-    question: >
+    question: |
         Oh no! Some of the toys are missing a `color` key and now the page
         is giving us a huge error!  Use an `if` statement to fix this.
         If we don't know the color, print `no color`.
@@ -592,7 +592,7 @@ ifstatement_ifnotoycolorcoding:
             failure: I don't see the `Yellow` text inside the `h4` tag
 
 ifstatement_ifelseifelsecoding:
-    question: >
+    question: |
         The toys are really getting complicated now, so be careful!
         Use an `if - elseif - else` statement to handle these three possible
         situations:
@@ -625,7 +625,7 @@ ifstatement_ifelseifelsecoding:
             failure: I don't see the `no color` text inside the `h4` tag
 
 ifstatement_fixerrorsifelsecoding:
-    question: >
+    question: |
         Oh no, management tried coding again, someone put a pin code
         on the github repo! Fix the errors below.
     step: ~
@@ -653,9 +653,9 @@ ifstatement_fixerrorsifelsecoding:
             failure: I don't see the `no color` text inside the `h4` tag
 
 systemsetup_dnsfairymc:
-    question: >
+    question: |
         What's the job of the DNS (fairy)?
-    explanation: >
+    explanation: |
         The DNS converts a domain name to an IP address. With the IP address, the request
         can find the right server to go to.
     features:
@@ -668,9 +668,9 @@ systemsetup_dnsfairymc:
             correct: b
 
 systemsetup_localhostportfilenamemc:
-    question: >
+    question: |
         Suppose I put `http://localhost:8000` into my browser. Which of the following is true:
-    explanation: >
+    explanation: |
         `localhost` is a special string that resolves to the IP address of the computer you're
         using right now. This means that the request leaves our computer, then comes right
         back. The `:8000` means that it knocks on the door of port `8000`. Finally, in most
@@ -678,23 +678,23 @@ systemsetup_localhostportfilenamemc:
     features:
         multiple_choice:
             choices:
-                a: >
+                a: |
                     The request cannot be completed because there is no filename
                     (e.g. `index.php`) in the URL
-                b: >
+                b: |
                     The request uses the DNS to find the IP address of a remote
                     computer, knocks on the door of port `8000`, and then executes
                     and returns `index.php`
-                c: >
+                c: |
                     The request leaves via port `8000` on my computer, but then
                     routes back to my computer and executes `index.php`
-                d: >
+                d: |
                     The request routes back to port 8000 on my local computer and
                     `index.php` is executed and returned
             correct: d
 
 creatingfunctions_funwithcommentsmc:
-    question: >
+    question: |
         Put on your thinking cap and look carefully: what does this print?
 
         ```php
@@ -719,7 +719,7 @@ creatingfunctions_funwithcommentsmc:
         $var = cat();
         echo $var; echo ' the dog'; // echo '!';
         ```
-    explanation: >
+    explanation: |
         Phew! First, we call `cat()`, which calls `dog()` and sets `$dog` to `Molly`. But
         the next `strtoupper()` line is commented out with `//` so it *never* runs. This
         means that `cat()` returns `Molly`, which is set to `$var`. Finally, we print this
@@ -740,7 +740,7 @@ creatingfunctions_funwithcommentsmc:
             correct: c
 
 creatingfunctions_createfunctioncoding:
-    question: >
+    question: |
         Being able to read all the toys from `toys.json` is pretty useful, and soon, it
         might be handy to re-use this in other places too. Create a new `get_great_pet_toys()`
         function that reads `toys.json`, decodes the contents, and returns the toys.
@@ -776,7 +776,7 @@ creatingfunctions_createfunctioncoding:
             failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
 
 requireinclude_isolatefunctionuserequirecoding:
-    question: >
+    question: |
         The pet toy business is really taking off! The site is getting
         bigger and we need to stay organized! Move the `get_great_pet_toys()` function
         out of `index.php` and into the new `lib/functions.php` file so we can
@@ -809,7 +809,7 @@ requireinclude_isolatefunctionuserequirecoding:
             failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
 
 requireinclude_noclosingphptagmc:
-    question: >
+    question: |
         Look at the following piece of code:
 
         ```php
@@ -823,7 +823,7 @@ requireinclude_noclosingphptagmc:
         ```
 
         Which is true?
-    explanation: >
+    explanation: |
         Whenever you open PHP with `<?php`, you need to close it later in that file with `?>`...
         **unless** the `?>` would be at the end of the file. In other words, if you forget
         to write `?>` at the bottom of the file, PHP basically writes this for you - so it's
@@ -839,7 +839,7 @@ requireinclude_noclosingphptagmc:
             correct: a
 
 simplelayout_layoutwithrequirecoding:
-    question: >
+    question: |
         The site has just one page - `index.php` - and people *love* it (trust us)!
         Now we've created a second page - `aboutUs.php`, but boy is it ugly! Woof.
         We need to re-use the layout that's in `index.php` to make it prettier.
@@ -879,7 +879,7 @@ simplelayout_layoutwithrequirecoding:
 #        $htmlGrader->assertOutputContains('</html>', 'Don\'t forget to require the `footer.php` file in `aboutUs.php` so that it has the nice layout');
 
 simplelayout_requireandvariablesmc:
-    question: >
+    question: |
         Suppose your `index.php` file creates a variable and includes a `header.php` file:
 
         ```php
@@ -899,7 +899,7 @@ simplelayout_requireandvariablesmc:
             <?php echo $secretWord; ?>
         </header>
         ```
-    explanation: >
+    explanation: |
         When you `require` or `include` a file, all variables that you currently have access
         to  - like `$secretWord` - are still accessible in the new file. When you use `require`,
         it's almost like someone copies the contents of `header.php` and pastes it into
