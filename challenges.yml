@@ -286,15 +286,15 @@ arraysloops_arraykeysmc:
         Puppies love dinner time! Which option below will print "Puppy Gruel"?
     explanation: |
         The keys are automatically assigned, starting with *zero*. This means that
-        `SuperDog` is key 0, `Doggie-Os` is key `1` and eventually `Puppy Gruel` is
+        `SuperDog` is key `0`, `Doggie-Os` is key `1` and eventually `Puppy Gruel` is
         key `3`.
     features:
         multiple_choice:
             choices:
-                a: echo $brands['Puppy Gruel']
-                b: echo $brands(4)
-                c: echo $brands[4]
-                d: echo $brands[3]
+                a: echo $brands['Puppy Gruel'];
+                b: echo $brands(4);
+                c: echo $brands[4];
+                d: echo $brands[3];
             correct: d
 
 arrays2_converttoassociativecoding:
