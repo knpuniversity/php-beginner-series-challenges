@@ -472,7 +472,7 @@ arrays3_countandvariablereordercoding:
 
 filesjsonbooleans_jsonencodemc:
     question: |
-        Pop Quiz: `json_encode()` does which of the following?
+        Pop Quiz: `json_encode()` does which of the following with an array?
     explanation: |
         The first argument to `json_encode` is a PHP array. It then encodes this and
         returns the equivalent JSON string:
