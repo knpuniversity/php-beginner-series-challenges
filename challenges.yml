@@ -183,9 +183,10 @@ functions_nestedfunctionsmc:
         ```
     explanation: |
         Think about the order that things happen:
-        #. `SQUIRREL!` is passed to `strtolower` and becomes `squirrel!`.
-        #. `squirrel!` is passed to `strrev` and becomes `!lerriuqs`.
-        #. Finally, the `ri` in `!lerriuqs` is replaced with `aa`, giving us `!leraauqs`.
+
+        1. `SQUIRREL!` is passed to `strtolower` and becomes `squirrel!`.
+        2. `squirrel!` is passed to `strrev` and becomes `!lerriuqs`.
+        3. Finally, the `ri` in `!lerriuqs` is replaced with `aa`, giving us `!leraauqs`.
     features:
         multiple_choice:
             choices:
