@@ -281,7 +281,7 @@ arraysloops_vardumpcoding:
 arraysloops_arraykeysmc:
     question: |
         ```php
-        $brands = array('SuperDog', 'Doggie-Os', 'Beef Bites', 'Puppy Gruel', 'Fancy Feast');
+        $brands = ['SuperDog', 'Doggie-Os', 'Beef Bites', 'Puppy Gruel', 'Fancy Feast'];
         ```
         Puppies love dinner time! Which option below will print "Puppy Gruel"?
     explanation: |
@@ -379,7 +379,7 @@ arrays2_guessautokeymc:
         $walker2 = 'Tiger';
         $walker3 = 'Jay';
 
-        $dogWalkers = array($walker1, $walker2, $walker3);
+        $dogWalkers = [$walker1, $walker2, $walker3];
         $dogWalkers[] = 'Bear';
         ?>
         ```
