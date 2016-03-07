@@ -187,7 +187,7 @@ createform_postversusgetmc:
             correct: b
     grading: []
 
-createform_createhtmlformcoding: ~
+createform_createhtmlformcoding:
     question: >
         The pet toy business is *so* popular that we're becoming the Etsy of dog toys:
         allowing other people to post their own vintage, organic, vegan toys on our
@@ -298,7 +298,8 @@ readingformdata_arraykeyexistsissetmc:
     features:
         multiple_choice:
             choices:
-                a: There's not much difference: both do basically the same thing.
+                a: >
+                    There's not much difference: both do basically the same thing.
                 b: >
                     `array_key_exists()` returns false if a key does not exist on an array.
                     But `isset()` returns a warning in this case.
@@ -364,7 +365,8 @@ savingpets_formsubmitlogiccoding:
         look_for_var_dump:
             type: php
             assertTrue: input("new_toy.php") matches "/var_dump(/"
-            failure: `var_dump()` the file contents of `toys.json` after saving the new toy
+            # A string can't start with "`" char:
+            failure: "`var_dump()` the file contents of `toys.json` after saving the new toy"
         look_for_function:
             type: php
             assertTrue: input("new_toy.php") matches "/get_great_pet_toys(/"
@@ -390,10 +392,11 @@ savingpets_jsonencodereadablemc:
     features:
         multiple_choice:
             choices:
-                a: `json_encode($toys, JSON_PRETTY_PRINT);`
-                b: `json_encode($toys, 'JSON_PRETTY_PRINT');`
-                c: `json_encode($toys, $JSON_PRETTY_PRINT);`
-                d: `json_encode($toys, JSON_PRETTY_PRINT());`
+                # A string can't start with "`" char:
+                a: "`json_encode($toys, JSON_PRETTY_PRINT);`"
+                b: "`json_encode($toys, 'JSON_PRETTY_PRINT');`"
+                c: "`json_encode($toys, $JSON_PRETTY_PRINT);`"
+                d: "`json_encode($toys, JSON_PRETTY_PRINT());`"
             correct: a
     grading: []
 
