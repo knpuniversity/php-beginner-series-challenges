@@ -120,7 +120,7 @@ letswritephp_fixmissingsemicoloncoding:
 
 # Episode 2
 requestnewpage_requestpostdatamc:
-    question: >
+    question: |
         When you go to a site, your browser makes a request for that page, and even
         sends extra information, like what language you prefer. A request to
         `pets_new.php` might look like this:
@@ -134,7 +134,7 @@ requestnewpage_requestpostdatamc:
         ```
 
         Which of the following most accurately describes this request?
-    explanation: >
+    explanation: |
         Because this is a `POST` request to `/pets_new.php`, it's definitely a result
         of the user submitting a form - on some page - with `method="POST"` and `action="/pets_new.php"`.
         The form *might* live at `/pets_new.php`, but that's not important - the form could
@@ -146,26 +146,26 @@ requestnewpage_requestpostdatamc:
     features:
         multiple_choice:
             choices:
-                a: >
+                a: |
                     The user just browsed to this page, and the form will be pre-filled
                     with the data on the last line.
-                b: >
+                b: |
                     The user surfed to `/pets_new.php` and submitted a form. The data
                     on the bottom is what they filled in for the form fields.
-                c: >
+                c: |
                     The user just performed a search for all pets named "Waggy Pig" and breed "bichon"
-                d: >
+                d: |
                     The user just submitted a form  with `<form action="/pets_new.php" method="POST">`
                     and the data on the bottom is what they filled in for the form fields.'
             correct: d
     grading: []
 
 createform_postversusgetmc:
-    question: >
+    question: |
         When you surf to a page, the user makes a GET request for that URL. When you
         submit a form, the user makes a POST request to that URL. Which of the following
         is NOT true about GET and POST requests:
-    explanation: >
+    explanation: |
         Even though `POST` requests are typically used to send data, data can be sent via
         both `POST` and `GET` requests (with, for example, a `<form method="GET">` form).
         So really, there's nothing you can do with a GET request that you can't do with a
@@ -174,21 +174,22 @@ createform_postversusgetmc:
     features:
         multiple_choice:
             choices:
-                a: >
+                a: |
                     POST is used when the user needs to send data. GET is used when a user
                     just wants to fetch a page
-                b: A GET request cannot send any data (i.e. filled-in form fields)
-                c: >
+                b: |
+                    A GET request cannot send any data (i.e. filled-in form fields)
+                c: |
                     After making both GET and POST requests, the server sends back a response
                     (often the next HTML page to display)
-                d: >
+                d: |
                     There's no *real* difference between GET and POST requests: both can send data,
                     both cause a response to be returned, but *typically* POST is used to send data.
             correct: b
     grading: []
 
 createform_createhtmlformcoding:
-    question: >
+    question: |
         The pet toy business is *so* popular that we're becoming the Etsy of dog toys:
         allowing other people to post their own vintage, organic, vegan toys on our
         site to sell. Create an HTML form that submits a POST request to `/new_toy.php`
@@ -224,7 +225,7 @@ createform_createhtmlformcoding:
             failure: I don't see any field with `name="description"`
 
 readingformdata_fetchpostdatacoding:
-    question: >
+    question: |
         Our toy form is setup! Now, when the user submits the form, we need to capture
         the information. Set the submitted name to a `$name` variable, the description
         to a `$description` variable, then `var_dump()` both variables to see what's being
@@ -258,7 +259,7 @@ readingformdata_fetchpostdatacoding:
             failure: I don't see "var_dump()" function in your file
 
 readingformdata_checkhttpmethodcoding:
-    question: >
+    question: |
         Great! When you press the submit button, we're printing out whatever was entered
         into the form. Pretty soon, we'll start saving and selling the newest and loudest
         squeeky toy ever invented!
@@ -289,7 +290,7 @@ readingformdata_checkhttpmethodcoding:
 
 readingformdata_arraykeyexistsissetmc:
     question: What's the difference between `array_key_exists()` and `isset()`?
-    explanation: >
+    explanation: |
         You can use both `array_key_exists()` and `isset()` interchangeably to see if a key
         exists on an array. `isset()` is a little shorter, so I like it.
 
@@ -298,19 +299,19 @@ readingformdata_arraykeyexistsissetmc:
     features:
         multiple_choice:
             choices:
-                a: >
+                a: |
                     There's not much difference: both do basically the same thing.
-                b: >
+                b: |
                     `array_key_exists()` returns false if a key does not exist on an array.
                     But `isset()` returns a warning in this case.
-                c: >
+                c: |
                     `array_key_exists()` can be used on all arrays, but `isset()` can only
                     be used with associative arrays
             correct: a
     grading: []
 
 readingformdata_playingwithservercoding:
-    question: >
+    question: |
         Dump the `$_SERVER` variable and run your code to figure out which key stores information
         about what browser you're using. It's OK that you'll have a wrong answer at first to
         figure this out. *Hint* The browser information is a big long string that (in this
@@ -337,7 +338,7 @@ readingformdata_playingwithservercoding:
             failure: Are you printing the `$_SERVER['HTTP_USER_AGENT']`?
 
 savingpets_formsubmitlogiccoding:
-    question: >
+    question: |
         Let's finish the form submit logic! Fetch the existing pet toys with the `get_great_pet_toys()`
         function, add the new toy to the array, then save the JSON back to `toys.json`. To
         prove it's working, read the file again with `file_get_contents()` and `var_dump()`
@@ -381,10 +382,10 @@ savingpets_formsubmitlogiccoding:
             failure: I don't see the new "Fluffy Pig" toy in `toys.json`. Are you adding it to the toys array before calling `json_encode()` and saving the file?
 
 savingpets_jsonencodereadablemc:
-    question: >
+    question: |
         Which of the following will cause `json_encode()` to give us a pretty, more-readable
         version of the JSON?
-    explanation: >
+    explanation: |
         `JSON_PRETTY_PRINT` is called a "constant": it's like a variable, except that
         it has no `$` in front of it, cannot be changed, and is available everywhere.
         You can create your own constants (see PHP's `define()` function), but some, like
@@ -402,7 +403,7 @@ savingpets_jsonencodereadablemc:
 
 artofredirecting_formsubmitredirectmc:
     question: After a successful form submit, we always redirect the user to another page. Why?
-    explanation: >
+    explanation: |
         Why do we redirect after a successful form submit? The reason isn't that technical:
         you don't *have* to redirect the user. But, when you do, if the user refreshes their
         page after the redirect, it will just reload that new page. If you *don't* redirect
@@ -414,7 +415,7 @@ artofredirecting_formsubmitredirectmc:
         multiple_choice:
             choices:
                 a: Redirecting prevents the user from accidentally re-submitting the form
-                b: >
+                b: |
                     POST requests (which most form submits are) cannot have responses with content,
                     so we need to redirect to another page
                 c: Redirecting prevents the form from being re-populated with the same data
@@ -423,7 +424,7 @@ artofredirecting_formsubmitredirectmc:
     grading: []
 
 artofredirecting_redirectusertoylistcoding:
-    question: >
+    question: |
         Suppose you originally had a page called `/aboutUs.php`, but decided to rename it
         to `/about.php`. Simple: you rename the file, and you're done! Unfortunately, a lot
         of other sites are still linking to `/aboutUs.php`, and any user clicking those links
@@ -455,10 +456,10 @@ artofredirecting_redirectusertoylistcoding:
             failure: Set the `Location:` header to `/about.php`
 
 artofredirecting_redirectresponsemc:
-    question: >
+    question: |
         Which of the following best shows the raw response that's sent back
         when we redirect a user from a page?
-    explanation: >
+    explanation: |
         The goal of our code is *always* to send a response message back to the user. Normally,
         we don't think about this: we're just sending back HTML. But in reality, a response
         is made up of multiple parts, including the content and headers.
@@ -472,24 +473,24 @@ artofredirecting_redirectresponsemc:
     features:
         multiple_choice:
             choices:
-                a: >
+                a: |
                     ```
                     HTTP/1.1 302 Found
                     Location: /thanks.php
                     <h1>Thanks for adding a new toy!</h1>
                     ```
-                b: >
+                b: |
                     ```
                     HTTP/1.1 302 Found
                     Location: /thanks.php
                     ```
-                c: >
+                c: |
                     ```
                     GET /new_toy.php
                     Host: localhost:8000
                     <h1>Add a new toy</h1>
                     ```
-                d: >
+                d: |
                     ```
                     POST /new_toy.php
                     Location: /new_toy.php
@@ -498,7 +499,7 @@ artofredirecting_redirectresponsemc:
     grading: []
 
 cleaningupwithsavedpets_refactortoysavingcoding:
-    question: >
+    question: |
         Users are now able to enter new toys they want to sell and you're a hero in the office!
         Put the finishing touches on this by reorganizing the toy-saving logic into a new function
         called `save_toys()`. Be sure to call this function to keep things working!
