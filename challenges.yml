@@ -388,16 +388,27 @@ savingpets_jsonencodereadablemc:
     explanation: |
         `JSON_PRETTY_PRINT` is called a "constant": it's like a variable, except that
         it has no `$` in front of it, cannot be changed, and is available everywhere.
-        You can create your own constants (see PHP's `define()` function), but some, like
-        this one, are available everywhere.
+        You can create your own constants (see PHP's [define()](http://php.net/manual/en/function.define.php)
+        function), but some, like this one, are available everywhere.
     features:
         multiple_choice:
             choices:
-                # A string can't start with "`" char:
-                a: "`json_encode($toys, JSON_PRETTY_PRINT);`"
-                b: "`json_encode($toys, 'JSON_PRETTY_PRINT');`"
-                c: "`json_encode($toys, $JSON_PRETTY_PRINT);`"
-                d: "`json_encode($toys, JSON_PRETTY_PRINT());`"
+                a: |
+                    ```php
+                    json_encode($toys, JSON_PRETTY_PRINT);
+                    ```
+                b: |
+                    ```php
+                    json_encode($toys, 'JSON_PRETTY_PRINT');
+                    ```
+                c: |
+                    ```php
+                    json_encode($toys, $JSON_PRETTY_PRINT);
+                    ```
+                d: |
+                    ```php
+                    json_encode($toys, JSON_PRETTY_PRINT());
+                    ```
             correct: a
     grading: []
 
