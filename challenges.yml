@@ -1,9 +1,9 @@
 letswritephp_openphpmc:
-    question: >
+    question: |
         Everything in a PHP file is just HTML code at first. If you want
         to write some dynamic PHP code, you'll activate PHP mode by always
         writing this first:
-    explanation: >    
+    explanation: |    
         As soon as you write `<?php` you are in PHP mode. So, `<?php echo 'Hello'; ?>`
         gets you into PHP mode and executes `echo 'Hello'`. The `?>` gets
         you *out* of PHP mode, and back into normal HTML land.
@@ -18,12 +18,11 @@ letswritephp_openphpmc:
     grading: []
 
 letswritephp_simpleechocoding:
-    question: >
+    question: |
         AirPupNMeow needs you to create their site! You'll do it for free,
         because you need the exposure.
     question_steps:
-        - Start by opening PHP, then echo their tag line: "I luv puppies"
-        inside an `<h2>` tag.
+        - Start by opening PHP, then echo their tag line: "I luv puppies" inside an `<h2>` tag.
     step: start-empty-index-php
     files: ['index.php']
     features:
@@ -44,9 +43,9 @@ letswritephp_simpleechocoding:
             failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
 
 letswritephp_jobofechomc:
-    question: >
+    question: |
         What's the job of the `echo` statement?
-    explanation: >
+    explanation: |
         `echo` - as in `echo 'this question was no problem';` - is used to print anything
         out. There are a few other ways to print stuff, but `echo` is by far the most important.
         You rock `echo`!
@@ -61,7 +60,7 @@ letswritephp_jobofechomc:
     grading: []
 
 letswritephp_createvariablecoding:
-    question: >
+    question: |
         The management of AirPupNMeow is always changing its mind. To simplify
         the life of the dev team, let's use a variable so that when management
         changes the tag line, we only have to update one spot.
@@ -93,7 +92,7 @@ letswritephp_createvariablecoding:
 
 
 letswritephp_fixmissingsemicoloncoding:
-    question: >
+    question: |
         Poor devs. Management was so excited about variables that they
         tried to edit the code themselves. We've sent the dev team for
         ice cream to make up for it. While they're gone...
