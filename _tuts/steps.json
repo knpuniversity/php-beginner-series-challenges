@@ -34,7 +34,27 @@
             "id": "fixmissingsemicolon-solution",
             "name": "FixMissingSemicolon: Solution",
             "description": null
+        },
+        {
+            "id": "functions-setup-for-rand-function",
+            "name": "Functions: Setup for rand() function",
+            "description": null
+        },
+        {
+            "id": "functions-solution",
+            "name": "Functions: Solution",
+            "description": null
+        },
+        {
+            "id": "functions-output-reversed-string",
+            "name": "Functions: Output reversed string",
+            "description": null
+        },
+        {
+            "id": "functions-reverse-and-lowercase-reversed-string",
+            "name": "Functions: Reverse and lowercase reversed string",
+            "description": null
         }
     ],
-    "sha": "760165adfbf867322c09fd30c66a032a60d43680"
+    "sha": "729189b2a1ec2269f074ec863b37f0fef322b84a"
 }
