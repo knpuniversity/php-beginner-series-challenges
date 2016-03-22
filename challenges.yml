@@ -3,7 +3,11 @@ letswritephp_openphpmc:
         Everything in a PHP file is just HTML code at first. If you want
         to write some dynamic PHP code, you'll activate PHP mode by always
         writing this first:
+<<<<<<< HEAD
     explanation: |
+=======
+    explanation: |    
+>>>>>>> 69c67c4a4ae32f9788e19e64ec0cedc634b5049f
         As soon as you write `<?php` you are in PHP mode. So, `<?php echo 'Hello'; ?>`
         gets you into PHP mode and executes `echo 'Hello'`. The `?>` gets
         you *out* of PHP mode, and back into normal HTML land.
@@ -18,9 +22,16 @@ letswritephp_openphpmc:
 
 letswritephp_simpleechocoding:
     question: |
+<<<<<<< HEAD
         AirPupNMeow needs you to create their site! It's a humble beginning.
         Start by opening PHP, then echo their tag line: "I luv puppies"
         inside an `<h2>` tag.
+=======
+        AirPupNMeow needs you to create their site! You'll do it for free,
+        because you need the exposure.
+    question_steps:
+        - Start by opening PHP, then echo their tag line: "I luv puppies" inside an `<h2>` tag.
+>>>>>>> 69c67c4a4ae32f9788e19e64ec0cedc634b5049f
     step: start-empty-index-php
     files:
         index.php: ~
@@ -60,10 +71,11 @@ letswritephp_jobofechomc:
 letswritephp_createvariablecoding:
     question: |
         The management of AirPupNMeow is always changing its mind. To simplify
-        the life of our devs, let's use a variable so that when management
-        changes the tag line, we only have to update one spot. Create
-        a variable called `airpupTag` and set it to the `I luv puppies` text. Then
-        print this inside the `<h2>` tag.
+        the life of the dev team, let's use a variable so that when management
+        changes the tag line, we only have to update one spot.
+    question_steps:
+        - Create a variable called `airpupTag`and set it to the `I luv puppies` text. 
+        - Now, print this inside the `<h2>` tag
     step: createvariable-setup-for-variable
     files:
         index.php: ~
@@ -73,8 +85,8 @@ letswritephp_createvariablecoding:
     grading:
         check_variable:
             type: php
-            assertTrue: get_variable('airpupTag') == 'I luv kittens'
-            failure: Make sure the `$airpupTag` variable is set to `I luv kittens`
+            assertTrue: get_variable('airpupTag') == 'I luv puppies'
+            failure: Make sure the `$airpupTag` variable is set to `I luv puppies`
         look_for_echo:
             type: php
             assertTrue: input("index.php") matches "/echo/"
@@ -93,8 +105,9 @@ letswritephp_fixmissingsemicoloncoding:
     question: |
         Poor devs. Management was so excited about variables that they
         tried to edit the code themselves. We've sent the dev team for
-        ice cream to make up for it. While they're gone, fix the errors
-        in this file for them.
+        ice cream to make up for it. While they're gone...
+    question_steps:
+        - Fix the errors in this file for them
     step: fixmissingsemicolon-setup
     files:
         index.php: ~
