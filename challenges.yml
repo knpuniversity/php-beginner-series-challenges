@@ -1,13 +1,11 @@
+# Episode 1
+# LetsWritePhp
 letswritephp_openphpmc:
     question: |
         Everything in a PHP file is just HTML code at first. If you want
         to write some dynamic PHP code, you'll activate PHP mode by always
         writing this first:
-<<<<<<< HEAD
     explanation: |
-=======
-    explanation: |    
->>>>>>> 69c67c4a4ae32f9788e19e64ec0cedc634b5049f
         As soon as you write `<?php` you are in PHP mode. So, `<?php echo 'Hello'; ?>`
         gets you into PHP mode and executes `echo 'Hello'`. The `?>` gets
         you *out* of PHP mode, and back into normal HTML land.
@@ -22,16 +20,10 @@ letswritephp_openphpmc:
 
 letswritephp_simpleechocoding:
     question: |
-<<<<<<< HEAD
-        AirPupNMeow needs you to create their site! It's a humble beginning.
-        Start by opening PHP, then echo their tag line: "I luv puppies"
-        inside an `<h2>` tag.
-=======
         AirPupNMeow needs you to create their site! You'll do it for free,
         because you need the exposure.
     question_steps:
         - Start by opening PHP, then echo their tag line: "I luv puppies" inside an `<h2>` tag.
->>>>>>> 69c67c4a4ae32f9788e19e64ec0cedc634b5049f
     step: start-empty-index-php
     files:
         index.php: ~
@@ -128,6 +120,7 @@ letswritephp_fixmissingsemicoloncoding:
             assertTrue: css("h2:contains('2015')")
             failure: Make sure the `2015` text is being printed *inside* an `h2` tag
 
+# Functions
 functions_userandfunctioncoding:
     question: |
         It's hard to keep track of how many loveable pets we have
@@ -209,6 +202,7 @@ functions_nestedfunctionsmc:
                 d: lerriauqs
             correct: c
 
+# ArraysLoops
 arraysloops_createarraycoding:
     question: |
         We're testing out a new feature: find someone to walk your
@@ -310,6 +304,7 @@ arraysloops_arraykeysmc:
                 d: echo $brands[3];
             correct: d
 
+# Arrays2
 arrays2_converttoassociativecoding:
     question: |
         Our favorite pet - Waggy Pig - is a cute white silly dog. Update
@@ -411,6 +406,7 @@ arrays2_guessautokeymc:
                 d: Bear
             correct: b
 
+# Arrays3
 arrays3_multiarraykeyscoding:
     question: |
         Let's get to know one of the friendliest pets in town!
@@ -483,6 +479,7 @@ arrays3_countandvariablereordercoding:
             assertTrue: css("h4:contains(3)")
             failure: I don't see the number `3` inside the `h4` tag. Are you printing the `count()` there?
 
+# FilesJsonBooleans
 filesjsonbooleans_jsonencodemc:
     question: |
         Pop Quiz: `json_encode()` does which of the following with an array?
@@ -576,6 +573,7 @@ filesjsonbooleans_fileputcontentscoding:
             assertTrue: css("h2:contains('Dogs rule!')")
             failure: I don't see the `Dogs rule!` text inside the `h2` tag
 
+# IfStatement
 ifstatement_ifnotoycolorcoding:
     question: |
         Oh no! Some of the toys are missing a `color` key and now the page
@@ -666,6 +664,7 @@ ifstatement_fixerrorsifelsecoding:
             assertTrue: css("h4:contains('no color')")
             failure: I don't see the `no color` text inside the `h4` tag
 
+# SystemSetup
 systemsetup_dnsfairymc:
     question: |
         What's the job of the DNS (fairy)?
@@ -689,10 +688,6 @@ systemsetup_localhostportfilenamemc:
         using right now. This means that the request leaves our computer, then comes right
         back. The `:8000` means that it knocks on the door of port `8000`. Finally, in most
         setups, since there is no filename in the URL, `index.php` is executed and returned.
-    features:
-        multiple_choice:
-            choices:
-                a: |
                     The request cannot be completed because there is no filename
                     (e.g. `index.php`) in the URL
                 b: |
@@ -703,10 +698,11 @@ systemsetup_localhostportfilenamemc:
                     The request leaves via port `8000` on my computer, but then
                     routes back to my computer and executes `index.php`
                 d: |
-                    The request routes back to port 8000 on my local computer and
+                    The request routes back to port `8000` on my local computer and
                     `index.php` is executed and returned
             correct: d
 
+# CreatingFunctions
 creatingfunctions_funwithcommentsmc:
     question: |
         Put on your thinking cap and look carefully: what does this print?
@@ -789,6 +785,7 @@ creatingfunctions_createfunctioncoding:
             assertTrue: css("h3:contains('Bacon Bone')")
             failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
 
+# RequireInclude
 requireinclude_isolatefunctionuserequirecoding:
     question: |
         The pet toy business is really taking off! The site is getting
@@ -852,6 +849,7 @@ requireinclude_noclosingphptagmc:
                 d: This code will have an error, because you can't put a comment at the bottom of the file
             correct: a
 
+# SimpleLayout
 simplelayout_layoutwithrequirecoding:
     question: |
         The site has just one page - `index.php` - and people *love* it (trust us)!
@@ -926,3 +924,424 @@ simplelayout_requireandvariablesmc:
                 b: "This would cause an error: the `$secretWord` variable is defined in `index.php`, not in `header.php`"
                 c: There would be no error, but nothing would print inside the `<header>` tag
             correct: a
+
+# Episode 2
+# RequestNewPage
+requestnewpage_requestpostdatamc:
+    question: |
+        When you go to a site, your browser makes a request for that page, and even
+        sends extra information, like what language you prefer. A request to
+        `pets_new.php` might look like this:
+
+        ```
+        POST /pets_new.php
+        Host: localhost:8000
+        Accept-Language: en-US,en;q=0.8
+
+        pet_name=Waggy%20Pig&breed=bichon
+        ```
+
+        Which of the following most accurately describes this request?
+    explanation: |
+        Because this is a `POST` request to `/pets_new.php`, it's definitely a result
+        of the user submitting a form - on some page - with `method="POST"` and `action="/pets_new.php"`.
+        The form *might* live at `/pets_new.php`, but that's not important - the form could
+        live anywhere. The important part is that it submits to `/pets_new.php`.
+
+        The data in the bottom are the form fields. So, this form has two fields: one with
+        `name="pet_name"` - that the user filled in with `Waggy Pig` - and another with `name="breed"`
+        that was filled in with `bichon`.
+    features:
+        multiple_choice:
+            choices:
+                a: |
+                    The user just browsed to this page, and the form will be pre-filled
+                    with the data on the last line.
+                b: |
+                    The user surfed to `/pets_new.php` and submitted a form. The data
+                    on the bottom is what they filled in for the form fields.
+                c: |
+                    The user just performed a search for all pets named "Waggy Pig" and breed "bichon"
+                d: |
+                    The user just submitted a form  with `<form action="/pets_new.php" method="POST">`
+                    and the data on the bottom is what they filled in for the form fields.'
+            correct: d
+    grading: []
+
+# CreateForm
+createform_postversusgetmc:
+    question: |
+        When you surf to a page, the user makes a GET request for that URL. When you
+        submit a form, the user makes a POST request to that URL. Which of the following
+        is NOT true about GET and POST requests:
+    explanation: |
+        Even though `POST` requests are typically used to send data, data can be sent via
+        both `POST` and `GET` requests (with, for example, a `<form method="GET">` form).
+        So really, there's nothing you can do with a GET request that you can't do with a
+        POST request and vice-versa. But don't be confused: in practice, POST requests are
+        used for almost all form submits and GET requests are used everywhere else.
+    features:
+        multiple_choice:
+            choices:
+                a: |
+                    POST is used when the user needs to send data. GET is used when a user
+                    just wants to fetch a page
+                b: |
+                    A GET request cannot send any data (i.e. filled-in form fields)
+                c: |
+                    After making both GET and POST requests, the server sends back a response
+                    (often the next HTML page to display)
+                d: |
+                    There's no *real* difference between GET and POST requests: both can send data,
+                    both cause a response to be returned, but *typically* POST is used to send data.
+            correct: b
+    grading: []
+
+createform_createhtmlformcoding:
+    question: |
+        The pet toy business is *so* popular that we're becoming the Etsy of dog toys:
+        allowing other people to post their own vintage, organic, vegan toys on our
+        site to sell. Create an HTML form that submits a POST request to `/new_toy.php`
+        and give it 2 fields: an input text field called `name` and a `textarea` field
+        called `description`:
+    step: ~
+    files:
+        new_toy.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+        look_for_form:
+            type: php
+            assertTrue: input("new_toy.php") matches "/<form/"
+            failure: Did you create a `form` tag yet?
+        check_action:
+            type: http
+            assertTrue: css('form').attr('action') == '/new_toy.php'
+            failure: Make sure your form submits to `/new_toy.php`
+        check_method:
+            type: http
+            assertTrue: css('form').attr('method') matches "/POST/i"
+            failure: Make sure your form has a `method` attribute on your `form` set to `POST`
+        check_field_name:
+            type: http
+            assertTrue: css('form').form().has('name')
+            failure: I don't see any field with `name="name"`
+        check_field_description:
+            type: http
+            assertTrue: css('form').form().has('description')
+            failure: I don't see any field with `name="description"`
+
+# ReadingFormData
+readingformdata_fetchpostdatacoding:
+    question: |
+        Our toy form is setup! Now, when the user submits the form, we need to capture
+        the information. Set the submitted name to a `$name` variable, the description
+        to a `$description` variable, then `var_dump()` both variables to see what's being
+        submitted.
+
+        Behind the scenes, we'll fill out the fields with a new toy idea we have and submit
+        so you can see what the data looks like.
+    step: ~
+    files:
+        new_toy.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+        look_for_echo:
+            type: php
+            assertTrue: input("new_toy.php") matches "/$_POST/"
+            failure: I don't see `$_POST` in your file
+        check_variable_1:
+            type: php
+            assertTrue: get_variable('name') == 'Fluffy Pig Stuffed Animal'
+            failure: Make sure the `$name` variable is set to `Fluffy Pig Stuffed Animal`
+        check_variable_2:
+            type: php
+            assertTrue: get_variable('description') == 'Your dog will *love* to chew and destroy this adorable pig!'
+            failure: Make sure the `$description` variable is set to `Your dog will *love* to chew and destroy this adorable pig!`
+        look_for_var_dump:
+            type: php
+            assertTrue: input("index.php") matches "/var_dump(/"
+            failure: I don't see "var_dump()" function in your file
+
+readingformdata_checkhttpmethodcoding:
+    question: |
+        Great! When you press the submit button, we're printing out whatever was entered
+        into the form. Pretty soon, we'll start saving and selling the newest and loudest
+        squeeky toy ever invented!
+
+        But now, we're just surfing to the page directly and getting an error!
+        Add an `if` statement around our logic so that it only runs when the user submits
+        the form (i.e. makes a POST request).
+    step: ~
+    files:
+        new_toy.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+        look_for_server:
+            type: php
+            assertTrue: input("new_toy.php") matches "/$_SERVER/"
+            failure: I don't see `$_SERVER` in your file
+        look_for_request_method:
+            type: php
+            assertTrue: input("new_toy.php") matches "/REQUEST_METHOD/"
+            failure: I don't see `$_SERVER['REQUEST_METHOD']` in your file
+        look_for_post:
+            type: php
+            assertTrue: input("new_toy.php") matches "/POST/"
+            failure: Are you checking that the request method equals `POST`?
+
+readingformdata_arraykeyexistsissetmc:
+    question: What's the difference between `array_key_exists()` and `isset()`?
+    explanation: |
+        You can use both `array_key_exists()` and `isset()` interchangeably to see if a key
+        exists on an array. `isset()` is a little shorter, so I like it.
+
+        There *are* a few subtle differences between the two, and `isset()` can also be used
+        to see if a variable has been defined. You'll learn more about that stuff later.
+    features:
+        multiple_choice:
+            choices:
+                a: |
+                    There's not much difference: both do basically the same thing.
+                b: |
+                    `array_key_exists()` returns false if a key does not exist on an array.
+                    But `isset()` returns a warning in this case.
+                c: |
+                    `array_key_exists()` can be used on all arrays, but `isset()` can only
+                    be used with associative arrays
+            correct: a
+    grading: []
+
+readingformdata_playingwithservercoding:
+    question: |
+        Dump the `$_SERVER` variable and run your code to figure out which key stores information
+        about what browser you're using. It's OK that you'll have a wrong answer at first to
+        figure this out. *Hint* The browser information is a big long string that (in this
+        example) will include `Mozilla` in it.
+    step: ~
+    files:
+        new_toy.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+        look_for_server:
+            type: php
+            assertTrue: input("new_toy.php") matches "/$_SERVER/"
+            failure: I don't see `$_SERVER` in your file
+        look_for_request_method:
+            type: php
+            assertTrue: input("new_toy.php") matches "/HTTP_USER_AGENT/"
+            failure: I don't see `$_SERVER['HTTP_USER_AGENT']` in your file
+        look_for_post:
+            type: http
+            assertTrue: body() matches "/Mozilla\/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit\/531.21.10/"
+            failure: Are you printing the `$_SERVER['HTTP_USER_AGENT']`?
+
+# SavingPets
+savingpets_formsubmitlogiccoding:
+    question: |
+        Let's finish the form submit logic! Fetch the existing pet toys with the `get_great_pet_toys()`
+        function, add the new toy to the array, then save the JSON back to `toys.json`. To
+        prove it's working, read the file again with `file_get_contents()` and `var_dump()`
+        that JSON string.
+    step: ~
+    files:
+        new_toy.php: ~
+        functions.php:
+            read_only: true
+        toys.json:
+            read_only: true
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+        look_for_json_encode:
+            type: php
+            assertTrue: input("new_toy.php") matches "/json_encode(/"
+            failure: Use `json_encode()` in `new_toy.php` to encode the toys array before saving it
+        look_for_file_put_contents:
+            type: php
+            assertTrue: input("new_toy.php") matches "/file_put_contents(/"
+            failure: Use `file_put_contents()` in `new_toy.php` to save the new JSON string
+        look_for_var_dump:
+            type: php
+            assertTrue: input("new_toy.php") matches "/var_dump(/"
+            # A string can't start with "`" char:
+            failure: "`var_dump()` the file contents of `toys.json` after saving the new toy"
+        look_for_function:
+            type: php
+            assertTrue: input("new_toy.php") matches "/get_great_pet_toys(/"
+            failure: Call `get_great_pet_toys()` first to get the existing toys
+        look_for_text_1:
+            type: http
+            assertTrue: body() matches "/Bacon Bone/"
+            failure: I don't see `Bacon Bone` in `toys.json` - double-check that you're keeping the original pets, not replacing them entirely.
+        look_for_text_2:
+            type: http
+            assertTrue: body() matches "/Fluffy Pig Stuffed Animal/"
+            failure: I don't see the new "Fluffy Pig" toy in `toys.json`. Are you adding it to the toys array before calling `json_encode()` and saving the file?
+
+savingpets_jsonencodereadablemc:
+    question: |
+        Which of the following will cause `json_encode()` to give us a pretty, more-readable
+        version of the JSON?
+    explanation: |
+        `JSON_PRETTY_PRINT` is called a "constant": it's like a variable, except that
+        it has no `$` in front of it, cannot be changed, and is available everywhere.
+        You can create your own constants (see PHP's [define()](http://php.net/manual/en/function.define.php)
+        function), but some, like this one, are available everywhere.
+    features:
+        multiple_choice:
+            choices:
+                a: |
+                    ```php
+                    json_encode($toys, JSON_PRETTY_PRINT);
+                    ```
+                b: |
+                    ```php
+                    json_encode($toys, 'JSON_PRETTY_PRINT');
+                    ```
+                c: |
+                    ```php
+                    json_encode($toys, $JSON_PRETTY_PRINT);
+                    ```
+                d: |
+                    ```php
+                    json_encode($toys, JSON_PRETTY_PRINT());
+                    ```
+            correct: a
+
+# ArtOfRedirecting
+artofredirecting_formsubmitredirectmc:
+    question: After a successful form submit, we always redirect the user to another page. Why?
+    explanation: |
+        Why do we redirect after a successful form submit? The reason isn't that technical:
+        you don't *have* to redirect the user. But, when you do, if the user refreshes their
+        page after the redirect, it will just reload that new page. If you *don't* redirect
+        (e.g. you display a thanks message on the same page that handled your form), the user
+        can refresh the page, which will re-submit the data: i.e. re-send the POST request
+        with all the data. This will cause the whole form to be re-processed. You probably
+        don't want that :).
+    features:
+        multiple_choice:
+            choices:
+                a: Redirecting prevents the user from accidentally re-submitting the form
+                b: |
+                    POST requests (which most form submits are) cannot have responses with content,
+                    so we need to redirect to another page
+                c: Redirecting prevents the form from being re-populated with the same data
+                d: Some older browsers cannot properly handle a form submit, unless it redirects
+            correct: a
+    grading: []
+
+artofredirecting_redirectusertoylistcoding:
+    question: |
+        Suppose you originally had a page called `/aboutUs.php`, but decided to rename it
+        to `/about.php`. Simple: you rename the file, and you're done! Unfortunately, a lot
+        of other sites are still linking to `/aboutUs.php`, and any user clicking those links
+        are getting an error.
+
+        So, you decide to re-create `aboutUs.php`, and just make it redirect to `/about.php`.
+        Fill in the logic to redirect to `/about.php`.
+
+        **Note**: You won't see any output, because redirects actually return a blank response.
+        In the real world, your browser would quickly make a second request to `about.php`
+        (and you'd see that page).
+    step: ~
+    files:
+        aboutUs.php: ~
+        about.php:
+            read_only: true
+    features:
+        editor: ~
+        browser:
+            default_uri: /aboutUs.php
+    grading:
+        look_for_header:
+            type: php
+            assertTrue: input("aboutUs.php") matches "/header(/"
+            failure: Use the `header()` function to redirect
+        look_for_location:
+            type: php
+            assertTrue: input("aboutUs.php") matches "/Location:/"
+            failure: Set the `Location:` header to `/about.php`
+
+artofredirecting_redirectresponsemc:
+    question: |
+        Which of the following best shows the raw response that's sent back
+        when we redirect a user from a page?
+    explanation: |
+        The goal of our code is *always* to send a response message back to the user. Normally,
+        we don't think about this: we're just sending back HTML. But in reality, a response
+        is made up of multiple parts, including the content and headers.
+
+        When we redirect, what we're actually doing is setting a `Location` header on the
+        response. The status code - something we haven't talked about much - is also always
+        set to 301 or 302. Answer (A) is technically correct, but misleading: this contains
+        some HTML content in the response. This will never be shown to your user, because
+        the user's browser will immediately see the `Location` header and change the URL
+        in their browser to be this page.
+    features:
+        multiple_choice:
+            choices:
+                a: |
+                    ```
+                    HTTP/1.1 302 Found
+                    Location: /thanks.php
+                    <h1>Thanks for adding a new toy!</h1>
+                    ```
+                b: |
+                    ```
+                    HTTP/1.1 302 Found
+                    Location: /thanks.php
+                    ```
+                c: |
+                    ```
+                    GET /new_toy.php
+                    Host: localhost:8000
+                    <h1>Add a new toy</h1>
+                    ```
+                d: |
+                    ```
+                    POST /new_toy.php
+                    Location: /new_toy.php
+                    ```
+            correct: b
+    grading: []
+
+# CleaningUpWithSavedPets
+cleaningupwithsavedpets_refactortoysavingcoding:
+    question: |
+        Users are now able to enter new toys they want to sell and you're a hero in the office!
+        Put the finishing touches on this by reorganizing the toy-saving logic into a new function
+        called `save_toys()`. Be sure to call this function to keep things working!
+    step: ~
+    files:
+        new_toy.php: ~
+        functions.php: ~
+        toys.json:
+            read_only: true
+    features:
+        editor: ~
+        browser:
+            default_uri: /new_toy.php
+    grading:
+        look_for_function_declaration:
+            type: php
+            assertTrue: input("functions.php") matches "/function save_toys(/"
+            failure: Put the `save_toys()` function declaration into `functions.php` for organization
+        look_for_function_usage:
+            type: php
+            assertTrue: input("new_toy.php") matches "/save_toys(/"
+            failure: Be sure to call the `save_toys()` function from within `new_toy.php`
