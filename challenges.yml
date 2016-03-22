@@ -23,7 +23,7 @@ letswritephp_simpleechocoding:
         AirPupNMeow needs you to create their site! You'll do it for free,
         because you need the exposure.
     question_steps:
-        - Start by opening PHP, then echo their tag line: "I luv puppies" inside an `<h2>` tag.
+        - 'Start by opening PHP, then echo their tag line: "I luv puppies" inside an `<h2>` tag.'
     step: start-empty-index-php
     files:
         index.php: ~
