@@ -1,9 +1,11 @@
+# Episode 1
+# LetsWritePhp
 letswritephp_openphpmc:
-    question: >
+    question: |
         Everything in a PHP file is just HTML code at first. If you want
         to write some dynamic PHP code, you'll activate PHP mode by always
         writing this first:
-    explanation: >    
+    explanation: |
         As soon as you write `<?php` you are in PHP mode. So, `<?php echo 'Hello'; ?>`
         gets you into PHP mode and executes `echo 'Hello'`. The `?>` gets
         you *out* of PHP mode, and back into normal HTML land.
@@ -15,36 +17,37 @@ letswritephp_openphpmc:
                 c: ?>
                 d: echo
             correct: b
-    grading: []
 
 letswritephp_simpleechocoding:
-    question: >
-        AirPupNMeow needs you to create their site! It's a humble beginning.
-        Start by opening PHP, then echo their tag line: "I luv puppies"
-        inside an `<h2>` tag.
+    question: |
+        AirPupNMeow needs you to create their site! You'll do it for free,
+        because you need the exposure.
+    question_steps:
+        - Start by opening PHP, then echo their tag line: "I luv puppies" inside an `<h2>` tag.
     step: start-empty-index-php
-    files: ['index.php']
+    files:
+        index.php: ~
     features:
         editor: ~
         browser: ~
     grading:
         look_for_echo:
             type: php
-            expect: input("index.php") matches "/echo/"
+            assertTrue: input("index.php") matches "/echo/"
             failure: I don't see "echo" in your file
         check_output:
             type: http
-            expect: body() matches "/I luv puppies/"
+            assertTrue: body() matches "/I luv puppies/"
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
-            expect: css("h2:contains('I luv puppies').count() > 0")
-            failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
+            assertTrue: css("h2:contains('I luv puppies').count() > 0")
+            failure: Make sure the `I luv puppies` text is being printed *inside* an `h2` tag
 
 letswritephp_jobofechomc:
-    question: >
+    question: |
         What's the job of the `echo` statement?
-    explanation: >
+    explanation: |
         `echo` - as in `echo 'this question was no problem';` - is used to print anything
         out. There are a few other ways to print stuff, but `echo` is by far the most important.
         You rock `echo`!
@@ -56,69 +59,874 @@ letswritephp_jobofechomc:
                 c: to end the file
                 d: to create a variable
             correct: a
-    grading: []
 
 letswritephp_createvariablecoding:
-    question: >
+    question: |
         The management of AirPupNMeow is always changing its mind. To simplify
-        the life of our devs, let's use a variable so that when management
-        changes the tag line, we only have to update one spot. Create
-        a variable called `airpupTag` and set it to the `I luv puppies` text. Then
-        print this inside the `<h2>` tag.
+        the life of the dev team, let's use a variable so that when management
+        changes the tag line, we only have to update one spot.
+    question_steps:
+        - Create a variable called `airpupTag`and set it to the `I luv puppies` text. 
+        - Now, print this inside the `<h2>` tag
     step: createvariable-setup-for-variable
-    files: ['index.php']
+    files:
+        index.php: ~
     features:
         editor: ~
         browser: ~
     grading:
         check_variable:
             type: php
-            expect: get_variable('airpupTag') == 'I luv kittens'
-            failure: "Make sure the `$airpupTag` variable is set to `I luv kittens`"
+            assertTrue: get_variable('airpupTag') == 'I luv puppies'
+            failure: Make sure the `$airpupTag` variable is set to `I luv puppies`
         look_for_echo:
             type: php
-            expect: input("index.php") matches "/echo/"
+            assertTrue: input("index.php") matches "/echo/"
             failure: I don't see "echo" in your file
         check_output:
             type: http
-            expect: body() matches "/I luv puppies/"
+            assertTrue: body() matches "/I luv puppies/"
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
-            expect: css("h2:contains('I luv puppies')")
-            failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
+            assertTrue: css("h2:contains('I luv puppies')")
+            failure: Make sure the `I luv puppies` text is being printed *inside* an `h2` tag
 
 
 letswritephp_fixmissingsemicoloncoding:
-    question: >
+    question: |
         Poor devs. Management was so excited about variables that they
         tried to edit the code themselves. We've sent the dev team for
-        ice cream to make up for it. While they're gone, fix the errors
-        in this file for them.
+        ice cream to make up for it. While they're gone...
+    question_steps:
+        - Fix the errors in this file for them
     step: fixmissingsemicolon-setup
-    files: ['index.php']
+    files:
+        index.php: ~
     features:
         editor: ~
         browser: ~
     grading:
         check_output:
             type: http
-            expect: body() matches "/I luv puppies/"
+            assertTrue: body() matches "/I luv puppies/"
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
-            expect: css("h2:contains('I luv puppies')")
-            failure: "Make sure the `I luv puppies` text is being printed *inside* an `h2` tag"
+            assertTrue: css("h2:contains('I luv puppies')")
+            failure: Make sure the `I luv puppies` text is being printed *inside* an `h2` tag
         check_h2_2015:
             type: http
-            expect: css("h2:contains('2015')")
-            failure: "Make sure the `2015` text is being printed *inside* an `h2` tag"
+            assertTrue: css("h2:contains('2015')")
+            failure: Make sure the `2015` text is being printed *inside* an `h2` tag
 
+# Functions
+functions_userandfunctioncoding:
+    question: |
+        It's hard to keep track of how many loveable pets we have
+        at a time. To save time (read: make management happy) just print
+        a random number - between 100 and 200 - for the number of tail-wagging
+        pets we have available.
+    step: functions-setup-for-rand-function
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        check_output:
+            type: http
+            assertTrue: body() matches "/I luv puppies/"
+            failure: I don't see `I luv puppies` anywhere - did you print this?
+        look_for_rand:
+            type: php
+            assertTrue: input("index.php") matches "/rand(/"
+            failure: I don't see "rand()" function in your file
+        check_number:
+            type: http
+            assertTrue: css("h3 span").text() matches "/^\s+\d+\s+$/"
+            failure: Are you printing the random number inside the `span` tag?
+        check_range:
+            type: http
+            assertTrue: 100 > css("h3 span").text() || 200 < css("h3 span").text()
+            failure: Make sure the `rand()` function only returns numbers between 100 and 200
 
+functions_reverseandlowercasecoding:
+    question: |
+        Someone was working at midnight, and started printing out
+        things in reverse! Don't worry! We've sent them on holiday and
+        now it's your job to fix things. As a challenge, see if you
+        can reverse and set all characters to lowercase in one line
+        using functions.
+    step: functions-output-reversed-string
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_strrev:
+            type: php
+            assertTrue: input("index.php") matches "/strrev(/"
+            failure: I don't see "strrev()" function in your file
+        look_for_strtolower:
+            type: php
+            assertTrue: input("index.php") matches "/strtolower(/"
+            failure: I don't see "strtolower()" function in your file
+        check_output:
+            type: http
+            assertTrue: body() matches "/our pets are purrfectly pawesome!/"
+            failure: I don't see `our pets are purrfectly pawesome!` anywhere - did you print this?
 
+functions_nestedfunctionsmc:
+    question: |
+        Clearly the dev team has been drinking too much Red Bull.
+        Things have gotten out of hand with all these reversed words.
+        See if you can figure out what this prints:
 
+        ```php
+        <?php echo str_replace('ri', 'aa', strrev(strtolower('SQUIRREL!'))); ?>
+        ```
+    explanation: |
+        Think about the order that things happen:
+
+        1. `SQUIRREL!` is passed to `strtolower` and becomes `squirrel!`.
+        2. `squirrel!` is passed to `strrev` and becomes `!lerriuqs`.
+        3. Finally, the `ri` in `!lerriuqs` is replaced with `aa`, giving us `!leraauqs`.
+    features:
+        multiple_choice:
+            choices:
+                a: !lerriuqs
+                b: !lerraaiuqs
+                c: !leraauqs
+                d: lerriauqs
+            correct: c
+
+# ArraysLoops
+arraysloops_createarraycoding:
+    question: |
+        We're testing out a new feature: find someone to walk your
+        dog! At first, our boss's kids will be the three dog walkers:
+        `Kitty`, `Tiger`, and `Jay`. Assign each dog walker to three
+        new variables - `$walker1`, `$walker2` and `$walker3`. Then,
+        put them into a `$dogWalkers` array.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        assert_variable:
+            type: php
+            # @TODO Add missing `variable()` function to the PhpExpressionProvider (don't sure about failure message)
+            assertTrue: variable('dogWalkers') == ['Kitty', 'Tiger', 'Jay']
+            failure: Can't assert that `$dogWalkers` variable equal to the ['Kitty', 'Tiger', 'Jay'] array
+
+arraysloops_foreachcoding:
+    question: |
+        The kids are ready to work! Let's advertise the new service.
+        Use a `foreach` loop to print each kid's name in an `h3` tag.
+        Include a `<button>Schedule me</button>` under each kid's name:
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_foreach:
+            type: php
+            assertTrue: input("index.php") matches "/foreach/"
+            failure: I don't see `foreach` construct in your file
+        check_tiger:
+            type: http
+            assertTrue: css("h3:contains('Tiger')")
+            failure: Make sure the `Tiger` text is being printed *inside* an `h3` tag
+        check_kitty:
+            type: http
+            assertTrue: css("h3:contains('Kitty')")
+            failure: Make sure the `Kitty` text is being printed *inside* an `h3` tag
+        check_jay:
+            type: http
+            assertTrue: css("h3:contains('Jay')")
+            failure: Make sure the `Jay` text is being printed *inside* an `h3` tag
+        check_zero_buttons:
+            type: http
+            assertTrue: css("body:contains('<button>').count() == 0")
+            failure: Don't forget to add a `<button>Schedule me</button>` inside the `foreach` for each walker!
+        check_single_button:
+            type: http
+            assertTrue: css("body:contains('<button>').count() == 1")
+            failure: I only see 1 `<button>` - make sure to include this *inside* the `foreach` loop so that 3 are printed
+        check_three_buttons:
+            type: http
+            assertFalse: css("body:contains('<button>').count() == 3")
+            failure: There should be 3 `<button>` element exactly
+
+arraysloops_vardumpcoding:
+    question: |
+        The boss is worried that one of his kids was left off the
+        list! Use the `var_dump` function to show him that all three
+        kids are in the array.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_var_dump:
+            type: php
+            assertTrue: input("index.php") matches "/var_dump(/"
+            failure: I don't see `var_dump()` function in your file
+        check_tiger:
+            type: http
+            assertTrue: body() matches "/Kitty.+Tiger.+Jay/"
+            failure: I don't see `Kitty`, `Tiger` and `Jay` text. Did you print them all?
+
+arraysloops_arraykeysmc:
+    question: |
+        ```php
+        $brands = ['SuperDog', 'Doggie-Os', 'Beef Bites', 'Puppy Gruel', 'Fancy Feast'];
+        ```
+        Puppies love dinner time! Which option below will print "Puppy Gruel"?
+    explanation: |
+        The keys are automatically assigned, starting with *zero*. This means that
+        `SuperDog` is key `0`, `Doggie-Os` is key `1` and eventually `Puppy Gruel` is
+        key `3`.
+    features:
+        multiple_choice:
+            choices:
+                a: echo $brands['Puppy Gruel'];
+                b: echo $brands(4);
+                c: echo $brands[4];
+                d: echo $brands[3];
+            correct: d
+
+# Arrays2
+arrays2_converttoassociativecoding:
+    question: |
+        Our favorite pet - Waggy Pig - is a cute white silly dog. Update
+        the code below to use an associative array: set they keys of the array
+        to `name`, `weight`, `age` and `bio`. Then, update the code below so
+        Waggy Pig's bio still prints out!
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        assert_variable:
+            type: php
+            # @TODO Add missing `variable()` function to the PhpExpressionProvider (don't sure about failure message)
+            assertTrue: variable('waggyPig') == ['name' => 'Waggy Pig', 'weight' => 10, 'age' => 7, 'bio' => 'Sleepy white fluffy dog']
+            failure: Can't assert that `$waggyPig` variable equal to the ['name' => 'Waggy Pig', 'weight' => 10, 'age' => 7, 'bio' => 'Sleepy white fluffy dog'] array
+        check_h2:
+            type: http
+            assertTrue: css("h2:contains('Waggy Pig')")
+            failure: Make sure the `Waggy Pig` text is being printed *inside* an `h2` tag
+        check_reversed:
+            type: http
+            assertTrue: css(".age").text() == 10
+            failure: |
+                Careful! Be sure to print the `age` key in the `.age` element and the
+                `weight` key in the `.weight` element. You might have them reversed.
+        check_age:
+            type: http
+            assertTrue: css(".age").text() == 7
+            failure: Make sure the *age* (`7`) is being printed *inside* a tag with an `.age` class
+        check_weight:
+            type: http
+            assertTrue: css(".weight").text() == 10
+            failure: Make sure the *weight* value (`10`) is being printed *inside* a tag with a `.weight` class
+        check_paragraph:
+            type: http
+            assertTrue: css("p:contains('Sleepy white fluffy dog')")
+            failure: Make sure the `Sleepy white fluffy dog` text is being printed *inside* a `p` tag
+
+arrays2_addnewkeycoding:
+    question: |
+        We went to ancestry.com and have discovered Waggy Pig's breed:
+        `bichon`. Add a new `breed` key on a new line after the `$waggyPig`
+        array has already been created. Print this new info below!
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        check_array_key:
+            type: php
+            assertFalse: array_key_exists('breed', $waggyPig)
+            failure: The `$waggyPig` variable doesn't have a `breed` key!
+        assert_variable:
+            type: php
+            # @TODO Add missing `variable()` function to the PhpExpressionProvider (don't sure about failure message)
+            assertFalse: variable($waggyPig['breed']) == 'bichon'
+            failure: Can't assert that `$waggyPig['breed']` variable equal to the `bichon` value
+        look_for_variable:
+            type: php
+            assertTrue: input("index.php") matches "/$waggyPig[/"
+            failure: Add the `breed` key *after* the `$waggyPig` variable is created using the `['breed']` syntax
+        check_breed:
+            type: http
+            assertTrue: css(".breed:contains('bichon')")
+            failure: Make sure the `bichon` text is being printed *inside* a tag with a `.breed` class
+
+arrays2_guessautokeymc:
+    question: |
+        The dog-walking service is a hit! So, we've added `Bear` to the
+        list:
+
+        ```php
+        <?php
+        $walker1 = 'Kitty';
+        $walker2 = 'Tiger';
+        $walker3 = 'Jay';
+
+        $dogWalkers = [$walker1, $walker2, $walker3];
+        $dogWalkers[] = 'Bear';
+        ?>
+        ```
+
+        What array key will PHP automatically assign to `Bear`?
+    explanation: |
+        The keys are automatically assigned, starting with *zero*, and when you add a new
+        item to the array later, it uses the first available number. Since `$walker3`
+        was assigned the `2` index, `Bear` gets the next available number: `3`.
+    features:
+        multiple_choice:
+            choices:
+                a: "&#48;" # equal to '0' - really strange, but 0 number don't display in front-end.
+                b: 3
+                c: 4
+                d: Bear
+            correct: b
+
+# Arrays3
+arrays3_multiarraykeyscoding:
+    question: |
+        Let's get to know one of the friendliest pets in town!
+        Access the bio on Pancake and print it inside the `<h1>` tag.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_variable:
+            type: php
+            assertTrue: input("index.php") matches "/$pets[2]['bio']/"
+            failure: I don't see "$pets[2]['bio']" in your file
+        check_heading:
+            type: http
+            assertTrue: css("h1:contains('Breakfast is my favorite!')")
+            failure: Make sure the `Breakfast is my favorite!` text is being printed *inside* a `h1` tag
+
+arrays3_foreachassociativecoding:
+    question: |
+        The site is *so* popular that we're adding a store that
+        sells the world's squeekiest dog toys. Using the `$toys`
+        array below, create a `foreach` statement and print each toy's
+        `name` inside an `h3` tag and its `color` inside an `h4` tag.
+        Avoid needing to echo the HTML tags by closing PHP at the end
+        of the `foreach` line.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        check_heading_1:
+            type: http
+            assertTrue: css("h3:contains('Bacon Bone')")
+            failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
+        check_heading_2:
+            type: http
+            assertTrue: css("h3:contains('Tennis Ball')")
+            failure: Make sure the `Tennis Ball` text is being printed *inside* a `h3` tag
+        check_heading_3:
+            type: http
+            assertTrue: css("h4:contains('Bacon-colored')")
+            failure: Make sure the `Bacon-colored` text is being printed *inside* a `h4` tag
+        check_heading_4:
+            type: http
+            assertTrue: css("h4:contains('Yellow')")
+            failure: Make sure the `Yellow` text is being printed *inside* a `h4` tag
+
+arrays3_countandvariablereordercoding:
+    question: |
+        Using the `count()` function, print the total number of pet toys
+        that we're selling in the `<h4>` tag.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_count:
+            type: php
+            assertTrue: input("index.php") matches "/count(/"
+            failure: I don't see "count()" function in your file
+        check_heading:
+            type: http
+            assertTrue: css("h4:contains(3)")
+            failure: I don't see the number `3` inside the `h4` tag. Are you printing the `count()` there?
+
+# FilesJsonBooleans
+filesjsonbooleans_jsonencodemc:
+    question: |
+        Pop Quiz: `json_encode()` does which of the following with an array?
+    explanation: |
+        The first argument to `json_encode` is a PHP array. It then encodes this and
+        returns the equivalent JSON string:
+
+        ```php
+        <?php echo json_encode('lions', 'tigers', 'bears'); ?>
+        ```
+
+        This would print:
+
+        ```json
+        [
+            "lions",
+            "tigers",
+            "bears"
+        ]
+        ```
+    features:
+        multiple_choice:
+            choices:
+                a: Encodes JSON into a PHP array
+                b: Encodes a PHP array into JSON
+                c: Reads a JSON file and sets it into a PHP array
+            correct: b
+
+filesjsonbooleans_readfilejsondecodecoding:
+    question: |
+        The toy inventory lives in a `toys.json` file. Great! Let's
+        read this file, and use `json_decode` to turn it into a big array.
+        Make sure the `foreach` is still correctly printing each toy's details.
+        And be careful to make sure the keys from `toys.json` match what you're
+        printing out!
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_file_get_contents:
+            type: php
+            assertTrue: input("index.php") matches "/file_get_contents(/"
+            failure: I don't see "file_get_contents()" function in your file
+        look_for_json_decode:
+            type: php
+            assertTrue: input("index.php") matches "/json_decode(/"
+            failure: I don't see "json_decode()" function in your file
+        check_h3:
+            type: http
+            assertTrue: css("h3:contains('Bacon Bone')")
+            failure: I don't see the `Bacon Bone` text inside the `h3` tag
+        check_h4:
+            type: http
+            assertTrue: css("h4:contains('Bacon-colored')")
+            failure: I don't see the `Bacon-colored` text inside the `h4` tag
+
+filesjsonbooleans_fileputcontentscoding:
+    question: |
+        We're going to totally troll the cats on the site,
+        use `file_put_contents()` to save the text `Dogs rule!` into a
+        new file called `doglife.txt`. Then read that file and print
+        the string into the `<h2>` tag
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_file_put_contents:
+            type: php
+            assertTrue: input("index.php") matches "/file_put_contents(/"
+            failure: I don't see `file_put_contents()` function in your file
+        look_for_doglife.txt:
+            type: php
+            assertTrue: input("index.php") matches "/doglife.txt/"
+            failure: I don't see `doglife.txt` text in your file
+        look_for_text:
+            type: php
+            assertTrue: input("index.php") matches "/Dogs rule!/"
+            failure: I don't see `Dogs rule!` text in your file
+        look_for_file_get_contents:
+            type: php
+            assertTrue: input("index.php") matches "/file_get_contents(/"
+            failure: I don't see "file_get_contents()" function in your file
+        check_heading:
+            type: http
+            assertTrue: css("h2:contains('Dogs rule!')")
+            failure: I don't see the `Dogs rule!` text inside the `h2` tag
+
+# IfStatement
+ifstatement_ifnotoycolorcoding:
+    question: |
+        Oh no! Some of the toys are missing a `color` key and now the page
+        is giving us a huge error!  Use an `if` statement to fix this.
+        If we don't know the color, print `no color`.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_if:
+            type: php
+            assertTrue: input("index.php") matches "/if/"
+            failure: I don't see `if` statement in your file
+        look_for_array_key_exists:
+            type: php
+            assertTrue: input("index.php") matches "/array_key_exists(/"
+            failure: I don't see `array_key_exists()` function in your file
+        check_output:
+            type: http
+            assertTrue: body() matches "/no color/"
+            failure: The `Bacon Bone` doesn't have a color, so it *should* say "no color" for that toy.
+        check_heading:
+            type: http
+            assertTrue: css("h4:contains('Yellow')")
+            failure: I don't see the `Yellow` text inside the `h4` tag
+
+ifstatement_ifelseifelsecoding:
+    question: |
+        The toys are really getting complicated now, so be careful!
+        Use an `if - elseif - else` statement to handle these three possible
+        situations:
+
+        #. If the `color` key exists and is set to `multiple`, print "Multiple Colors".
+        #. If the `color` key does not exist, print "no color"
+        #. Otherwise, print the actual color value
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_if:
+            type: php
+            assertTrue: input("index.php") matches "/if/"
+            failure: I don't see `if` statement in your file
+        check_heading_1:
+            type: http
+            assertTrue: css("h4:contains('Yellow')")
+            failure: I don't see the `Yellow` text inside the `h4` tag
+        check_heading_2:
+            type: http
+            assertTrue: css("h4:contains('Multiple Colors')")
+            failure: I don't see the `Multiple Colors` text inside the `h4` tag
+        check_heading_3:
+            type: http
+            assertTrue: css("h4:contains('no color')")
+            failure: I don't see the `no color` text inside the `h4` tag
+
+ifstatement_fixerrorsifelsecoding:
+    question: |
+        Oh no, management tried coding again, someone put a pin code
+        on the github repo! Fix the errors below.
+    step: ~
+    files:
+        index.php: ~
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        look_for_if:
+            type: php
+            assertTrue: input("index.php") matches "/if/"
+            failure: I don't see `if` statement in your file
+        check_heading_1:
+            type: http
+            assertTrue: css("h4:contains('Surprise Color')")
+            failure: I don't see the `Surprise Color` text inside the `h4` tag
+        check_heading_2:
+            type: http
+            assertTrue: css("h4:contains('Yellow')")
+            failure: The Tennis ball is printing as `Surprise Color!`, but it *should* be `Yellow`. There's a more subtle mistake in the first part of the `if` statement...
+        check_heading_3:
+            type: http
+            assertTrue: css("h4:contains('no color')")
+            failure: I don't see the `no color` text inside the `h4` tag
+
+# SystemSetup
+systemsetup_dnsfairymc:
+    question: |
+        What's the job of the DNS (fairy)?
+    explanation: |
+        The DNS converts a domain name to an IP address. With the IP address, the request
+        can find the right server to go to.
+    features:
+        multiple_choice:
+            choices:
+                a: To guide the request to the correct server
+                b: To turn a domain name into an IP address
+                c: To listen on a port for a request
+                d: To pass the request to the web server
+            correct: b
+
+systemsetup_localhostportfilenamemc:
+    question: |
+        Suppose I put `http://localhost:8000` into my browser. Which of the following is true:
+    explanation: |
+        `localhost` is a special string that resolves to the IP address of the computer you're
+        using right now. This means that the request leaves our computer, then comes right
+        back. The `:8000` means that it knocks on the door of port `8000`. Finally, in most
+        setups, since there is no filename in the URL, `index.php` is executed and returned.
+                    The request cannot be completed because there is no filename
+                    (e.g. `index.php`) in the URL
+                b: |
+                    The request uses the DNS to find the IP address of a remote
+                    computer, knocks on the door of port `8000`, and then executes
+                    and returns `index.php`
+                c: |
+                    The request leaves via port `8000` on my computer, but then
+                    routes back to my computer and executes `index.php`
+                d: |
+                    The request routes back to port `8000` on my local computer and
+                    `index.php` is executed and returned
+            correct: d
+
+# CreatingFunctions
+creatingfunctions_funwithcommentsmc:
+    question: |
+        Put on your thinking cap and look carefully: what does this print?
+
+        ```php
+        <?php
+        /*
+         * A Functions!
+         */
+        function cat()
+        {
+            $dog = dog();
+            // $dog = strtoupper($dog);
+
+            return $dog;
+        }
+
+        /* Another function */
+        function dog()
+        {
+            return 'Molly';
+        }
+
+        $var = cat();
+        echo $var; echo ' the dog'; // echo '!';
+        ```
+    explanation: |
+        Phew! First, we call `cat()`, which calls `dog()` and sets `$dog` to `Molly`. But
+        the next `strtoupper()` line is commented out with `//` so it *never* runs. This
+        means that `cat()` returns `Molly`, which is set to `$var`. Finally, we print this
+        with `echo`, and it *is* legal to have multiple PHP statements on a single line,
+        as long as each ends with `;`. But, the last `echo '!';` is commented out, and never
+        runs. That gives us `Molly the dog`.
+
+        Oh, and `/*` is another way to start a comment. The difference is that - instead of
+        commenting out the rest of the line, it comments out everything until it sees a
+        closing `*/`.
+    features:
+        multiple_choice:
+            choices:
+                a: Trick question! This will have an error!
+                b: MOLLY the dog!
+                c: Molly the dog
+                d: MOLLY the dog
+            correct: c
+
+creatingfunctions_createfunctioncoding:
+    question: |
+        Being able to read all the toys from `toys.json` is pretty useful, and soon, it
+        might be handy to re-use this in other places too. Create a new `get_great_pet_toys()`
+        function that reads `toys.json`, decodes the contents, and returns the toys.
+        Call this to get the toys array.
+    step: ~
+    files:
+        index.php: ~
+        toys.json:
+            read_only: true
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        check_function:
+            type: php
+            assertFalse: function_exists('get_great_pet_toys')
+            failure: The `get_great_pet_toys()` function doesn't exist
+        look_for_function:
+            type: php
+            assertTrue: input("index.php") matches "/get_great_pet_toys(/"
+            failure: I don't see "get_great_pet_toys()" function in your file
+        check_heading_1:
+            type: http
+            assertTrue: css("h4:contains('Yellow')")
+            failure: Make sure the `Yellow` text is being printed *inside* a `h4` tag
+        check_heading_2:
+            type: http
+            assertTrue: css("h4:contains('Multiple Colors')")
+            failure: Make sure the `Multiple Colors` text is being printed *inside* a `h4` tag
+        check_heading_3:
+            type: http
+            assertTrue: css("h3:contains('Bacon Bone')")
+            failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
+
+# RequireInclude
+requireinclude_isolatefunctionuserequirecoding:
+    question: |
+        The pet toy business is really taking off! The site is getting
+        bigger and we need to stay organized! Move the `get_great_pet_toys()` function
+        out of `index.php` and into the new `lib/functions.php` file so we can
+        re-use it later.
+    step: ~
+    files:
+        index.php: ~
+        lib/functions.php: ~
+        toys.json:
+            read_only: true
+    features:
+        editor: ~
+        browser: ~
+    grading:
+        check_function:
+            type: php
+            assertFalse: function_exists('get_great_pet_toys')
+            failure: The `get_great_pet_toys()` function doesn't exist
+        look_for_function:
+            type: php
+            assertTrue: input("lib/functions.php") matches "/get_great_pet_toys(/"
+            failure: I don't see "get_great_pet_toys()" function in the `lib/functions.php` file
+        look_for_require:
+            type: php
+            assertTrue: input("index.php") matches "/require/"
+            failure: I don't see "require" statement in the `index.php` file
+        check_heading:
+            type: http
+            assertTrue: css("h3:contains('Bacon Bone')")
+            failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
+
+requireinclude_noclosingphptagmc:
+    question: |
+        Look at the following piece of code:
+
+        ```php
+        <?php
+            $site = 'AirPup';
+        ?>
+
+        <?php echo $site;
+
+        // end of the file
+        ```
+
+        Which is true?
+    explanation: |
+        Whenever you open PHP with `<?php`, you need to close it later in that file with `?>`...
+        **unless** the `?>` would be at the end of the file. In other words, if you forget
+        to write `?>` at the bottom of the file, PHP basically writes this for you - so it's
+        not needed. In fact, for reasons you'll learn later, it's best *not* to add the `?>`
+        at the bottom of the file when you don't need to.
+    features:
+        multiple_choice:
+            choices:
+                a: This code has no issues. Well done!
+                b: "This code will have an error: it's missing the closing `?>` at the bottom"
+                c: This code has no error, but it *should* have a `?>` at the bottom
+                d: This code will have an error, because you can't put a comment at the bottom of the file
+            correct: a
+
+# SimpleLayout
+simplelayout_layoutwithrequirecoding:
+    question: |
+        The site has just one page - `index.php` - and people *love* it (trust us)!
+        Now we've created a second page - `aboutUs.php`, but boy is it ugly! Woof.
+        We need to re-use the layout that's in `index.php` to make it prettier.
+
+        To do that, move all the header HTML into `header.php`, move all the footer HTML
+        into `footer.php`, and then `require` each of these files in `index.php` and `aboutUs.php`
+        to get the same, "nice" layout in both of our pages.
+    step: ~
+    files:
+        index.php: ~
+        aboutUs.php: ~
+        layout/header.php: ~
+        layout/footer.php: ~
+    features:
+        editor: ~
+        browser:
+            default_uri: /aboutUs.php
+    grading:
+        look_for_html_opening_tag:
+            type: php
+            assertTrue: input("layout/header.php") matches "/<html>/"
+            failure: I don't see `html` opening tag in `layout/header.php` file
+        look_for_html_closing_tag:
+            type: php
+            assertTrue: input("layout/footer.php") matches "/<\/html>/"
+            failure: I don't see `html` closing tag in `layout/footer.php` file
+        look_for_variable:
+            type: php
+            assertTrue: input("index.php") matches "/$airpupTagLine =/"
+            failure: "Keep the `$airpupTagLine = ...` code inside `index.php`: that's code that is used for just *this* page, and shouldn't be in the header"
+        look_for_require:
+            type: php
+            assertTrue: input("index.php") matches "/require/"
+            failure: I don't see `require` statement in `index.php` file
+        # @TODO Dont know how to converts next grading:
+#        $htmlGrader->assertOutputContains('<html>', 'Don\'t forget to require the `header.php` file in `aboutUs.php` so that it has the nice layout');
+#        $htmlGrader->assertOutputContains('</html>', 'Don\'t forget to require the `footer.php` file in `aboutUs.php` so that it has the nice layout');
+
+simplelayout_requireandvariablesmc:
+    question: |
+        Suppose your `index.php` file creates a variable and includes a `header.php` file:
+
+        ```php
+        <!-- index.php -->
+        <?php
+            $secretWord = 'engage';
+
+            require 'header.php';
+        ?>
+        ```
+
+        Inside of `header.php`, what would happen if you tried to access this `$secretWord` variable?
+
+        ```php
+        <!-- header.php -->
+        <header>
+            <?php echo $secretWord; ?>
+        </header>
+        ```
+    explanation: |
+        When you `require` or `include` a file, all variables that you currently have access
+        to  - like `$secretWord` - are still accessible in the new file. When you use `require`,
+        it's almost like someone copies the contents of `header.php` and pastes it into
+        `index.php`.
+    features:
+        multiple_choice:
+            choices:
+                a: This would print `engage` in the `<header>` tag
+                # String with colon inside should be quoted:
+                b: "This would cause an error: the `$secretWord` variable is defined in `index.php`, not in `header.php`"
+                c: There would be no error, but nothing would print inside the `<header>` tag
+            correct: a
 
 # Episode 2
+# RequestNewPage
 requestnewpage_requestpostdatamc:
     question: |
         When you go to a site, your browser makes a request for that page, and even
@@ -160,6 +968,7 @@ requestnewpage_requestpostdatamc:
             correct: d
     grading: []
 
+# CreateForm
 createform_postversusgetmc:
     question: |
         When you surf to a page, the user makes a GET request for that URL. When you
@@ -224,6 +1033,7 @@ createform_createhtmlformcoding:
             assertTrue: css('form').form().has('description')
             failure: I don't see any field with `name="description"`
 
+# ReadingFormData
 readingformdata_fetchpostdatacoding:
     question: |
         Our toy form is setup! Now, when the user submits the form, we need to capture
@@ -337,6 +1147,7 @@ readingformdata_playingwithservercoding:
             assertTrue: body() matches "/Mozilla\/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit\/531.21.10/"
             failure: Are you printing the `$_SERVER['HTTP_USER_AGENT']`?
 
+# SavingPets
 savingpets_formsubmitlogiccoding:
     question: |
         Let's finish the form submit logic! Fetch the existing pet toys with the `get_great_pet_toys()`
@@ -410,8 +1221,8 @@ savingpets_jsonencodereadablemc:
                     json_encode($toys, JSON_PRETTY_PRINT());
                     ```
             correct: a
-    grading: []
 
+# ArtOfRedirecting
 artofredirecting_formsubmitredirectmc:
     question: After a successful form submit, we always redirect the user to another page. Why?
     explanation: |
@@ -509,6 +1320,7 @@ artofredirecting_redirectresponsemc:
             correct: b
     grading: []
 
+# CleaningUpWithSavedPets
 cleaningupwithsavedpets_refactortoysavingcoding:
     question: |
         Users are now able to enter new toys they want to sell and you're a hero in the office!
