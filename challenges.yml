@@ -523,28 +523,30 @@ filesjsonbooleans_readfilejsondecodecoding:
         Make sure the `foreach` is still correctly printing each toy's details.
         And be careful to make sure the keys from `toys.json` match what you're
         printing out!
-    step: ~
+    step: files-json-booleans-read-file-json-decode
     files:
         index.php: ~
+        toys.json:
+            read_only: true
     features:
         editor: ~
         browser: ~
     grading:
         look_for_file_get_contents:
             type: php
-            assertTrue: input("index.php") matches "/file_get_contents(/"
-            failure: I don't see "file_get_contents()" function in your file
+            assertTrue: inputContains('index.php', 'file_get_contents(')
+            failure: I don't see `file_get_contents()` function in your file
         look_for_json_decode:
             type: php
-            assertTrue: input("index.php") matches "/json_decode(/"
-            failure: I don't see "json_decode()" function in your file
+            assertTrue: inputContains('index.php', 'json_decode(')
+            failure: I don't see `json_decode()` function in your file
         check_h3:
             type: http
-            assertTrue: css("h3:contains('Bacon Bone')")
+            assertTrue: css("h3:contains('Bacon Bone')").count() > 0
             failure: I don't see the `Bacon Bone` text inside the `h3` tag
         check_h4:
             type: http
-            assertTrue: css("h4:contains('Bacon-colored')")
+            assertTrue: css("h4:contains('Bacon-colored')").count() > 0
             failure: I don't see the `Bacon-colored` text inside the `h4` tag
 
 filesjsonbooleans_fileputcontentscoding:
@@ -552,8 +554,8 @@ filesjsonbooleans_fileputcontentscoding:
         We're going to totally troll the cats on the site,
         use `file_put_contents()` to save the text `Dogs rule!` into a
         new file called `doglife.txt`. Then read that file and print
-        the string into the `<h2>` tag
-    step: ~
+        the string into the `h2` tag
+    step: files-json-booleans-file-put-contents
     files:
         index.php: ~
     features:
@@ -562,23 +564,23 @@ filesjsonbooleans_fileputcontentscoding:
     grading:
         look_for_file_put_contents:
             type: php
-            assertTrue: input("index.php") matches "/file_put_contents(/"
+            assertTrue: inputContains('index.php', 'file_put_contents(')
             failure: I don't see `file_put_contents()` function in your file
         look_for_doglife.txt:
             type: php
-            assertTrue: input("index.php") matches "/doglife.txt/"
+            assertTrue: inputContains('index.php', 'doglife.txt')
             failure: I don't see `doglife.txt` text in your file
         look_for_text:
             type: php
-            assertTrue: input("index.php") matches "/Dogs rule!/"
+            assertTrue: inputContains('index.php', 'Dogs rule!')
             failure: I don't see `Dogs rule!` text in your file
         look_for_file_get_contents:
             type: php
-            assertTrue: input("index.php") matches "/file_get_contents(/"
-            failure: I don't see "file_get_contents()" function in your file
+            assertTrue: inputContains('index.php', 'file_get_contents(')
+            failure: I don't see `file_get_contents()` function in your file
         check_heading:
             type: http
-            assertTrue: css("h2:contains('Dogs rule!')")
+            assertTrue: css("h2:contains('Dogs rule!')").count() == 1
             failure: I don't see the `Dogs rule!` text inside the `h2` tag
 
 # IfStatement
