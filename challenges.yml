@@ -24,7 +24,7 @@ letswritephp_simpleechocoding:
         because you need the exposure.
     question_steps:
         - 'Start by opening PHP, then echo their tag line: "I luv puppies" inside an `<h2>` tag.'
-    step: start-empty-index-php
+    step: lets-write-php-simple-echo
     files:
         index.php: ~
     features:
@@ -33,15 +33,15 @@ letswritephp_simpleechocoding:
     grading:
         look_for_echo:
             type: php
-            assertTrue: input("index.php") matches "/echo/"
-            failure: I don't see "echo" in your file
+            assertTrue: inputContains('index.php', 'echo')
+            failure: I don't see `echo` in your file
         check_output:
             type: http
-            assertTrue: body() matches "/I luv puppies/"
+            assertTrue: body() matches '/I luv puppies/'
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
-            assertTrue: css("h2:contains('I luv puppies').count() > 0")
+            assertTrue: css("h2:contains('I luv puppies')").count() > 0
             failure: Make sure the `I luv puppies` text is being printed *inside* an `h2` tag
 
 letswritephp_jobofechomc:
@@ -66,9 +66,9 @@ letswritephp_createvariablecoding:
         the life of the dev team, let's use a variable so that when management
         changes the tag line, we only have to update one spot.
     question_steps:
-        - Create a variable called `airpupTag`and set it to the `I luv puppies` text. 
+        - Create a variable called `airpupTag`and set it to the `I luv puppies` text.
         - Now, print this inside the `<h2>` tag
-    step: createvariable-setup-for-variable
+    step: lets-write-php-create-variable
     files:
         index.php: ~
     features:
@@ -77,21 +77,20 @@ letswritephp_createvariablecoding:
     grading:
         check_variable:
             type: php
-            assertTrue: get_variable('airpupTag') == 'I luv puppies'
+            assertTrue: variable('airpupTag') === 'I luv puppies'
             failure: Make sure the `$airpupTag` variable is set to `I luv puppies`
         look_for_echo:
             type: php
-            assertTrue: input("index.php") matches "/echo/"
-            failure: I don't see "echo" in your file
+            assertTrue: inputContains('index.php', 'echo')
+            failure: I don't see `echo` in your file
         check_output:
             type: http
-            assertTrue: body() matches "/I luv puppies/"
+            assertTrue: body() matches '/I luv puppies/'
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
-            assertTrue: css("h2:contains('I luv puppies')")
+            assertTrue: css("h2:contains('I luv puppies')").count() > 0
             failure: Make sure the `I luv puppies` text is being printed *inside* an `h2` tag
-
 
 letswritephp_fixmissingsemicoloncoding:
     question: |
@@ -100,7 +99,7 @@ letswritephp_fixmissingsemicoloncoding:
         ice cream to make up for it. While they're gone...
     question_steps:
         - Fix the errors in this file for them
-    step: fixmissingsemicolon-setup
+    step: lets-write-php-fix-missing-semicolon
     files:
         index.php: ~
     features:
@@ -109,15 +108,15 @@ letswritephp_fixmissingsemicoloncoding:
     grading:
         check_output:
             type: http
-            assertTrue: body() matches "/I luv puppies/"
+            assertTrue: body() matches '/I luv puppies/'
             failure: I don't see `I luv puppies` anywhere - did you print this?
         check_h2:
             type: http
-            assertTrue: css("h2:contains('I luv puppies')")
+            assertTrue: css("h2:contains('I luv puppies')").count() > 0
             failure: Make sure the `I luv puppies` text is being printed *inside* an `h2` tag
         check_h2_2015:
             type: http
-            assertTrue: css("h2:contains('2015')")
+            assertTrue: css("h2:contains('2015')").count() > 0
             failure: Make sure the `2015` text is being printed *inside* an `h2` tag
 
 # Functions
