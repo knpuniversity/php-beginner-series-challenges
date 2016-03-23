@@ -209,16 +209,27 @@ arraysloops_createarraycoding:
         `Kitty`, `Tiger`, and `Jay`. Assign each dog walker to three
         new variables - `$walker1`, `$walker2` and `$walker3`. Then,
         put them into a `$dogWalkers` array.
-    step: ~
+    step: arrays-loops-create-array
     files:
         index.php: ~
     features:
         editor: ~
         browser: ~
     grading:
-        assert_variable:
+        assert_variable_1:
             type: php
-            # @TODO Add missing `variable()` function to the PhpExpressionProvider (don't sure about failure message)
+            assertTrue: variable('walker1') == 'Kitty'
+            failure: Can't assert that `$walker1` variable equal to the `Kitty` string
+        assert_variable_2:
+            type: php
+            assertTrue: variable('walker2') == 'Tiger'
+            failure: Can't assert that `$walker1` variable equal to the `Tiger` string
+        assert_variable_3:
+            type: php
+            assertTrue: variable('walker3') == 'Jay'
+            failure: Can't assert that `$walker1` variable equal to the `Jay` string
+        assert_array:
+            type: php
             assertTrue: variable('dogWalkers') == ['Kitty', 'Tiger', 'Jay']
             failure: Can't assert that `$dogWalkers` variable equal to the ['Kitty', 'Tiger', 'Jay'] array
 
@@ -227,7 +238,7 @@ arraysloops_foreachcoding:
         The kids are ready to work! Let's advertise the new service.
         Use a `foreach` loop to print each kid's name in an `h3` tag.
         Include a `<button>Schedule me</button>` under each kid's name:
-    step: ~
+    step: arrays-loops-foreach
     files:
         index.php: ~
     features:
@@ -236,39 +247,39 @@ arraysloops_foreachcoding:
     grading:
         look_for_foreach:
             type: php
-            assertTrue: input("index.php") matches "/foreach/"
+            assertTrue: inputContains('index.php', 'foreach')
             failure: I don't see `foreach` construct in your file
         check_tiger:
             type: http
-            assertTrue: css("h3:contains('Tiger')")
+            assertTrue: css("h3:contains('Tiger')").count() > 0
             failure: Make sure the `Tiger` text is being printed *inside* an `h3` tag
         check_kitty:
             type: http
-            assertTrue: css("h3:contains('Kitty')")
+            assertTrue: css("h3:contains('Kitty')").count() > 0
             failure: Make sure the `Kitty` text is being printed *inside* an `h3` tag
         check_jay:
             type: http
-            assertTrue: css("h3:contains('Jay')")
+            assertTrue: css("h3:contains('Jay')").count() > 0
             failure: Make sure the `Jay` text is being printed *inside* an `h3` tag
         check_zero_buttons:
             type: http
-            assertTrue: css("body:contains('<button>').count() == 0")
+            assertFalse: css("body button").count() == 0
             failure: Don't forget to add a `<button>Schedule me</button>` inside the `foreach` for each walker!
         check_single_button:
             type: http
-            assertTrue: css("body:contains('<button>').count() == 1")
-            failure: I only see 1 `<button>` - make sure to include this *inside* the `foreach` loop so that 3 are printed
+            assertFalse: css("body button").count() == 1
+            failure: I only see *1* `<button>` - make sure to include this *inside* the `foreach` loop so that 3 are printed
         check_three_buttons:
             type: http
-            assertFalse: css("body:contains('<button>').count() == 3")
-            failure: There should be 3 `<button>` element exactly
+            assertTrue: css("body button").count() == 3
+            failure: There should be *3* `<button>` elements exactly
 
 arraysloops_vardumpcoding:
     question: |
         The boss is worried that one of his kids was left off the
         list! Use the `var_dump` function to show him that all three
         kids are in the array.
-    step: ~
+    step: arrays-loops-var-dump
     files:
         index.php: ~
     features:
@@ -277,12 +288,12 @@ arraysloops_vardumpcoding:
     grading:
         look_for_var_dump:
             type: php
-            assertTrue: input("index.php") matches "/var_dump(/"
+            assertTrue: inputContains('index.php', 'var_dump(')
             failure: I don't see `var_dump()` function in your file
-        check_tiger:
+        check_text:
             type: http
-            assertTrue: body() matches "/Kitty.+Tiger.+Jay/"
-            failure: I don't see `Kitty`, `Tiger` and `Jay` text. Did you print them all?
+            assertTrue: body() matches "/Kitty/" and body() matches "/Tiger/" and body() matches "/Jay/"
+            failure: I don't see `Kitty`, `Tiger` and `Jay` text. Did you "var dump" `$dogWalkers` variable?
 
 arraysloops_arraykeysmc:
     question: |
