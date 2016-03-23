@@ -1,0 +1,6 @@
+diff --git a/index.php b/index.php
+index 59d4cb4..e69de29 100644
+--- a/index.php
++++ b/index.php
+@@ -1 +0,0 @@
+-<?php echo strtolower(strrev('!emosewaP yltcefrruP erA steP ruO')); ?>

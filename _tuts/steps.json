@@ -54,7 +54,37 @@
             "id": "functions-reverse-and-lowercase-solution",
             "name": "Functions: Reverse and lowercase [Solution]",
             "description": null
+        },
+        {
+            "id": "arrays-loops-create-array",
+            "name": "Arrays & loops: Create array",
+            "description": null
+        },
+        {
+            "id": "arrays-loops-create-array-solution",
+            "name": "Arrays & loops: Create array [Solution]",
+            "description": null
+        },
+        {
+            "id": "arrays-loops-foreach",
+            "name": "Arrays & loops: Foreach",
+            "description": null
+        },
+        {
+            "id": "arrays-loops-foreach-solution",
+            "name": "Arrays & loops: Foreach [Solution]",
+            "description": null
+        },
+        {
+            "id": "arrays-loops-var-dump",
+            "name": "Arrays & loops: var_dump()",
+            "description": null
+        },
+        {
+            "id": "arrays-loops-var-dump-solution",
+            "name": "Arrays & loops: var_dump() [Solution]",
+            "description": null
         }
     ],
-    "sha": "9f2aa4d36df56bb34217a03580ec1d90896b980f"
+    "sha": "dca10f55ae6bd8dd54366daff305013fc35bae4f"
 }
