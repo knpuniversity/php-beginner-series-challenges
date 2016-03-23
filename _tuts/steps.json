@@ -36,25 +36,25 @@
             "description": null
         },
         {
-            "id": "functions-setup-for-rand-function",
-            "name": "Functions: Setup for rand() function",
+            "id": "functions-use-rand-function",
+            "name": "Functions: Use rand() function",
             "description": null
         },
         {
-            "id": "functions-solution",
-            "name": "Functions: Solution",
+            "id": "functions-use-rand-function-solution",
+            "name": "Functions: Use rand() function [Solution]",
             "description": null
         },
         {
-            "id": "functions-output-reversed-string",
-            "name": "Functions: Output reversed string",
+            "id": "functions-reverse-and-lowercase",
+            "name": "Functions: Reverse and lowercase",
             "description": null
         },
         {
-            "id": "functions-reverse-and-lowercase-reversed-string",
-            "name": "Functions: Reverse and lowercase reversed string",
+            "id": "functions-reverse-and-lowercase-solution",
+            "name": "Functions: Reverse and lowercase [Solution]",
             "description": null
         }
     ],
-    "sha": "07ca9239b917aece1045a1fca0303b0996a65bab"
+    "sha": "9f2aa4d36df56bb34217a03580ec1d90896b980f"
 }
