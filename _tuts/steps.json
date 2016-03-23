@@ -84,7 +84,27 @@
             "id": "arrays-loops-var-dump-solution",
             "name": "Arrays & loops: var_dump() [Solution]",
             "description": null
+        },
+        {
+            "id": "arrays2-convert-to-associative",
+            "name": "Arrays2: Convert to associative",
+            "description": null
+        },
+        {
+            "id": "arrays2-convert-to-associative-solution",
+            "name": "Arrays2: Convert to associative [Solution]",
+            "description": null
+        },
+        {
+            "id": "arrays2-add-new-key",
+            "name": "Arrays2: Add new key",
+            "description": null
+        },
+        {
+            "id": "arrays2-add-new-key-solution",
+            "name": "Arrays2: Add new key [Solution]",
+            "description": null
         }
     ],
-    "sha": "dca10f55ae6bd8dd54366daff305013fc35bae4f"
+    "sha": "5e2d1ca55adda1b56afd35ac6a1c144dbde6386f"
 }

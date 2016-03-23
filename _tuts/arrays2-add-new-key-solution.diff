@@ -1,0 +1,19 @@
+diff --git a/index.php b/index.php
+index 99f6c3f..685c8e7 100644
+--- a/index.php
++++ b/index.php
+@@ -5,12 +5,13 @@ $waggyPig = array(
+     'age' => 7,
+     'bio' => 'Sleepy white fluffy dog',
+ );
++$waggyPig['breed'] = 'bichon';
+ ?>
+ 
+ <h2><?php echo $waggyPig['name']; ?></h2>
+ <div class="age"><?php echo $waggyPig['age']; ?></div>
+ <div class="weight"><?php echo $waggyPig['weight']; ?></div>
+ <div class="breed">
+-    <!-- print the bred here -->
++    <?php echo $waggyPig['breed']; ?>
+ </div>
+ <p><?php echo $waggyPig['bio']; ?></p>
