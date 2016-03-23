@@ -1,5 +1,5 @@
 diff --git a/index.php b/index.php
-index 7c9e0d7..7b46385 100644
+index 0b75c40..3ba99c3 100644
 --- a/index.php
 +++ b/index.php
 @@ -1,3 +1,6 @@
@@ -7,5 +7,5 @@ index 7c9e0d7..7b46385 100644
 +
 +<!-- remove the text and print the variable here -->
  <h2>
-     <?php echo 'i luv puppies'; ?>
+     <?php echo 'I luv puppies'; ?>
  </h2>

@@ -6,33 +6,33 @@
             "description": null
         },
         {
-            "id": "start-empty-index-php",
-            "name": "Start: Empty index.php",
+            "id": "lets-write-php-simple-echo",
+            "name": "Lets write PHP: Simple echo",
             "description": null
         },
         {
-            "id": "start-basic-echo",
-            "name": "Start: Basic echo",
+            "id": "lets-write-php-simple-echo-solution",
+            "name": "Lets write PHP: Simple echo [Solution]",
             "description": null
         },
         {
-            "id": "createvariable-setup-for-variable",
-            "name": "CreateVariable: Setup for variable",
+            "id": "lets-write-php-create-variable",
+            "name": "Lets write PHP: Create variable",
             "description": null
         },
         {
-            "id": "createvariable-solution",
-            "name": "CreateVariable: Solution",
+            "id": "lets-write-php-create-variable-solution",
+            "name": "Lets write PHP: Create variable [Solution]",
             "description": null
         },
         {
-            "id": "fixmissingsemicolon-setup",
-            "name": "FixMissingSemicolon: Setup",
+            "id": "lets-write-php-fix-missing-semicolon",
+            "name": "Lets write PHP: Fix missing semicolon",
             "description": null
         },
         {
-            "id": "fixmissingsemicolon-solution",
-            "name": "FixMissingSemicolon: Solution",
+            "id": "lets-write-php-fix-missing-semicolon-solution",
+            "name": "Lets write PHP: Fix missing semicolon [Solution]",
             "description": null
         },
         {
@@ -56,5 +56,5 @@
             "description": null
         }
     ],
-    "sha": "729189b2a1ec2269f074ec863b37f0fef322b84a"
+    "sha": "07ca9239b917aece1045a1fca0303b0996a65bab"
 }
