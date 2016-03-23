@@ -1,0 +1,13 @@
+diff --git a/index.php b/index.php
+index e189dae..3c9c10d 100644
+--- a/index.php
++++ b/index.php
+@@ -5,4 +5,7 @@ $toys[] = ['name' => 'Tennis Ball', 'color' => 'Yellow'];
+ $toys[] = ['name' => 'Frisbee', 'color' => 'Red'];
+ ?>
+ 
+-<!-- Add a foreach here -->
++<?php foreach ($toys as $toy) { ?>
++    <h3><?php echo $toy['name']; ?></h3>
++    <h4><?php echo $toy['color']; ?></h4>
++<?php } ?>

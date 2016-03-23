@@ -104,7 +104,37 @@
             "id": "arrays2-add-new-key-solution",
             "name": "Arrays2: Add new key [Solution]",
             "description": null
+        },
+        {
+            "id": "arrays3-multi-array-keys",
+            "name": "Arrays3: Multi-array keys",
+            "description": null
+        },
+        {
+            "id": "arrays3-multi-array-keys-solution",
+            "name": "Arrays3: Multi-array keys [Solution]",
+            "description": null
+        },
+        {
+            "id": "arrays3-foreach-associative",
+            "name": "Arrays3: Foreach associative",
+            "description": null
+        },
+        {
+            "id": "arrays3-foreach-associative-solution",
+            "name": "Arrays3: Foreach associative [Solution]",
+            "description": null
+        },
+        {
+            "id": "arrays3-count-and-variable-reorder",
+            "name": "Arrays3: Count and variable reorder",
+            "description": null
+        },
+        {
+            "id": "arrays3-count-and-variable-reorder-solution",
+            "name": "Arrays3: Count and variable reorder [Solution]",
+            "description": null
         }
     ],
-    "sha": "5e2d1ca55adda1b56afd35ac6a1c144dbde6386f"
+    "sha": "83eff6d4a189bd6e1d909fdb9e5cc517e24ebc99"
 }

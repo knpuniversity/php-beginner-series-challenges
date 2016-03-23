@@ -1,0 +1,11 @@
+diff --git a/index.php b/index.php
+index e211e59..94422de 100644
+--- a/index.php
++++ b/index.php
+@@ -7,5 +7,5 @@ $pets[] = ['name' => 'Pancake', 'bio' => 'Breakfast is my favorite!'];
+ ?>
+ 
+ <h1>
+-    <!-- Print Pancake's bio here -->
++    <?php echo $pets[2]['bio']; ?>
+ </h1>

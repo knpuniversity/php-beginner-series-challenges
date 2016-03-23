@@ -1,0 +1,21 @@
+diff --git a/index.php b/index.php
+index b604ded..2a2af18 100644
+--- a/index.php
++++ b/index.php
+@@ -1,11 +1,11 @@
+-<h4>
+-    <!-- replace the XXXX with the real number of toys using count -->
+-    Selling XXXX Toys
+-</h4>
+-
+ <?php
+ $toys = [];
+ $toys[] = ['name' => 'Bacon Bone', 'color' => 'Bacon-colored'];
+ $toys[] = ['name' => 'Tennis Ball', 'color' => 'Yellow'];
+ $toys[] = ['name' => 'Frisbee', 'color' => 'Red'];
+ ?>
++
++<h4>
++    <!-- replace the XXXX with the real number of toys using count -->
++    Selling <?php echo count($toys); ?> Toys
++</h4>

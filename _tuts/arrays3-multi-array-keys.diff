@@ -1,0 +1,30 @@
+diff --git a/index.php b/index.php
+index 685c8e7..e211e59 100644
+--- a/index.php
++++ b/index.php
+@@ -1,17 +1,11 @@
+ <?php
+-$waggyPig = array(
+-    'name' => 'Waggy Pig',
+-    'weight' => 10,
+-    'age' => 7,
+-    'bio' => 'Sleepy white fluffy dog',
+-);
+-$waggyPig['breed'] = 'bichon';
++$pets = [
++    ['name' => 'Pico de Gato', 'bio' => 'Spicy kitty'],
++];
++$pets[] = ['name' => 'Waggy Pig', 'bio' => 'Little white dog'];
++$pets[] = ['name' => 'Pancake', 'bio' => 'Breakfast is my favorite!'];
+ ?>
+ 
+-<h2><?php echo $waggyPig['name']; ?></h2>
+-<div class="age"><?php echo $waggyPig['age']; ?></div>
+-<div class="weight"><?php echo $waggyPig['weight']; ?></div>
+-<div class="breed">
+-    <?php echo $waggyPig['breed']; ?>
+-</div>
+-<p><?php echo $waggyPig['bio']; ?></p>
++<h1>
++    <!-- Print Pancake's bio here -->
++</h1>
