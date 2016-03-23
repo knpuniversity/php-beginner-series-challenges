@@ -321,7 +321,7 @@ arrays2_converttoassociativecoding:
         the code below to use an associative array: set they keys of the array
         to `name`, `weight`, `age` and `bio`. Then, update the code below so
         Waggy Pig's bio still prints out!
-    step: ~
+    step: arrays2-convert-to-associative
     files:
         index.php: ~
     features:
@@ -330,30 +330,29 @@ arrays2_converttoassociativecoding:
     grading:
         assert_variable:
             type: php
-            # @TODO Add missing `variable()` function to the PhpExpressionProvider (don't sure about failure message)
-            assertTrue: variable('waggyPig') == ['name' => 'Waggy Pig', 'weight' => 10, 'age' => 7, 'bio' => 'Sleepy white fluffy dog']
+            assertTrue: "variable('waggyPig') == {'name': 'Waggy Pig', 'weight': 10, 'age': 7, 'bio': 'Sleepy white fluffy dog'}"
             failure: Can't assert that `$waggyPig` variable equal to the ['name' => 'Waggy Pig', 'weight' => 10, 'age' => 7, 'bio' => 'Sleepy white fluffy dog'] array
         check_h2:
             type: http
-            assertTrue: css("h2:contains('Waggy Pig')")
+            assertTrue: css("h2:contains('Waggy Pig')").count() == 1
             failure: Make sure the `Waggy Pig` text is being printed *inside* an `h2` tag
         check_reversed:
             type: http
-            assertTrue: css(".age").text() == 10
+            assertFalse: css("div.age").text() == 10
             failure: |
                 Careful! Be sure to print the `age` key in the `.age` element and the
                 `weight` key in the `.weight` element. You might have them reversed.
         check_age:
             type: http
-            assertTrue: css(".age").text() == 7
-            failure: Make sure the *age* (`7`) is being printed *inside* a tag with an `.age` class
+            assertTrue: css("div.age").text() == 7
+            failure: Make sure the *age* (`7`) is being printed *inside* a `div` tag with an `.age` class
         check_weight:
             type: http
-            assertTrue: css(".weight").text() == 10
-            failure: Make sure the *weight* value (`10`) is being printed *inside* a tag with a `.weight` class
+            assertTrue: css("div.weight").text() == 10
+            failure: Make sure the *weight* value (`10`) is being printed *inside* a `div` tag with a `.weight` class
         check_paragraph:
             type: http
-            assertTrue: css("p:contains('Sleepy white fluffy dog')")
+            assertTrue: css("p:contains('Sleepy white fluffy dog')").count() == 1
             failure: Make sure the `Sleepy white fluffy dog` text is being printed *inside* a `p` tag
 
 arrays2_addnewkeycoding:
@@ -361,7 +360,7 @@ arrays2_addnewkeycoding:
         We went to ancestry.com and have discovered Waggy Pig's breed:
         `bichon`. Add a new `breed` key on a new line after the `$waggyPig`
         array has already been created. Print this new info below!
-    step: ~
+    step: arrays2-add-new-key
     files:
         index.php: ~
     features:
@@ -370,20 +369,19 @@ arrays2_addnewkeycoding:
     grading:
         check_array_key:
             type: php
-            assertFalse: array_key_exists('breed', $waggyPig)
+            assertTrue: array_key_exists('breed', variable('waggyPig'))
             failure: The `$waggyPig` variable doesn't have a `breed` key!
         assert_variable:
             type: php
-            # @TODO Add missing `variable()` function to the PhpExpressionProvider (don't sure about failure message)
-            assertFalse: variable($waggyPig['breed']) == 'bichon'
+            assertTrue: variable('waggyPig')['breed'] == 'bichon'
             failure: Can't assert that `$waggyPig['breed']` variable equal to the `bichon` value
         look_for_variable:
             type: php
-            assertTrue: input("index.php") matches "/$waggyPig[/"
+            assertTrue: inputContains('index.php', "$waggyPig['breed']")
             failure: Add the `breed` key *after* the `$waggyPig` variable is created using the `['breed']` syntax
         check_breed:
             type: http
-            assertTrue: css(".breed:contains('bichon')")
+            assertTrue: css(".breed:contains('bichon')").count() == 1
             failure: Make sure the `bichon` text is being printed *inside* a tag with a `.breed` class
 
 arrays2_guessautokeymc:
