@@ -419,7 +419,7 @@ arrays3_multiarraykeyscoding:
     question: |
         Let's get to know one of the friendliest pets in town!
         Access the bio on Pancake and print it inside the `<h1>` tag.
-    step: ~
+    step: arrays3-multi-array-keys
     files:
         index.php: ~
     features:
@@ -428,11 +428,11 @@ arrays3_multiarraykeyscoding:
     grading:
         look_for_variable:
             type: php
-            assertTrue: input("index.php") matches "/$pets[2]['bio']/"
-            failure: I don't see "$pets[2]['bio']" in your file
+            assertTrue: inputContains('index.php', "$pets[2]['bio']")
+            failure: I don't see `$pets[2]['bio']` in your file
         check_heading:
             type: http
-            assertTrue: css("h1:contains('Breakfast is my favorite!')")
+            assertTrue: css("h1:contains('Breakfast is my favorite!')").count() == 1
             failure: Make sure the `Breakfast is my favorite!` text is being printed *inside* a `h1` tag
 
 arrays3_foreachassociativecoding:
@@ -443,7 +443,7 @@ arrays3_foreachassociativecoding:
         `name` inside an `h3` tag and its `color` inside an `h4` tag.
         Avoid needing to echo the HTML tags by closing PHP at the end
         of the `foreach` line.
-    step: ~
+    step: arrays3-foreach-associative
     files:
         index.php: ~
     features:
@@ -452,26 +452,26 @@ arrays3_foreachassociativecoding:
     grading:
         check_heading_1:
             type: http
-            assertTrue: css("h3:contains('Bacon Bone')")
+            assertTrue: css("h3:contains('Bacon Bone')").count() == 1
             failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
         check_heading_2:
             type: http
-            assertTrue: css("h3:contains('Tennis Ball')")
+            assertTrue: css("h3:contains('Tennis Ball')").count() == 1
             failure: Make sure the `Tennis Ball` text is being printed *inside* a `h3` tag
         check_heading_3:
             type: http
-            assertTrue: css("h4:contains('Bacon-colored')")
+            assertTrue: css("h4:contains('Bacon-colored')").count() == 1
             failure: Make sure the `Bacon-colored` text is being printed *inside* a `h4` tag
         check_heading_4:
             type: http
-            assertTrue: css("h4:contains('Yellow')")
+            assertTrue: css("h4:contains('Yellow')").count() == 1
             failure: Make sure the `Yellow` text is being printed *inside* a `h4` tag
 
 arrays3_countandvariablereordercoding:
     question: |
         Using the `count()` function, print the total number of pet toys
         that we're selling in the `<h4>` tag.
-    step: ~
+    step: arrays3-count-and-variable-reorder
     files:
         index.php: ~
     features:
@@ -480,11 +480,11 @@ arrays3_countandvariablereordercoding:
     grading:
         look_for_count:
             type: php
-            assertTrue: input("index.php") matches "/count(/"
-            failure: I don't see "count()" function in your file
+            assertTrue: inputContains('index.php', 'count(')
+            failure: I don't see `count()` function in your file
         check_heading:
             type: http
-            assertTrue: css("h4:contains(3)")
+            assertTrue: css('h4').text() matches '/ 3 /'
             failure: I don't see the number `3` inside the `h4` tag. Are you printing the `count()` there?
 
 # FilesJsonBooleans
