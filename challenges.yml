@@ -126,7 +126,7 @@ functions_userandfunctioncoding:
         at a time. To save time (read: make management happy) just print
         a random number - between 100 and 200 - for the number of tail-wagging
         pets we have available.
-    step: functions-setup-for-rand-function
+    step: functions-use-rand-function
     files:
         index.php: ~
     features:
@@ -135,19 +135,19 @@ functions_userandfunctioncoding:
     grading:
         check_output:
             type: http
-            assertTrue: body() matches "/I luv puppies/"
+            assertTrue: body() matches '/I luv puppies/'
             failure: I don't see `I luv puppies` anywhere - did you print this?
         look_for_rand:
             type: php
-            assertTrue: input("index.php") matches "/rand(/"
-            failure: I don't see "rand()" function in your file
+            assertTrue: inputContains('index.php', 'rand(')
+            failure: I don't see `rand()` function in your file
         check_number:
             type: http
-            assertTrue: css("h3 span").text() matches "/^\s+\d+\s+$/"
+            assertTrue: css("h3 > span").text() matches '/[0-9]+/'
             failure: Are you printing the random number inside the `span` tag?
         check_range:
             type: http
-            assertTrue: 100 > css("h3 span").text() || 200 < css("h3 span").text()
+            assertTrue: 100 <= css("h3 span").text() and 200 >= css("h3 span").text()
             failure: Make sure the `rand()` function only returns numbers between 100 and 200
 
 functions_reverseandlowercasecoding:
@@ -157,7 +157,7 @@ functions_reverseandlowercasecoding:
         now it's your job to fix things. As a challenge, see if you
         can reverse and set all characters to lowercase in one line
         using functions.
-    step: functions-output-reversed-string
+    step: functions-reverse-and-lowercase
     files:
         index.php: ~
     features:
@@ -166,12 +166,12 @@ functions_reverseandlowercasecoding:
     grading:
         look_for_strrev:
             type: php
-            assertTrue: input("index.php") matches "/strrev(/"
-            failure: I don't see "strrev()" function in your file
+            assertTrue: inputContains('index.php', 'strrev(')
+            failure: I don't see `strrev()` function in your file
         look_for_strtolower:
             type: php
-            assertTrue: input("index.php") matches "/strtolower(/"
-            failure: I don't see "strtolower()" function in your file
+            assertTrue: inputContains('index.php', 'strtolower(')
+            failure: I don't see `strtolower()` function in your file
         check_output:
             type: http
             assertTrue: body() matches "/our pets are purrfectly pawesome!/"
