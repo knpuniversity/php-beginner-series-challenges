@@ -134,7 +134,27 @@
             "id": "arrays3-count-and-variable-reorder-solution",
             "name": "Arrays3: Count and variable reorder [Solution]",
             "description": null
+        },
+        {
+            "id": "files-json-booleans-read-file-json-decode",
+            "name": "Files, JSON, booleans: Read file json_decode()",
+            "description": null
+        },
+        {
+            "id": "files-json-booleans-read-file-json-decode-solution",
+            "name": "Files, JSON, booleans: Read file json_decode() [Solution]",
+            "description": null
+        },
+        {
+            "id": "files-json-booleans-file-put-contents",
+            "name": "Files, JSON, booleans: file_put_contents()",
+            "description": null
+        },
+        {
+            "id": "files-json-booleans-file-put-contents-solution",
+            "name": "Files, JSON, booleans: file_put_contents() [Solution]",
+            "description": null
         }
     ],
-    "sha": "83eff6d4a189bd6e1d909fdb9e5cc517e24ebc99"
+    "sha": "063f13088e6abf82b0bf47965710c4f18809b965"
 }

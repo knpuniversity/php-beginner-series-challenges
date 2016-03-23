@@ -1,0 +1,18 @@
+diff --git a/index.php b/index.php
+index 80da7ea..3ed1abd 100644
+--- a/index.php
++++ b/index.php
+@@ -1,9 +1,5 @@
+-<?php
+-$contents = file_get_contents('toys.json');
+-$toys = json_decode($contents, true);
+-?>
++<!-- save the doglife.txt file -->
+ 
+-<?php foreach ($toys as $toy) { ?>
+-    <h3><?php echo $toy['name']; ?></h3>
+-    <h4><?php echo $toy['color']; ?></h4>
+-<?php } ?>
++<h2>
++    <!-- print the doglife.txt contents here -->
++</h2>

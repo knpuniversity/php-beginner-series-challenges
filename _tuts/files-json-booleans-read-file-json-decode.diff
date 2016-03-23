@@ -1,0 +1,41 @@
+diff --git a/index.php b/index.php
+index 2a2af18..0b61fbd 100644
+--- a/index.php
++++ b/index.php
+@@ -1,11 +1,6 @@
+-<?php
+-$toys = [];
+-$toys[] = ['name' => 'Bacon Bone', 'color' => 'Bacon-colored'];
+-$toys[] = ['name' => 'Tennis Ball', 'color' => 'Yellow'];
+-$toys[] = ['name' => 'Frisbee', 'color' => 'Red'];
+-?>
++<!-- read from the toys.json file and set the $toys variable -->
+ 
+-<h4>
+-    <!-- replace the XXXX with the real number of toys using count -->
+-    Selling <?php echo count($toys); ?> Toys
+-</h4>
++<?php foreach ($toys as $toy) { ?>
++    <h3><?php echo $toy['name']; ?></h3>
++    <h4><?php echo $toy['color']; ?></h4>
++<?php } ?>
+diff --git a/toys.json b/toys.json
+new file mode 100644
+index 0000000..f04f7ce
+--- /dev/null
++++ b/toys.json
+@@ -0,0 +1,14 @@
++[
++    {
++        "name": "Bacon Bone",
++        "color": "Bacon-colored"
++    },
++    {
++        "name": "Tennis Ball",
++        "color": "Yellow"
++    },
++    {
++        "name": "Frisbee",
++        "color": "Red"
++    }
++]
