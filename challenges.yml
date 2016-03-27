@@ -589,28 +589,30 @@ ifstatement_ifnotoycolorcoding:
         Oh no! Some of the toys are missing a `color` key and now the page
         is giving us a huge error!  Use an `if` statement to fix this.
         If we don't know the color, print `no color`.
-    step: ~
+    step: if-statement-if-no-toy-color
     files:
         index.php: ~
+        toys.json:
+            read_only: true
     features:
         editor: ~
         browser: ~
     grading:
         look_for_if:
             type: php
-            assertTrue: input("index.php") matches "/if/"
+            assertTrue: inputContains('index.php', 'if')
             failure: I don't see `if` statement in your file
         look_for_array_key_exists:
             type: php
-            assertTrue: input("index.php") matches "/array_key_exists(/"
+            assertTrue: inputContains('index.php', 'array_key_exists(')
             failure: I don't see `array_key_exists()` function in your file
         check_output:
             type: http
-            assertTrue: body() matches "/no color/"
+            assertTrue: body() matches '/no color/'
             failure: The `Bacon Bone` doesn't have a color, so it *should* say "no color" for that toy.
         check_heading:
             type: http
-            assertTrue: css("h4:contains('Yellow')")
+            assertTrue: css('h4').get(1) matches '/Yellow/'
             failure: I don't see the `Yellow` text inside the `h4` tag
 
 ifstatement_ifelseifelsecoding:
@@ -622,56 +624,60 @@ ifstatement_ifelseifelsecoding:
         #. If the `color` key exists and is set to `multiple`, print "Multiple Colors".
         #. If the `color` key does not exist, print "no color"
         #. Otherwise, print the actual color value
-    step: ~
+    step: if-statement-if-elseif-else
     files:
         index.php: ~
+        toys.json:
+            read_only: true
     features:
         editor: ~
         browser: ~
     grading:
         look_for_if:
             type: php
-            assertTrue: input("index.php") matches "/if/"
+            assertTrue: inputContains('index.php', 'if')
             failure: I don't see `if` statement in your file
         check_heading_1:
             type: http
-            assertTrue: css("h4:contains('Yellow')")
+            assertTrue: css("h4:contains('Yellow')").count() == 1
             failure: I don't see the `Yellow` text inside the `h4` tag
         check_heading_2:
             type: http
-            assertTrue: css("h4:contains('Multiple Colors')")
+            assertTrue: css("h4:contains('Multiple Colors')").count() == 1
             failure: I don't see the `Multiple Colors` text inside the `h4` tag
         check_heading_3:
             type: http
-            assertTrue: css("h4:contains('no color')")
+            assertTrue: css("h4:contains('no color')").count() == 1
             failure: I don't see the `no color` text inside the `h4` tag
 
 ifstatement_fixerrorsifelsecoding:
     question: |
         Oh no, management tried coding again, someone put a pin code
         on the github repo! Fix the errors below.
-    step: ~
+    step: if-statement-fix-errors-if-else
     files:
         index.php: ~
+        toys.json:
+            read_only: true
     features:
         editor: ~
         browser: ~
     grading:
         look_for_if:
             type: php
-            assertTrue: input("index.php") matches "/if/"
+            assertTrue: inputContains('index.php', 'if')
             failure: I don't see `if` statement in your file
         check_heading_1:
             type: http
-            assertTrue: css("h4:contains('Surprise Color')")
+            assertTrue: css("h4:contains('Surprise Color')").count() == 1
             failure: I don't see the `Surprise Color` text inside the `h4` tag
         check_heading_2:
             type: http
-            assertTrue: css("h4:contains('Yellow')")
+            assertTrue: css("h4:contains('Yellow')").count() == 1
             failure: The Tennis ball is printing as `Surprise Color!`, but it *should* be `Yellow`. There's a more subtle mistake in the first part of the `if` statement...
         check_heading_3:
             type: http
-            assertTrue: css("h4:contains('no color')")
+            assertTrue: css("h4:contains('no color')").count() == 1
             failure: I don't see the `no color` text inside the `h4` tag
 
 # SystemSetup
@@ -765,7 +771,7 @@ creatingfunctions_createfunctioncoding:
         might be handy to re-use this in other places too. Create a new `get_great_pet_toys()`
         function that reads `toys.json`, decodes the contents, and returns the toys.
         Call this to get the toys array.
-    step: ~
+    step: creating-functions-create-function
     files:
         index.php: ~
         toys.json:
@@ -780,19 +786,19 @@ creatingfunctions_createfunctioncoding:
             failure: The `get_great_pet_toys()` function doesn't exist
         look_for_function:
             type: php
-            assertTrue: input("index.php") matches "/get_great_pet_toys(/"
-            failure: I don't see "get_great_pet_toys()" function in your file
+            assertTrue: inputContains('index.php', 'get_great_pet_toys(')
+            failure: I don't see `get_great_pet_toys()` function in your file
         check_heading_1:
             type: http
-            assertTrue: css("h4:contains('Yellow')")
+            assertTrue: css("h4:contains('Yellow')").count() == 1
             failure: Make sure the `Yellow` text is being printed *inside* a `h4` tag
         check_heading_2:
             type: http
-            assertTrue: css("h4:contains('Multiple Colors')")
+            assertTrue: css("h4:contains('Multiple Colors')").count() == 1
             failure: Make sure the `Multiple Colors` text is being printed *inside* a `h4` tag
         check_heading_3:
             type: http
-            assertTrue: css("h3:contains('Bacon Bone')")
+            assertTrue: css("h3:contains('Bacon Bone')").count() == 1
             failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
 
 # RequireInclude
@@ -802,7 +808,7 @@ requireinclude_isolatefunctionuserequirecoding:
         bigger and we need to stay organized! Move the `get_great_pet_toys()` function
         out of `index.php` and into the new `lib/functions.php` file so we can
         re-use it later.
-    step: ~
+    step: require-include-isolate-function-use-require
     files:
         index.php: ~
         lib/functions.php: ~
@@ -818,12 +824,12 @@ requireinclude_isolatefunctionuserequirecoding:
             failure: The `get_great_pet_toys()` function doesn't exist
         look_for_function:
             type: php
-            assertTrue: input("lib/functions.php") matches "/get_great_pet_toys(/"
-            failure: I don't see "get_great_pet_toys()" function in the `lib/functions.php` file
+            assertTrue: inputContains('lib/functions.php', 'get_great_pet_toys(')
+            failure: I don't see `get_great_pet_toys()` function in the `lib/functions.php` file
         look_for_require:
             type: php
-            assertTrue: input("index.php") matches "/require/"
-            failure: I don't see "require" statement in the `index.php` file
+            assertTrue: inputContains('index.php', 'require')
+            failure: I don't see `require` statement in the `index.php` file
         check_heading:
             type: http
             assertTrue: css("h3:contains('Bacon Bone')")
@@ -869,7 +875,7 @@ simplelayout_layoutwithrequirecoding:
         To do that, move all the header HTML into `header.php`, move all the footer HTML
         into `footer.php`, and then `require` each of these files in `index.php` and `aboutUs.php`
         to get the same, "nice" layout in both of our pages.
-    step: ~
+    step: simple-layout-layout-with-require
     files:
         index.php: ~
         aboutUs.php: ~
@@ -882,19 +888,19 @@ simplelayout_layoutwithrequirecoding:
     grading:
         look_for_html_opening_tag:
             type: php
-            assertTrue: input("layout/header.php") matches "/<html>/"
+            assertTrue: inputContains('layout/header.php', '<html>')
             failure: I don't see `html` opening tag in `layout/header.php` file
         look_for_html_closing_tag:
             type: php
-            assertTrue: input("layout/footer.php") matches "/<\/html>/"
+            assertTrue: inputContains('layout/footer.php', '<\/html>')
             failure: I don't see `html` closing tag in `layout/footer.php` file
         look_for_variable:
             type: php
-            assertTrue: input("index.php") matches "/$airpupTagLine =/"
+            assertTrue: inputContains('index.php', '$airpupTagLine =')
             failure: "Keep the `$airpupTagLine = ...` code inside `index.php`: that's code that is used for just *this* page, and shouldn't be in the header"
         look_for_require:
             type: php
-            assertTrue: input("index.php") matches "/require/"
+            assertTrue: inputContains('index.php', 'require')
             failure: I don't see `require` statement in `index.php` file
         # @TODO Dont know how to converts next grading:
 #        $htmlGrader->assertOutputContains('<html>', 'Don\'t forget to require the `header.php` file in `aboutUs.php` so that it has the nice layout');
