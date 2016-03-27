@@ -1,0 +1,11 @@
+diff --git a/new_toy.php b/new_toy.php
+index e69de29..ee98d76 100644
+--- a/new_toy.php
++++ b/new_toy.php
+@@ -0,0 +1,6 @@
++<form action="/new_toy.php" method="POST">
++    <input type="text" name="name" />
++    <textarea name="description"></textarea>
++
++    <button type="submit">Add toy</button>
++</form>

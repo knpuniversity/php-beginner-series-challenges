@@ -1,0 +1,15 @@
+diff --git a/new_toy.php b/new_toy.php
+index a4be3dc..7722d15 100644
+--- a/new_toy.php
++++ b/new_toy.php
+@@ -1,4 +1,9 @@
+-<!-- set variables and var_dump() up here -->
++<?php
++$name = $_POST['name'];
++$description = $_POST['description'];
++
++var_dump($name, $description);
++?>
+ 
+ <form action="/new_toy.php" method="POST">
+     <input type="text" name="name" />

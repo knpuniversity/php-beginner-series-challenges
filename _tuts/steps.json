@@ -209,7 +209,77 @@
             "id": "simple-layout-layout-with-require-solution",
             "name": "Simple layout: Layout with require [Solution]",
             "description": null
+        },
+        {
+            "id": "create-form-create-html-form",
+            "name": "Create form: Create HTML form",
+            "description": null
+        },
+        {
+            "id": "create-form-create-html-form-solution",
+            "name": "Create form: Create HTML form [Solution]",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-fetch-post-data",
+            "name": "Reading form data: Fetch POST data",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-fetch-post-data-solution",
+            "name": "Reading form data: Fetch POST data [Solution]",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-check-http-method",
+            "name": "Reading form data: Check HTTP method",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-check-http-method-solution",
+            "name": "Reading form data: Check HTTP method [Solution]",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-playing-with-server",
+            "name": "Reading form data: Playing with $_SERVER",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-playing-with-server-solution",
+            "name": "Reading form data: Playing with $_SERVER [Solution]",
+            "description": null
+        },
+        {
+            "id": "saving-pets-form-submit-logic",
+            "name": "Saving pets: Form submit logic",
+            "description": null
+        },
+        {
+            "id": "saving-pets-form-submit-logic-solution",
+            "name": "Saving pets: Form submit logic [Solution]",
+            "description": null
+        },
+        {
+            "id": "art-of-redirecting-redirect-user-to-the-toy-list",
+            "name": "Art of redirecting: Redirect user to the toy list",
+            "description": null
+        },
+        {
+            "id": "art-of-redirecting-redirect-user-to-the-toy-list-solution",
+            "name": "Art of redirecting: Redirect user to the toy list [Solution]",
+            "description": null
+        },
+        {
+            "id": "cleaning-up-with-saved-pets-refactor-toy-saving",
+            "name": "Cleaning up with saved pets: Refactor toy saving",
+            "description": null
+        },
+        {
+            "id": "cleaning-up-with-saved-pets-refactor-toy-saving-solution",
+            "name": "Cleaning up with saved pets: Refactor toy saving [Solution]",
+            "description": null
         }
     ],
-    "sha": "97259fc2752fe2e258a2be4ab73c10308ddc493f"
+    "sha": "6ca7d9b4b15d8545d95ad344cfa1362386a9cb42"
 }

@@ -1,0 +1,9 @@
+diff --git a/new_toy.php b/new_toy.php
+index 3fcd4bd..fe68918 100644
+--- a/new_toy.php
++++ b/new_toy.php
+@@ -1,3 +1,3 @@
+ <h3>
+-    Print the browser information of your user here
++    <?php echo $_SERVER['HTTP_USER_AGENT']; ?>
+ </h3>
