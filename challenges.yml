@@ -1020,7 +1020,7 @@ createform_createhtmlformcoding:
         site to sell. Create an HTML form that submits a POST request to `/new_toy.php`
         and give it 2 fields: an input text field called `name` and a `textarea` field
         called `description`:
-    step: ~
+    step: create-form-create-html-form
     files:
         new_toy.php: ~
     features:
@@ -1030,7 +1030,7 @@ createform_createhtmlformcoding:
     grading:
         look_for_form:
             type: php
-            assertTrue: input("new_toy.php") matches "/<form/"
+            assertTrue: inputContains('new_toy.php', '<form')
             failure: Did you create a `form` tag yet?
         check_action:
             type: http
@@ -1059,7 +1059,7 @@ readingformdata_fetchpostdatacoding:
 
         Behind the scenes, we'll fill out the fields with a new toy idea we have and submit
         so you can see what the data looks like.
-    step: ~
+    step: reading-form-data-fetch-post-data
     files:
         new_toy.php: ~
     features:
@@ -1069,20 +1069,20 @@ readingformdata_fetchpostdatacoding:
     grading:
         look_for_echo:
             type: php
-            assertTrue: input("new_toy.php") matches "/$_POST/"
+            assertTrue: inputContains('new_toy.php', '$_POST')
             failure: I don't see `$_POST` in your file
         check_variable_1:
             type: php
-            assertTrue: get_variable('name') == 'Fluffy Pig Stuffed Animal'
+            assertTrue: variable('name') == 'Fluffy Pig Stuffed Animal'
             failure: Make sure the `$name` variable is set to `Fluffy Pig Stuffed Animal`
         check_variable_2:
             type: php
-            assertTrue: get_variable('description') == 'Your dog will *love* to chew and destroy this adorable pig!'
+            assertTrue: variable('description') == 'Your dog will *love* to chew and destroy this adorable pig!'
             failure: Make sure the `$description` variable is set to `Your dog will *love* to chew and destroy this adorable pig!`
         look_for_var_dump:
             type: php
-            assertTrue: input("index.php") matches "/var_dump(/"
-            failure: I don't see "var_dump()" function in your file
+            assertTrue: inputContains('index.php', 'var_dump(')
+            failure: I don't see `var_dump()` function in your file
 
 readingformdata_checkhttpmethodcoding:
     question: |
@@ -1093,7 +1093,7 @@ readingformdata_checkhttpmethodcoding:
         But now, we're just surfing to the page directly and getting an error!
         Add an `if` statement around our logic so that it only runs when the user submits
         the form (i.e. makes a POST request).
-    step: ~
+    step: reading-form-data-check-http-method
     files:
         new_toy.php: ~
     features:
@@ -1103,15 +1103,15 @@ readingformdata_checkhttpmethodcoding:
     grading:
         look_for_server:
             type: php
-            assertTrue: input("new_toy.php") matches "/$_SERVER/"
+            assertTrue: inputContains('new_toy.php', '$_SERVER')
             failure: I don't see `$_SERVER` in your file
         look_for_request_method:
             type: php
-            assertTrue: input("new_toy.php") matches "/REQUEST_METHOD/"
+            assertTrue: inputContains('new_toy.php', 'REQUEST_METHOD')
             failure: I don't see `$_SERVER['REQUEST_METHOD']` in your file
         look_for_post:
             type: php
-            assertTrue: input("new_toy.php") matches "/POST/"
+            assertTrue: input('new_toy.php') matches '/POST/i'
             failure: Are you checking that the request method equals `POST`?
 
 readingformdata_arraykeyexistsissetmc:
@@ -1142,7 +1142,7 @@ readingformdata_playingwithservercoding:
         about what browser you're using. It's OK that you'll have a wrong answer at first to
         figure this out. *Hint* The browser information is a big long string that (in this
         example) will include `Mozilla` in it.
-    step: ~
+    step: reading-form-data-playing-with-server
     files:
         new_toy.php: ~
     features:
@@ -1152,11 +1152,11 @@ readingformdata_playingwithservercoding:
     grading:
         look_for_server:
             type: php
-            assertTrue: input("new_toy.php") matches "/$_SERVER/"
+            assertTrue: inputContains('new_toy.php', '$_SERVER')
             failure: I don't see `$_SERVER` in your file
         look_for_request_method:
             type: php
-            assertTrue: input("new_toy.php") matches "/HTTP_USER_AGENT/"
+            assertTrue: inputContains('new_toy.php', 'HTTP_USER_AGENT')
             failure: I don't see `$_SERVER['HTTP_USER_AGENT']` in your file
         look_for_post:
             type: http
@@ -1170,10 +1170,10 @@ savingpets_formsubmitlogiccoding:
         function, add the new toy to the array, then save the JSON back to `toys.json`. To
         prove it's working, read the file again with `file_get_contents()` and `var_dump()`
         that JSON string.
-    step: ~
+    step: saving-pets-form-submit-logic
     files:
         new_toy.php: ~
-        functions.php:
+        lib/functions.php:
             read_only: true
         toys.json:
             read_only: true
@@ -1184,29 +1184,28 @@ savingpets_formsubmitlogiccoding:
     grading:
         look_for_json_encode:
             type: php
-            assertTrue: input("new_toy.php") matches "/json_encode(/"
+            assertTrue: inputContains('new_toy.php', 'json_encode(')
             failure: Use `json_encode()` in `new_toy.php` to encode the toys array before saving it
         look_for_file_put_contents:
             type: php
-            assertTrue: input("new_toy.php") matches "/file_put_contents(/"
+            assertTrue: inputContains('new_toy.php', 'file_put_contents(')
             failure: Use `file_put_contents()` in `new_toy.php` to save the new JSON string
         look_for_var_dump:
             type: php
-            assertTrue: input("new_toy.php") matches "/var_dump(/"
-            # A string can't start with "`" char:
-            failure: "`var_dump()` the file contents of `toys.json` after saving the new toy"
+            assertTrue: inputContains('new_toy.php', 'var_dump(')
+            failure: Use `var_dump()` to dump the file contents of `toys.json` after saving the new toy
         look_for_function:
             type: php
-            assertTrue: input("new_toy.php") matches "/get_great_pet_toys(/"
+            assertTrue: inputContains('new_toy.php', 'get_great_pet_toys(')
             failure: Call `get_great_pet_toys()` first to get the existing toys
         look_for_text_1:
             type: http
-            assertTrue: body() matches "/Bacon Bone/"
+            assertTrue: body() matches '/Bacon Bone/'
             failure: I don't see `Bacon Bone` in `toys.json` - double-check that you're keeping the original pets, not replacing them entirely.
         look_for_text_2:
             type: http
-            assertTrue: body() matches "/Fluffy Pig Stuffed Animal/"
-            failure: I don't see the new "Fluffy Pig" toy in `toys.json`. Are you adding it to the toys array before calling `json_encode()` and saving the file?
+            assertTrue: body() matches '/Fluffy Pig Stuffed Animal/'
+            failure: I don't see the new `Fluffy Pig Stuffed Animal` toy in `toys.json`. Are you adding it to the toys array before calling `json_encode()` and saving the file?
 
 savingpets_jsonencodereadablemc:
     question: |
@@ -1274,7 +1273,7 @@ artofredirecting_redirectusertoylistcoding:
         **Note**: You won't see any output, because redirects actually return a blank response.
         In the real world, your browser would quickly make a second request to `about.php`
         (and you'd see that page).
-    step: ~
+    step: art-of-redirecting-redirect-user-to-the-toy-list
     files:
         aboutUs.php: ~
         about.php:
@@ -1286,11 +1285,11 @@ artofredirecting_redirectusertoylistcoding:
     grading:
         look_for_header:
             type: php
-            assertTrue: input("aboutUs.php") matches "/header(/"
+            assertTrue: inputContains('aboutUs.php', 'header(')
             failure: Use the `header()` function to redirect
         look_for_location:
             type: php
-            assertTrue: input("aboutUs.php") matches "/Location:/"
+            assertTrue: input('aboutUs.php') matches '/Location:/i'
             failure: Set the `Location:` header to `/about.php`
 
 artofredirecting_redirectresponsemc:
@@ -1342,10 +1341,10 @@ cleaningupwithsavedpets_refactortoysavingcoding:
         Users are now able to enter new toys they want to sell and you're a hero in the office!
         Put the finishing touches on this by reorganizing the toy-saving logic into a new function
         called `save_toys()`. Be sure to call this function to keep things working!
-    step: ~
+    step: cleaning-up-with-saved-pets-refactor-toy-saving
     files:
         new_toy.php: ~
-        functions.php: ~
+        lib/functions.php: ~
         toys.json:
             read_only: true
     features:
@@ -1355,9 +1354,9 @@ cleaningupwithsavedpets_refactortoysavingcoding:
     grading:
         look_for_function_declaration:
             type: php
-            assertTrue: input("functions.php") matches "/function save_toys(/"
+            assertTrue: inputContains('lib/functions.php', 'function save_toys(')
             failure: Put the `save_toys()` function declaration into `functions.php` for organization
         look_for_function_usage:
             type: php
-            assertTrue: input("new_toy.php") matches "/save_toys(/"
+            assertTrue: inputContains('new_toy.php', 'save_toys(')
             failure: Be sure to call the `save_toys()` function from within `new_toy.php`
