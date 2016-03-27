@@ -154,7 +154,62 @@
             "id": "files-json-booleans-file-put-contents-solution",
             "name": "Files, JSON, booleans: file_put_contents() [Solution]",
             "description": null
+        },
+        {
+            "id": "if-statement-if-no-toy-color",
+            "name": "If statement: If no toy color",
+            "description": null
+        },
+        {
+            "id": "if-statement-if-no-toy-color-solution",
+            "name": "If statement: If no toy color [Solution]",
+            "description": null
+        },
+        {
+            "id": "if-statement-if-elseif-else",
+            "name": "If statement: If-elseif-else",
+            "description": null
+        },
+        {
+            "id": "if-statement-if-elseif-else-solution",
+            "name": "If statement: If-elseif-else [Solution]",
+            "description": null
+        },
+        {
+            "id": "if-statement-fix-errors-if-else",
+            "name": "If statement: Fix errors if-else",
+            "description": null
+        },
+        {
+            "id": "if-statement-fix-errors-if-else-solution",
+            "name": "If statement: Fix errors if-else [Solution]",
+            "description": null
+        },
+        {
+            "id": "creating-functions-create-function",
+            "name": "Creating functions: Create function",
+            "description": null
+        },
+        {
+            "id": "require-include-isolate-function-use-require",
+            "name": "Require, include: Isolate function - use require",
+            "description": null
+        },
+        {
+            "id": "require-include-isolate-function-use-require-solution",
+            "name": "Require, include: Isolate function - use require [Solution]",
+            "description": null
+        },
+        {
+            "id": "simple-layout-layout-with-require",
+            "name": "Simple layout: Layout with require",
+            "description": null
+        },
+        {
+            "id": "simple-layout-layout-with-require-solution",
+            "name": "Simple layout: Layout with require [Solution]",
+            "description": null
         }
     ],
-    "sha": "063f13088e6abf82b0bf47965710c4f18809b965"
+    "sha": "97259fc2752fe2e258a2be4ab73c10308ddc493f"
 }

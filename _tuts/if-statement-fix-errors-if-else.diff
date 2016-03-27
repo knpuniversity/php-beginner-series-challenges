@@ -1,0 +1,29 @@
+diff --git a/index.php b/index.php
+index 980ec1f..a687aff 100644
+--- a/index.php
++++ b/index.php
+@@ -7,9 +7,9 @@ $toys = json_decode($contents, true);
+     <h3><?php echo $toy['name']; ?></h3>
+     <h4>
+         <?php
+-        if (array_key_exists('color', $toy) && $toy['color'] == 'multiple') {
+-            echo 'Multiple Colors';
+-        } elseif (!array_key_exists('color', $toy)) {
++        if (array_key_exists('color', $toy) && $toy['color'] = 'surprise') {
++            echo 'Surprise Color!';
++        } elseif !array_key_exists('color', $toy) {
+             echo 'no color';
+         } else {
+             echo $toy['color'];
+diff --git a/toys.json b/toys.json
+index 929b75e..ee955c5 100644
+--- a/toys.json
++++ b/toys.json
+@@ -8,6 +8,6 @@
+     },
+     {
+         "name": "Frisbee",
+-        "color": "multiple"
++        "color": "surprise"
+     }
+ ]

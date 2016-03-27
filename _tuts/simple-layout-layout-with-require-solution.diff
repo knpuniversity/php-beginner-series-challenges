@@ -1,0 +1,78 @@
+diff --git a/aboutUs.php b/aboutUs.php
+index 7735435..9e323fd 100644
+--- a/aboutUs.php
++++ b/aboutUs.php
+@@ -1,4 +1,4 @@
+-<!-- require the header here -->
++<?php require 'layout/header.php'; ?>
+ 
+ <h1>About Us</h1>
+ 
+@@ -13,4 +13,4 @@
+     <abbr title="Phone">P:</abbr> (123) 456-7890
+ </address>
+ 
+-<!-- require the footer here -->
++<?php require 'layout/footer.php'; ?>
+diff --git a/index.php b/index.php
+index fd5607c..a42069a 100644
+--- a/index.php
++++ b/index.php
+@@ -1,24 +1,10 @@
+ <?php
++require 'layout/header.php';
++
+ $airpupTagLine = 'We luv puppies!';
+ ?>
+ 
+-<!-- HEADER CODE STARTS HERE -->
+-<html>
+-<head>
+-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+-</head>
+-<body>
+-<div class="container">
+-    <!-- HEADER CODE ENDS HERE -->
+-
+-    <h1>Welcome to AirPupNMeow.com!</h1>
+-    <h3><?php echo $airpupTagLine; ?></h3>
++<h1>Welcome to AirPupNMeow.com!</h1>
++<h3><?php echo $airpupTagLine; ?></h3>
+ 
+-    <!-- FOOTER CODE STARTS HERE -->
+-    <footer>
+-        &copy; 2015 AirPupNMeow.com
+-    </footer>
+-</div>
+-</body>
+-</html>
+-<!-- FOOTER CODE ENDS HERE -->
++<?php require 'layout/footer.php'; ?>
+diff --git a/layout/footer.php b/layout/footer.php
+index 90bf73f..8ea0784 100644
+--- a/layout/footer.php
++++ b/layout/footer.php
+@@ -1 +1,8 @@
+-<!-- Move the FOOTER code into here -->
++<!-- FOOTER CODE STARTS HERE -->
++            <footer>
++                &copy; 2015 AirPupNMeow.com
++            </footer>
++        </div>
++    </body>
++</html>
++<!-- FOOTER CODE ENDS HERE -->
+diff --git a/layout/header.php b/layout/header.php
+index eaa8fba..d16c58b 100644
+--- a/layout/header.php
++++ b/layout/header.php
+@@ -1 +1,8 @@
+-<!-- Move the HEADER code into here -->
++<!-- HEADER CODE STARTS HERE -->
++<html>
++    <head>
++        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
++    </head>
++    <body>
++        <div class="container">
++<!-- HEADER CODE ENDS HERE -->
