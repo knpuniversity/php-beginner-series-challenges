@@ -612,7 +612,7 @@ ifstatement_ifnotoycolorcoding:
             failure: The `Bacon Bone` doesn't have a color, so it *should* say "no color" for that toy.
         check_heading:
             type: http
-            assertTrue: css('h4').get(1) matches '/Yellow/'
+            assertTrue: css("h4:contains('Yellow')").count() > 0
             failure: I don't see the `Yellow` text inside the `h4` tag
 
 ifstatement_ifelseifelsecoding:
@@ -621,9 +621,9 @@ ifstatement_ifelseifelsecoding:
         Use an `if - elseif - else` statement to handle these three possible
         situations:
 
-        #. If the `color` key exists and is set to `multiple`, print "Multiple Colors".
-        #. If the `color` key does not exist, print "no color"
-        #. Otherwise, print the actual color value
+        1. If the `color` key exists and is set to `multiple`, print "Multiple Colors".
+        2. If the `color` key does not exist, print "no color"
+        3. Otherwise, print the actual color value
     step: if-statement-if-elseif-else
     files:
         index.php: ~
