@@ -1,11 +1,11 @@
 diff --git a/index.php b/index.php
-index 99f6c3f..685c8e7 100644
+index 14fa6e9..233120d 100644
 --- a/index.php
 +++ b/index.php
-@@ -5,12 +5,13 @@ $waggyPig = array(
+@@ -5,12 +5,13 @@ $waggyPig = [
      'age' => 7,
      'bio' => 'Sleepy white fluffy dog',
- );
+ ];
 +$waggyPig['breed'] = 'bichon';
  ?>
  
