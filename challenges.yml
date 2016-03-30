@@ -704,6 +704,10 @@ systemsetup_localhostportfilenamemc:
         using right now. This means that the request leaves our computer, then comes right
         back. The `:8000` means that it knocks on the door of port `8000`. Finally, in most
         setups, since there is no filename in the URL, `index.php` is executed and returned.
+    features:
+        multiple_choice:
+            choices:
+                a: |
                     The request cannot be completed because there is no filename
                     (e.g. `index.php`) in the URL
                 b: |
@@ -782,7 +786,7 @@ creatingfunctions_createfunctioncoding:
     grading:
         check_function:
             type: php
-            assertFalse: function_exists('get_great_pet_toys')
+            assertTrue: function_exists('get_great_pet_toys')
             failure: The `get_great_pet_toys()` function doesn't exist
         look_for_function:
             type: php
@@ -820,7 +824,7 @@ requireinclude_isolatefunctionuserequirecoding:
     grading:
         check_function:
             type: php
-            assertFalse: function_exists('get_great_pet_toys')
+            assertTrue: function_exists('get_great_pet_toys')
             failure: The `get_great_pet_toys()` function doesn't exist
         look_for_function:
             type: php
@@ -832,7 +836,7 @@ requireinclude_isolatefunctionuserequirecoding:
             failure: I don't see `require` statement in the `index.php` file
         check_heading:
             type: http
-            assertTrue: css("h3:contains('Bacon Bone')")
+            assertTrue: css("h3:contains('Bacon Bone')").count() > 0
             failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
 
 requireinclude_noclosingphptagmc:
@@ -972,46 +976,44 @@ requestnewpage_requestpostdatamc:
             choices:
                 a: |
                     The user just browsed to this page, and the form will be pre-filled
-                    with the data on the last line.
+                    with the data on the last line
                 b: |
                     The user surfed to `/pets_new.php` and submitted a form. The data
-                    on the bottom is what they filled in for the form fields.
+                    on the bottom is what they filled in for the form fields
                 c: |
                     The user just performed a search for all pets named "Waggy Pig" and breed "bichon"
                 d: |
                     The user just submitted a form  with `<form action="/pets_new.php" method="POST">`
-                    and the data on the bottom is what they filled in for the form fields.'
+                    and the data on the bottom is what they filled in for the form fields
             correct: d
-    grading: []
 
 # CreateForm
 createform_postversusgetmc:
     question: |
-        When you surf to a page, the user makes a GET request for that URL. When you
-        submit a form, the user makes a POST request to that URL. Which of the following
-        is NOT true about GET and POST requests:
+        When you surf to a page, the user makes a `GET` request for that URL. When you
+        submit a form, the user makes a `POST` request to that URL. Which of the following
+        is NOT true about `GET` and `POST` requests:
     explanation: |
         Even though `POST` requests are typically used to send data, data can be sent via
         both `POST` and `GET` requests (with, for example, a `<form method="GET">` form).
-        So really, there's nothing you can do with a GET request that you can't do with a
-        POST request and vice-versa. But don't be confused: in practice, POST requests are
-        used for almost all form submits and GET requests are used everywhere else.
+        So really, there's nothing you can do with a `GET` request that you can't do with a
+        `POST` request and vice-versa. But don't be confused: in practice, `POST` requests are
+        used for almost all form submits and `GET` requests are used everywhere else.
     features:
         multiple_choice:
             choices:
                 a: |
-                    POST is used when the user needs to send data. GET is used when a user
+                    `POST` is used when the user needs to send data. `GET` is used when a user
                     just wants to fetch a page
                 b: |
-                    A GET request cannot send any data (i.e. filled-in form fields)
+                    A `GET` request cannot send any data (i.e. filled-in form fields)
                 c: |
-                    After making both GET and POST requests, the server sends back a response
+                    After making both `GET` and `POST` requests, the server sends back a response
                     (often the next HTML page to display)
                 d: |
-                    There's no *real* difference between GET and POST requests: both can send data,
-                    both cause a response to be returned, but *typically* POST is used to send data.
+                    There's no *real* difference between `GET` and `POST` requests: both can send data,
+                    both cause a response to be returned, but *typically* `POST` is used to send data.
             correct: b
-    grading: []
 
 createform_createhtmlformcoding:
     question: |
@@ -1031,7 +1033,7 @@ createform_createhtmlformcoding:
         look_for_form:
             type: php
             assertTrue: inputContains('new_toy.php', '<form')
-            failure: Did you create a `form` tag yet?
+            failure: Did you create a `form` tag?
         check_action:
             type: http
             assertTrue: css('form').attr('action') == '/new_toy.php'
@@ -1134,7 +1136,6 @@ readingformdata_arraykeyexistsissetmc:
                     `array_key_exists()` can be used on all arrays, but `isset()` can only
                     be used with associative arrays
             correct: a
-    grading: []
 
 readingformdata_playingwithservercoding:
     question: |
@@ -1258,7 +1259,6 @@ artofredirecting_formsubmitredirectmc:
                 c: Redirecting prevents the form from being re-populated with the same data
                 d: Some older browsers cannot properly handle a form submit, unless it redirects
             correct: a
-    grading: []
 
 artofredirecting_redirectusertoylistcoding:
     question: |
@@ -1333,7 +1333,6 @@ artofredirecting_redirectresponsemc:
                     Location: /new_toy.php
                     ```
             correct: b
-    grading: []
 
 # CleaningUpWithSavedPets
 cleaningupwithsavedpets_refactortoysavingcoding:
