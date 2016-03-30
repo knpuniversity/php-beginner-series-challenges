@@ -1019,8 +1019,8 @@ createform_createhtmlformcoding:
     question: |
         The pet toy business is *so* popular that we're becoming the Etsy of dog toys:
         allowing other people to post their own vintage, organic, vegan toys on our
-        site to sell. Create an HTML form that submits a POST request to `/new_toy.php`
-        and give it 2 fields: an input text field called `name` and a `textarea` field
+        site to sell. Create an HTML form that submits a `POST` request to `/new_toy.php`
+        and give it 2 fields: an `input` text field called `name` and a `textarea` field
         called `description`:
     step: create-form-create-html-form
     files:
@@ -1036,20 +1036,20 @@ createform_createhtmlformcoding:
             failure: Did you create a `form` tag?
         check_action:
             type: http
-            assertTrue: css('form').attr('action') == '/new_toy.php'
+            assertTrue: css('form').get(0).getAttribute('action') == '/new_toy.php'
             failure: Make sure your form submits to `/new_toy.php`
         check_method:
             type: http
-            assertTrue: css('form').attr('method') matches "/POST/i"
+            assertTrue: css('form').get(0).getAttribute('method') matches '/POST/i'
             failure: Make sure your form has a `method` attribute on your `form` set to `POST`
         check_field_name:
             type: http
-            assertTrue: css('form').form().has('name')
-            failure: I don't see any field with `name="name"`
+            assertTrue: css('form').get(0).has('css', 'input[name="name"]')
+            failure: I don't see any `input` field with `name="name"`
         check_field_description:
             type: http
-            assertTrue: css('form').form().has('description')
-            failure: I don't see any field with `name="description"`
+            assertTrue: css('form').get(0).has('css', 'textarea[name="description"]')
+            failure: I don't see any `textarea` field with `name="description"`
 
 # ReadingFormData
 readingformdata_fetchpostdatacoding:
@@ -1083,7 +1083,7 @@ readingformdata_fetchpostdatacoding:
             failure: Make sure the `$description` variable is set to `Your dog will *love* to chew and destroy this adorable pig!`
         look_for_var_dump:
             type: php
-            assertTrue: inputContains('index.php', 'var_dump(')
+            assertTrue: inputContains('new_toy.php', 'var_dump(')
             failure: I don't see `var_dump()` function in your file
 
 readingformdata_checkhttpmethodcoding:
@@ -1094,7 +1094,7 @@ readingformdata_checkhttpmethodcoding:
 
         But now, we're just surfing to the page directly and getting an error!
         Add an `if` statement around our logic so that it only runs when the user submits
-        the form (i.e. makes a POST request).
+        the form (i.e. makes a `POST` request).
     step: reading-form-data-check-http-method
     files:
         new_toy.php: ~
@@ -1161,7 +1161,7 @@ readingformdata_playingwithservercoding:
             failure: I don't see `$_SERVER['HTTP_USER_AGENT']` in your file
         look_for_post:
             type: http
-            assertTrue: body() matches "/Mozilla\/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit\/531.21.10/"
+            assertTrue: body() matches '/Mozilla/'
             failure: Are you printing the `$_SERVER['HTTP_USER_AGENT']`?
 
 # SavingPets
@@ -1246,7 +1246,7 @@ artofredirecting_formsubmitredirectmc:
         you don't *have* to redirect the user. But, when you do, if the user refreshes their
         page after the redirect, it will just reload that new page. If you *don't* redirect
         (e.g. you display a thanks message on the same page that handled your form), the user
-        can refresh the page, which will re-submit the data: i.e. re-send the POST request
+        can refresh the page, which will re-submit the data: i.e. re-send the `POST` request
         with all the data. This will cause the whole form to be re-processed. You probably
         don't want that :).
     features:
@@ -1254,7 +1254,7 @@ artofredirecting_formsubmitredirectmc:
             choices:
                 a: Redirecting prevents the user from accidentally re-submitting the form
                 b: |
-                    POST requests (which most form submits are) cannot have responses with content,
+                    `POST` requests (which most form submits are) cannot have responses with content,
                     so we need to redirect to another page
                 c: Redirecting prevents the form from being re-populated with the same data
                 d: Some older browsers cannot properly handle a form submit, unless it redirects
@@ -1303,7 +1303,7 @@ artofredirecting_redirectresponsemc:
 
         When we redirect, what we're actually doing is setting a `Location` header on the
         response. The status code - something we haven't talked about much - is also always
-        set to 301 or 302. Answer (A) is technically correct, but misleading: this contains
+        set to `301` or `302`. Answer (A) is technically correct, but misleading: this contains
         some HTML content in the response. This will never be shown to your user, because
         the user's browser will immediately see the `Location` header and change the URL
         in their browser to be this page.
@@ -1354,7 +1354,7 @@ cleaningupwithsavedpets_refactortoysavingcoding:
         look_for_function_declaration:
             type: php
             assertTrue: inputContains('lib/functions.php', 'function save_toys(')
-            failure: Put the `save_toys()` function declaration into `functions.php` for organization
+            failure: Put the `save_toys()` function declaration into `lib/functions.php` for organization
         look_for_function_usage:
             type: php
             assertTrue: inputContains('new_toy.php', 'save_toys(')
