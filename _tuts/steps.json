@@ -191,6 +191,11 @@
             "description": null
         },
         {
+            "id": "creating-functions-create-function-solution",
+            "name": "Creating functions: Create function [Solution]",
+            "description": null
+        },
+        {
             "id": "require-include-isolate-function-use-require",
             "name": "Require, include: Isolate function - use require",
             "description": null
@@ -281,5 +286,5 @@
             "description": null
         }
     ],
-    "sha": "409d10c344afd17103bbe4ed886cee9c738c6282"
+    "sha": "a434e9ede220e843d78b194e77119ea343a39566"
 }
