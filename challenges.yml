@@ -123,9 +123,10 @@ letswritephp_fixmissingsemicoloncoding:
 functions_userandfunctioncoding:
     question: |
         It's hard to keep track of how many loveable pets we have
-        at a time. To save time (read: make management happy) just print
-        a random number - between 100 and 200 - for the number of tail-wagging
-        pets we have available.
+        at a time. To save time (read: make management happy) let's just
+        print a random number of pets.
+    question_steps:
+        - Print a random number - between 100 and 200 - for the number of tail-wagging pets we have available.
     step: functions-use-rand-function
     files:
         index.php: ~
@@ -154,9 +155,9 @@ functions_reverseandlowercasecoding:
     question: |
         Someone was working at midnight, and started printing out
         things in reverse! Don't worry! We've sent them on holiday and
-        now it's your job to fix things. As a challenge, see if you
-        can reverse and set all characters to lowercase in one line
-        using functions.
+        now it's your job to fix things.
+    question_steps:
+        - "As a challenge, see if you can reverse this string and set all the characters to lowercase in one line using functions"
     step: functions-reverse-and-lowercase
     files:
         index.php: ~
@@ -206,9 +207,10 @@ arraysloops_createarraycoding:
     question: |
         We're testing out a new feature: find someone to walk your
         dog! At first, our boss's kids will be the three dog walkers:
-        `Kitty`, `Tiger`, and `Jay`. Assign each dog walker to three
-        new variables - `$walker1`, `$walker2` and `$walker3`. Then,
-        put them into a `$dogWalkers` array.
+        `Kitty`, `Tiger`, and `Jay`. 
+    question_steps:
+        - Assign each dog walker (`Kitty`, `Tiger`, and `Jay`) to three new variables - `$walker1`, `$walker2` and `$walker3`.
+        - Put each variable into a new `$dogWalkers` array.
     step: arrays-loops-create-array
     files:
         index.php: ~
@@ -219,15 +221,15 @@ arraysloops_createarraycoding:
         assert_variable_1:
             type: php
             assertTrue: variable('walker1') == 'Kitty'
-            failure: Can't assert that `$walker1` variable equal to the `Kitty` string
+            failure: Make sure the `$walker1` variable is equal to `Kitty`.
         assert_variable_2:
             type: php
             assertTrue: variable('walker2') == 'Tiger'
-            failure: Can't assert that `$walker1` variable equal to the `Tiger` string
+            failure: Make sure the `$walker2` variable is equal to `Tiger`.
         assert_variable_3:
             type: php
             assertTrue: variable('walker3') == 'Jay'
-            failure: Can't assert that `$walker1` variable equal to the `Jay` string
+            failure: Make sure the `$walker3` variable is equal `Jay`.
         assert_array:
             type: php
             assertTrue: variable('dogWalkers') == ['Kitty', 'Tiger', 'Jay']
@@ -236,8 +238,9 @@ arraysloops_createarraycoding:
 arraysloops_foreachcoding:
     question: |
         The kids are ready to work! Let's advertise the new service.
-        Use a `foreach` loop to print each kid's name in an `h3` tag.
-        Include a `<button>Schedule me</button>` under each kid's name:
+    question_steps:
+        - Use a `foreach` loop to print each kid's name in an `h3` tag.
+        - Include a `<button>Schedule me</button>` under each kid's name.
     step: arrays-loops-foreach
     files:
         index.php: ~
@@ -277,8 +280,9 @@ arraysloops_foreachcoding:
 arraysloops_vardumpcoding:
     question: |
         The boss is worried that one of his kids was left off the
-        list! Use the `var_dump` function to show him that all three
-        kids are in the array.
+        list!
+    question_steps:
+        - Use the `var_dump` function to show him that all three kids are in the array.
     step: arrays-loops-var-dump
     files:
         index.php: ~
@@ -317,10 +321,10 @@ arraysloops_arraykeysmc:
 # Arrays2
 arrays2_converttoassociativecoding:
     question: |
-        Our favorite pet - Waggy Pig - is a cute white silly dog. Update
-        the code below to use an associative array: set they keys of the array
-        to `name`, `weight`, `age` and `bio`. Then, update the code below so
-        Waggy Pig's bio still prints out!
+        Our favorite pet - Waggy Pig - is a cute white silly dog.
+    question_steps:
+        - Update the code below to use an associative array: set they keys of the array to `name`, `weight`, `age` and `bio`.
+        - "Then, update the code below so Waggy Pig's bio still prints out!"
     step: arrays2-convert-to-associative
     files:
         index.php: ~
@@ -358,8 +362,10 @@ arrays2_converttoassociativecoding:
 arrays2_addnewkeycoding:
     question: |
         We went to ancestry.com and have discovered Waggy Pig's breed:
-        `bichon`. Add a new `breed` key on a new line after the `$waggyPig`
-        array has already been created. Print this new info below!
+        `bichon`.
+    question_steps:
+        - Add a new `breed` key set to `bichon` on a new line after the `$waggyPig` array has already been created.
+        - Print this new info below!
     step: arrays2-add-new-key
     files:
         index.php: ~
@@ -418,7 +424,8 @@ arrays2_guessautokeymc:
 arrays3_multiarraykeyscoding:
     question: |
         Let's get to know one of the friendliest pets in town!
-        Access the bio on Pancake and print it inside the `<h1>` tag.
+    question_steps:
+        - Access the `bio` on Pancake and print it inside the `<h1>` tag.
     step: arrays3-multi-array-keys
     files:
         index.php: ~
@@ -429,20 +436,19 @@ arrays3_multiarraykeyscoding:
         look_for_variable:
             type: php
             assertTrue: inputContains('index.php', "$pets[2]['bio']")
-            failure: I don't see `$pets[2]['bio']` in your file
+            failure: "I don't see `$pets[2]['bio']` in your code!"
         check_heading:
             type: http
             assertTrue: css("h1:contains('Breakfast is my favorite!')").count() == 1
-            failure: Make sure the `Breakfast is my favorite!` text is being printed *inside* a `h1` tag
+            failure: Make sure the `Breakfast is my favorite!` text is being printed *inside* an `h1` tag
 
 arrays3_foreachassociativecoding:
     question: |
         The site is *so* popular that we're adding a store that
-        sells the world's squeekiest dog toys. Using the `$toys`
-        array below, create a `foreach` statement and print each toy's
-        `name` inside an `h3` tag and its `color` inside an `h4` tag.
-        Avoid needing to echo the HTML tags by closing PHP at the end
-        of the `foreach` line.
+        sells the world's squeekiest dog toys.
+    question_steps:
+        - "Using the `$toys` array below, create a `foreach` statement and print each toy's `name` inside an `h3` tag and its `color` inside an `h4` tag."
+        - Avoid needing to echo the HTML tags by closing PHP at the end of the `foreach` line.
     step: arrays3-foreach-associative
     files:
         index.php: ~
@@ -453,24 +459,27 @@ arrays3_foreachassociativecoding:
         check_heading_1:
             type: http
             assertTrue: css("h3:contains('Bacon Bone')").count() == 1
-            failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
+            failure: Make sure the `Bacon Bone` text is being printed *inside* an `h3` tag
         check_heading_2:
             type: http
             assertTrue: css("h3:contains('Tennis Ball')").count() == 1
-            failure: Make sure the `Tennis Ball` text is being printed *inside* a `h3` tag
+            failure: Make sure the `Tennis Ball` text is being printed *inside* an `h3` tag
         check_heading_3:
             type: http
             assertTrue: css("h4:contains('Bacon-colored')").count() == 1
-            failure: Make sure the `Bacon-colored` text is being printed *inside* a `h4` tag
+            failure: Make sure the `Bacon-colored` text is being printed *inside* an `h4` tag
         check_heading_4:
             type: http
             assertTrue: css("h4:contains('Yellow')").count() == 1
-            failure: Make sure the `Yellow` text is being printed *inside* a `h4` tag
+            failure: Make sure the `Yellow` text is being printed *inside* an `h4` tag
 
 arrays3_countandvariablereordercoding:
     question: |
-        Using the `count()` function, print the total number of pet toys
-        that we're selling in the `<h4>` tag.
+        We want to impress people with our *large* inventory of toys! Ok, it's not
+        very big yet... but it will be!
+    question_steps:
+        - "Using the `count()` function, print the total number of pet toys that we're selling in the `<h4>` tag."
+        - "Hint: Be sure the `$toys` variable is defined *before* trying to count it!"
     step: arrays3-count-and-variable-reorder
     files:
         index.php: ~
@@ -518,11 +527,11 @@ filesjsonbooleans_jsonencodemc:
 
 filesjsonbooleans_readfilejsondecodecoding:
     question: |
-        The toy inventory lives in a `toys.json` file. Great! Let's
-        read this file, and use `json_decode` to turn it into a big array.
-        Make sure the `foreach` is still correctly printing each toy's details.
-        And be careful to make sure the keys from `toys.json` match what you're
-        printing out!
+        The toy inventory lives in a `toys.json` file. Great!
+    question_steps:
+        - Read the `toys.json` file and use `json_decode` to turn it into a big array.
+        - Make sure the `foreach` is still correctly printing each toy's details.
+        - Be careful to make sure the keys from `toys.json` match what you're printing out!
     step: files-json-booleans-read-file-json-decode
     files:
         index.php: ~
@@ -551,10 +560,10 @@ filesjsonbooleans_readfilejsondecodecoding:
 
 filesjsonbooleans_fileputcontentscoding:
     question: |
-        We're going to totally troll the cats on the site,
-        use `file_put_contents()` to save the text `Dogs rule!` into a
-        new file called `doglife.txt`. Then read that file and print
-        the string into the `h2` tag
+        We're going to *totally* troll the cats on the site!
+    question_steps:
+        - Use `file_put_contents()` to save the text `Dogs rule!` into a new file called `doglife.txt`.
+        - Then read that file and print the string in the `h2` tag.
     step: files-json-booleans-file-put-contents
     files:
         index.php: ~
@@ -587,8 +596,10 @@ filesjsonbooleans_fileputcontentscoding:
 ifstatement_ifnotoycolorcoding:
     question: |
         Oh no! Some of the toys are missing a `color` key and now the page
-        is giving us a huge error!  Use an `if` statement to fix this.
-        If we don't know the color, print `no color`.
+        is giving us a huge error!
+    question_steps:
+        - Use an `if` statement to avoid the error that's caused by *some* toys that have no `color` key.
+        - "If we don't know the color, print `no color`"
     step: if-statement-if-no-toy-color
     files:
         index.php: ~
@@ -1225,9 +1236,7 @@ savingpets_jsonencodereadablemc:
                     json_encode($toys, JSON_PRETTY_PRINT);
                     ```
                 b: |
-                    ```php
-                    json_encode($toys, 'JSON_PRETTY_PRINT');
-                    ```
+                     json_encode($toys, 'JSON_PRETTY_PRINT');
                 c: |
                     ```php
                     json_encode($toys, $JSON_PRETTY_PRINT);
