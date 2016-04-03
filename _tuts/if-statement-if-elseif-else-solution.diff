@@ -1,0 +1,17 @@
+diff --git a/index.php b/index.php
+index c9045aa..980ec1f 100644
+--- a/index.php
++++ b/index.php
+@@ -7,7 +7,11 @@ $toys = json_decode($contents, true);
+     <h3><?php echo $toy['name']; ?></h3>
+     <h4>
+         <?php
+-        if (array_key_exists('color', $toy)) {
++        if (array_key_exists('color', $toy) && $toy['color'] == 'multiple') {
++            echo 'Multiple Colors';
++        } elseif (!array_key_exists('color', $toy)) {
++            echo 'no color';
++        } else {
+             echo $toy['color'];
+         }
+         ?>

@@ -154,7 +154,137 @@
             "id": "files-json-booleans-file-put-contents-solution",
             "name": "Files, JSON, booleans: file_put_contents() [Solution]",
             "description": null
+        },
+        {
+            "id": "if-statement-if-no-toy-color",
+            "name": "If statement: If no toy color",
+            "description": null
+        },
+        {
+            "id": "if-statement-if-no-toy-color-solution",
+            "name": "If statement: If no toy color [Solution]",
+            "description": null
+        },
+        {
+            "id": "if-statement-if-elseif-else",
+            "name": "If statement: If-elseif-else",
+            "description": null
+        },
+        {
+            "id": "if-statement-if-elseif-else-solution",
+            "name": "If statement: If-elseif-else [Solution]",
+            "description": null
+        },
+        {
+            "id": "if-statement-fix-errors-if-else",
+            "name": "If statement: Fix errors if-else",
+            "description": null
+        },
+        {
+            "id": "if-statement-fix-errors-if-else-solution",
+            "name": "If statement: Fix errors if-else [Solution]",
+            "description": null
+        },
+        {
+            "id": "creating-functions-create-function",
+            "name": "Creating functions: Create function",
+            "description": null
+        },
+        {
+            "id": "creating-functions-create-function-solution",
+            "name": "Creating functions: Create function [Solution]",
+            "description": null
+        },
+        {
+            "id": "require-include-isolate-function-use-require",
+            "name": "Require, include: Isolate function - use require",
+            "description": null
+        },
+        {
+            "id": "require-include-isolate-function-use-require-solution",
+            "name": "Require, include: Isolate function - use require [Solution]",
+            "description": null
+        },
+        {
+            "id": "simple-layout-layout-with-require",
+            "name": "Simple layout: Layout with require",
+            "description": null
+        },
+        {
+            "id": "simple-layout-layout-with-require-solution",
+            "name": "Simple layout: Layout with require [Solution]",
+            "description": null
+        },
+        {
+            "id": "create-form-create-html-form",
+            "name": "Create form: Create HTML form",
+            "description": null
+        },
+        {
+            "id": "create-form-create-html-form-solution",
+            "name": "Create form: Create HTML form [Solution]",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-fetch-post-data",
+            "name": "Reading form data: Fetch POST data",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-fetch-post-data-solution",
+            "name": "Reading form data: Fetch POST data [Solution]",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-check-http-method",
+            "name": "Reading form data: Check HTTP method",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-check-http-method-solution",
+            "name": "Reading form data: Check HTTP method [Solution]",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-playing-with-server",
+            "name": "Reading form data: Playing with $_SERVER",
+            "description": null
+        },
+        {
+            "id": "reading-form-data-playing-with-server-solution",
+            "name": "Reading form data: Playing with $_SERVER [Solution]",
+            "description": null
+        },
+        {
+            "id": "saving-pets-form-submit-logic",
+            "name": "Saving pets: Form submit logic",
+            "description": null
+        },
+        {
+            "id": "saving-pets-form-submit-logic-solution",
+            "name": "Saving pets: Form submit logic [Solution]",
+            "description": null
+        },
+        {
+            "id": "art-of-redirecting-redirect-user-to-the-toy-list",
+            "name": "Art of redirecting: Redirect user to the toy list",
+            "description": null
+        },
+        {
+            "id": "art-of-redirecting-redirect-user-to-the-toy-list-solution",
+            "name": "Art of redirecting: Redirect user to the toy list [Solution]",
+            "description": null
+        },
+        {
+            "id": "cleaning-up-with-saved-pets-refactor-toy-saving",
+            "name": "Cleaning up with saved pets: Refactor toy saving",
+            "description": null
+        },
+        {
+            "id": "cleaning-up-with-saved-pets-refactor-toy-saving-solution",
+            "name": "Cleaning up with saved pets: Refactor toy saving [Solution]",
+            "description": null
         }
     ],
-    "sha": "f41dfcdabbb7524bcb75337b8cd66185e7d9b4df"
+    "sha": "be61741755e105e025e322d9f0b18768c5efa7ab"
 }

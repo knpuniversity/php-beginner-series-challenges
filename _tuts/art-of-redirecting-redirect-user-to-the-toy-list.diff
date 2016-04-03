@@ -1,0 +1,28 @@
+diff --git a/about.php b/about.php
+new file mode 100644
+index 0000000..793bf06
+--- /dev/null
++++ b/about.php
+@@ -0,0 +1 @@
++<h1>Yea! About us!</h1>
+diff --git a/aboutUs.php b/aboutUs.php
+index 9e323fd..e69de29 100644
+--- a/aboutUs.php
++++ b/aboutUs.php
+@@ -1,16 +0,0 @@
+-<?php require 'layout/header.php'; ?>
+-
+-<h1>About Us</h1>
+-
+-<p>
+-    We're just a couple of <mark>crazy</mark> cats with a dog-gone good idea!
+-</p>
+-
+-<address>
+-    <strong>AirPupNMeow</strong><br>
+-    555 Main Street<br>
+-    San Francisco, CA 94107<br>
+-    <abbr title="Phone">P:</abbr> (123) 456-7890
+-</address>
+-
+-<?php require 'layout/footer.php'; ?>

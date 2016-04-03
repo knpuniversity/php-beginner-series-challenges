@@ -1,0 +1,44 @@
+diff --git a/new_toy.php b/new_toy.php
+index fe68918..0f29230 100644
+--- a/new_toy.php
++++ b/new_toy.php
+@@ -1,3 +1,14 @@
+-<h3>
+-    <?php echo $_SERVER['HTTP_USER_AGENT']; ?>
+-</h3>
++<?php
++require __DIR__.'/lib/functions.php';
++
++$name = $_POST['name'];
++$description = $_POST['description'];
++
++?>
++
++<form action="/new_toy.php" method="POST">
++    <input type="text" name="name" />
++    <textarea name="description"></textarea>
++
++    <button type="submit">Add toy</button>
++</form>
+diff --git a/toys.json b/toys.json
+index 3725e16..054e0c0 100644
+--- a/toys.json
++++ b/toys.json
+@@ -1,14 +1,14 @@
+ [
+     {
+         "name": "Bacon Bone",
+-        "color": "Bacon Colored"
++        "description": "What could be better?"
+     },
+     {
+         "name": "Tennis Ball",
+-        "color": "Yellow"
++        "description": "Throw, fetch, throw, fetch, throw, fetch..."
+     },
+     {
+         "name": "Frisbee",
+-        "color": "Multiple Colors"
++        "description": "Go Deep!"
+     }
+ ]
