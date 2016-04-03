@@ -1,5 +1,5 @@
 diff --git a/index.php b/index.php
-index 14fa6e9..233120d 100644
+index 07d797a..233120d 100644
 --- a/index.php
 +++ b/index.php
 @@ -5,12 +5,13 @@ $waggyPig = [
@@ -13,7 +13,7 @@ index 14fa6e9..233120d 100644
  <div class="age"><?php echo $waggyPig['age']; ?></div>
  <div class="weight"><?php echo $waggyPig['weight']; ?></div>
  <div class="breed">
--    <!-- print the bred here -->
+-    <!-- print the breed here -->
 +    <?php echo $waggyPig['breed']; ?>
  </div>
  <p><?php echo $waggyPig['bio']; ?></p>
