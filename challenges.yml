@@ -1074,7 +1074,7 @@ readingformdata_fetchpostdatacoding:
         - Set the submitted name to a `$name` variable and the description to a `$description` variable.
         - "Then, `var_dump()` both variables to see what's being submitted."
         - "Hit `Check` to load the form. **Ignore the nasty Undefined index errors**: we'll fix those soon!"
-        - Fill in the name field with `Fluffy Pig Stuffed Animal` and the description field with `Your dog will *love* to chew and destroy this adorable pig!`.
+        - Fill in the name field with `Fluffy Pig Stuffed Animal` and the description field with `Your dog will destroy it!`.
         - Submit the form to see your dumped values!
     step: reading-form-data-fetch-post-data
     files:
@@ -1094,8 +1094,8 @@ readingformdata_fetchpostdatacoding:
             failure: Make sure to fill in the `name` field with `Fluffy Pig Stuffed Animal` and set this to a `$name` variable!
         check_variable_2:
             type: php
-            assertTrue: variable('description') == 'Your dog will *love* to chew and destroy this adorable pig!'
-            failure: Make sure to fill in the `description` field with `Your dog will *love* to chew and destroy this adorable pig!` and set this to a `$description` variable!
+            assertTrue: variable('description') == 'Your dog will destroy it!'
+            failure: Make sure to fill in the `description` field with `Your dog will destroy it!` and set this to a `$description` variable!
         look_for_var_dump:
             type: php
             assertTrue: inputContains('new_toy.php', 'var_dump(')
@@ -1176,7 +1176,7 @@ readingformdata_playingwithservercoding:
         look_for_request_method:
             type: php
             assertTrue: inputContains('new_toy.php', 'HTTP_USER_AGENT')
-            failure: "I don't see `$_SERVER['HTTP_USER_AGENT']` in your file"
+            failure: "I don't see the correct `$_SERVER` key being printed yet!"
         look_for_post:
             type: http
             assertTrue: body() matches '/Mozilla/'
