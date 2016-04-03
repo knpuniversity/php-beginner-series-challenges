@@ -1221,12 +1221,12 @@ savingpets_formsubmitlogiccoding:
             assertTrue: inputContains('new_toy.php', 'get_great_pet_toys(')
             failure: Call `get_great_pet_toys()` first to get the existing toys
         look_for_text_1:
-            type: http
-            assertTrue: body() matches '/Bacon Bone/'
+            type: php
+            assertTrue: inputContains('toys.json', 'Bacon Bone')
             failure: I don't see `Bacon Bone` in `toys.json` - double-check that you're keeping the original pets, not replacing them entirely.
         look_for_text_2:
-            type: http
-            assertTrue: body() matches '/Fluffy Pig Stuffed Animal/'
+            type: php
+            assertTrue: inputContains('toys.json', 'Fluffy Pig Stuffed Animal')
             failure: I don't see the new `Fluffy Pig Stuffed Animal` toy in `toys.json`. Are you adding it to the toys array before calling `json_encode()` and saving the file?
 
 savingpets_jsonencodereadablemc:
@@ -1287,11 +1287,8 @@ artofredirecting_redirectusertoylistcoding:
         are getting an error.
 
         So, you decide to re-create `aboutUs.php`, and just make it redirect to `/about.php`.
-        Fill in the logic to redirect to `/about.php`.
-
-        **Note**: You won't see any output, because redirects actually return a blank response.
-        In the real world, your browser would quickly make a second request to `about.php`
-        (and you'd see that page).
+    question_steps:
+        - Fill in the logic needed in `aboutUs.php` to make it redirect to `/about.php`.
     step: art-of-redirecting-redirect-user-to-the-toy-list
     files:
         aboutUs.php: ~
@@ -1357,8 +1354,10 @@ artofredirecting_redirectresponsemc:
 cleaningupwithsavedpets_refactortoysavingcoding:
     question: |
         Users are now able to enter new toys they want to sell and you're a hero in the office!
-        Put the finishing touches on this by reorganizing the toy-saving logic into a new function
-        called `save_toys()`. Be sure to call this function to keep things working!
+        Put the finishing touches on this by adding a little bit more code organization.
+    question_steps:
+        - Reorganize the toy-saving logic into a new function called `save_toys()`.
+        - Be sure to call this function to keep things working!
     step: cleaning-up-with-saved-pets-refactor-toy-saving
     files:
         new_toy.php: ~
