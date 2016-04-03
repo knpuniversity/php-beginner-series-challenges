@@ -629,12 +629,11 @@ ifstatement_ifnotoycolorcoding:
 ifstatement_ifelseifelsecoding:
     question: |
         The toys are really getting complicated now, so be careful!
-        Use an `if - elseif - else` statement to handle these three possible
-        situations:
-
-        1. If the `color` key exists and is set to `multiple`, print "Multiple Colors".
-        2. If the `color` key does not exist, print "no color"
-        3. Otherwise, print the actual color value
+    question_steps:
+        - Use an `if - elseif - else` statement to handle the following 3 possible situations:
+        - If the `color` key exists and is set to `multiple`, print "Multiple Colors".
+        - If the `color` key does not exist, print "no color"
+        - Otherwise, print the actual color value
     step: if-statement-if-elseif-else
     files:
         index.php: ~
@@ -663,8 +662,11 @@ ifstatement_ifelseifelsecoding:
 
 ifstatement_fixerrorsifelsecoding:
     question: |
-        Oh no, management tried coding again, someone put a pin code
-        on the github repo! Fix the errors below.
+        Oh no, management tried coding again, someone put a password
+        on the github repo!
+    question_steps:
+        - Submit the code to see the error.
+        - Then find the bug and squash it!
     step: if-statement-fix-errors-if-else
     files:
         index.php: ~
@@ -783,9 +785,10 @@ creatingfunctions_funwithcommentsmc:
 creatingfunctions_createfunctioncoding:
     question: |
         Being able to read all the toys from `toys.json` is pretty useful, and soon, it
-        might be handy to re-use this in other places too. Create a new `get_great_pet_toys()`
-        function that reads `toys.json`, decodes the contents, and returns the toys.
-        Call this to get the toys array.
+        might be handy to re-use this in other places too.
+    question_steps:
+        - Create a new `get_great_pet_toys()` function that reads `toys.json`, decodes the contents, and returns the toys.
+        - Call this to get the toys array.
     step: creating-functions-create-function
     files:
         index.php: ~
@@ -802,27 +805,27 @@ creatingfunctions_createfunctioncoding:
         look_for_function:
             type: php
             assertTrue: inputContains('index.php', 'get_great_pet_toys(')
-            failure: I don't see `get_great_pet_toys()` function in your file
+            failure: I don't see the `get_great_pet_toys()` function in your file
         check_heading_1:
             type: http
             assertTrue: css("h4:contains('Yellow')").count() == 1
-            failure: Make sure the `Yellow` text is being printed *inside* a `h4` tag
+            failure: Make sure the `Yellow` text is being printed *inside* an `h4` tag
         check_heading_2:
             type: http
             assertTrue: css("h4:contains('Multiple Colors')").count() == 1
-            failure: Make sure the `Multiple Colors` text is being printed *inside* a `h4` tag
+            failure: Make sure the `Multiple Colors` text is being printed *inside* an `h4` tag
         check_heading_3:
             type: http
             assertTrue: css("h3:contains('Bacon Bone')").count() == 1
-            failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
+            failure: Make sure the `Bacon Bone` text is being printed *inside* an `h3` tag
 
 # RequireInclude
 requireinclude_isolatefunctionuserequirecoding:
     question: |
         The pet toy business is really taking off! The site is getting
-        bigger and we need to stay organized! Move the `get_great_pet_toys()` function
-        out of `index.php` and into the new `lib/functions.php` file so we can
-        re-use it later.
+        bigger and we need to stay organized!
+    question_steps:
+        - Move the `get_great_pet_toys()` function out of `index.php` and into the new `lib/functions.php` file so we can re-use it later.
     step: require-include-isolate-function-use-require
     files:
         index.php: ~
@@ -840,15 +843,15 @@ requireinclude_isolatefunctionuserequirecoding:
         look_for_function:
             type: php
             assertTrue: inputContains('lib/functions.php', 'get_great_pet_toys(')
-            failure: I don't see `get_great_pet_toys()` function in the `lib/functions.php` file
+            failure: I don't see the `get_great_pet_toys()` function in the `lib/functions.php` file
         look_for_require:
             type: php
             assertTrue: inputContains('index.php', 'require')
-            failure: I don't see `require` statement in the `index.php` file
+            failure: I don't see the `require` statement in the `index.php` file
         check_heading:
             type: http
             assertTrue: css("h3:contains('Bacon Bone')").count() > 0
-            failure: Make sure the `Bacon Bone` text is being printed *inside* a `h3` tag
+            failure: Make sure the `Bacon Bone` text is being printed *inside* an `h3` tag
 
 requireinclude_noclosingphptagmc:
     question: |
@@ -886,10 +889,9 @@ simplelayout_layoutwithrequirecoding:
         The site has just one page - `index.php` - and people *love* it (trust us)!
         Now we've created a second page - `aboutUs.php`, but boy is it ugly! Woof.
         We need to re-use the layout that's in `index.php` to make it prettier.
-
-        To do that, move all the header HTML into `header.php`, move all the footer HTML
-        into `footer.php`, and then `require` each of these files in `index.php` and `aboutUs.php`
-        to get the same, "nice" layout in both of our pages.
+    question_steps:
+        - Move all the header HTML into `header.php` and move all the footer HTML into `footer.php`.
+        - Then, `require` each of these files in `index.php` and `aboutUs.php` to get the same, "nice" layout in both of our pages.
     step: simple-layout-layout-with-require
     files:
         index.php: ~
@@ -1030,9 +1032,10 @@ createform_createhtmlformcoding:
     question: |
         The pet toy business is *so* popular that we're becoming the Etsy of dog toys:
         allowing other people to post their own vintage, organic, vegan toys on our
-        site to sell. Create an HTML form that submits a `POST` request to `/new_toy.php`
-        and give it 2 fields: an `input` text field called `name` and a `textarea` field
-        called `description`:
+        site to sell.
+    question_steps:
+        - Create an HTML form that submits a `POST` request to `/new_toy.php` and give it 2 fields: an `input` text field called `name` and a `textarea` field called `description`
+        - Reload to check out your form!
     step: create-form-create-html-form
     files:
         new_toy.php: ~
@@ -1066,12 +1069,13 @@ createform_createhtmlformcoding:
 readingformdata_fetchpostdatacoding:
     question: |
         Our toy form is setup! Now, when the user submits the form, we need to capture
-        the information. Set the submitted name to a `$name` variable, the description
-        to a `$description` variable, then `var_dump()` both variables to see what's being
-        submitted.
-
-        Behind the scenes, we'll fill out the fields with a new toy idea we have and submit
-        so you can see what the data looks like.
+        the information.
+    question_steps:
+        - Set the submitted name to a `$name` variable and the description to a `$description` variable.
+        - "Then, `var_dump()` both variables to see what's being submitted."
+        - "Hit `Check` to load the form. **Ignore the nasty Undefined index errors**: we'll fix those soon!"
+        - Fill in the name field with `Fluffy Pig Stuffed Animal` and the description field with `Your dog will *love* to chew and destroy this adorable pig!`.
+        - Submit the form to see your dumped values!
     step: reading-form-data-fetch-post-data
     files:
         new_toy.php: ~
@@ -1087,11 +1091,11 @@ readingformdata_fetchpostdatacoding:
         check_variable_1:
             type: php
             assertTrue: variable('name') == 'Fluffy Pig Stuffed Animal'
-            failure: Make sure the `$name` variable is set to `Fluffy Pig Stuffed Animal`
+            failure: Make sure to fill in the `name` field with `Fluffy Pig Stuffed Animal` and set this to a `$name` variable!
         check_variable_2:
             type: php
             assertTrue: variable('description') == 'Your dog will *love* to chew and destroy this adorable pig!'
-            failure: Make sure the `$description` variable is set to `Your dog will *love* to chew and destroy this adorable pig!`
+            failure: Make sure to fill in the `description` field with `Your dog will *love* to chew and destroy this adorable pig!` and set this to a `$description` variable!
         look_for_var_dump:
             type: php
             assertTrue: inputContains('new_toy.php', 'var_dump(')
@@ -1103,9 +1107,10 @@ readingformdata_checkhttpmethodcoding:
         into the form. Pretty soon, we'll start saving and selling the newest and loudest
         squeeky toy ever invented!
 
-        But now, we're just surfing to the page directly and getting an error!
-        Add an `if` statement around our logic so that it only runs when the user submits
-        the form (i.e. makes a `POST` request).
+        But now, if we just *surf* to the page directly (i.e. make a `GET` request),
+        we get an error!
+    question_step:
+        - Add an `if` statement around our logic so that it only runs when the user submits the form (i.e. makes a `POST` request).
     step: reading-form-data-check-http-method
     files:
         new_toy.php: ~
@@ -1121,7 +1126,7 @@ readingformdata_checkhttpmethodcoding:
         look_for_request_method:
             type: php
             assertTrue: inputContains('new_toy.php', 'REQUEST_METHOD')
-            failure: I don't see `$_SERVER['REQUEST_METHOD']` in your file
+            failure: "I don't see `$_SERVER['REQUEST_METHOD']` in your file"
         look_for_post:
             type: php
             assertTrue: input('new_toy.php') matches '/POST/i'
@@ -1150,10 +1155,12 @@ readingformdata_arraykeyexistsissetmc:
 
 readingformdata_playingwithservercoding:
     question: |
-        Dump the `$_SERVER` variable and run your code to figure out which key stores information
-        about what browser you're using. It's OK that you'll have a wrong answer at first to
-        figure this out. *Hint* The browser information is a big long string that (in this
-        example) will include `Mozilla` in it.
+        We want to determine what browser a user is using, because management might
+        want to show something different for mobile apps.
+    question_steps:
+        - "Dump the `$_SERVER` variable and run your code to figure out which key stores information about what browser you're using. (your code will be graded wrong at first, but don't worry!)"
+        - *Hint* The browser information is a big long string that (in this example) will include `Mozilla` in it.
+        - Print the browser information in the `h3` tag.
     step: reading-form-data-playing-with-server
     files:
         new_toy.php: ~
@@ -1169,19 +1176,22 @@ readingformdata_playingwithservercoding:
         look_for_request_method:
             type: php
             assertTrue: inputContains('new_toy.php', 'HTTP_USER_AGENT')
-            failure: I don't see `$_SERVER['HTTP_USER_AGENT']` in your file
+            failure: "I don't see `$_SERVER['HTTP_USER_AGENT']` in your file"
         look_for_post:
             type: http
             assertTrue: body() matches '/Mozilla/'
-            failure: Are you printing the `$_SERVER['HTTP_USER_AGENT']`?
+            failure: "Are you printing the `$_SERVER['HTTP_USER_AGENT']`?"
 
 # SavingPets
 savingpets_formsubmitlogiccoding:
     question: |
-        Let's finish the form submit logic! Fetch the existing pet toys with the `get_great_pet_toys()`
-        function, add the new toy to the array, then save the JSON back to `toys.json`. To
-        prove it's working, read the file again with `file_get_contents()` and `var_dump()`
-        that JSON string.
+        Let's finish the form submit logic!
+    question_steps:
+        - Fetch the existing pet toys with the `get_great_pet_toys()` function
+        - Add the new toy to the array
+        - Then, save the JSON back to `toys.json`
+        - To prove it's working, read the file again with `file_get_contents()` and `var_dump()` the JSON string.
+        - Fill out the form with `Fluffy Pig Stuffed Animal` and any description to try it!
     step: saving-pets-form-submit-logic
     files:
         new_toy.php: ~
