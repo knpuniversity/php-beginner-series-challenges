@@ -13,16 +13,16 @@ index deabb1a..7ba55eb 100644
 +    file_put_contents(__DIR__.'/../toys.json', $json);
 +}
 diff --git a/new_toy.php b/new_toy.php
-index c197b6b..d8d51b1 100644
+index 0577e36..348ac70 100644
 --- a/new_toy.php
 +++ b/new_toy.php
-@@ -6,8 +6,7 @@ $description = $_POST['description'];
+@@ -7,8 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  
- $toys = get_great_pet_toys();
- $toys[] = ['name' => $name, 'description' => $description];
--$json = json_encode($toys, JSON_PRETTY_PRINT);
--file_put_contents('toys.json', $json);
-+save_toys($toys);
+     $toys = get_great_pet_toys();
+     $toys[] = ['name' => $name, 'description' => $description];
+-    $json = json_encode($toys, JSON_PRETTY_PRINT);
+-    file_put_contents('toys.json', $json);
++    save_toys($toys);
+ }
  ?>
  
- <form action="/new_toy.php" method="POST">

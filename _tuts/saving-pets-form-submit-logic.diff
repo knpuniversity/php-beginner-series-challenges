@@ -1,16 +1,18 @@
 diff --git a/new_toy.php b/new_toy.php
-index fe68918..0f29230 100644
+index fe68918..8b83f73 100644
 --- a/new_toy.php
 +++ b/new_toy.php
-@@ -1,3 +1,14 @@
+@@ -1,3 +1,16 @@
 -<h3>
 -    <?php echo $_SERVER['HTTP_USER_AGENT']; ?>
 -</h3>
 +<?php
 +require __DIR__.'/lib/functions.php';
 +
-+$name = $_POST['name'];
-+$description = $_POST['description'];
++if ($_SERVER['REQUEST_METHOD'] == 'POST') {
++    $name = $_POST['name'];
++    $description = $_POST['description'];
++}
 +
 +?>
 +

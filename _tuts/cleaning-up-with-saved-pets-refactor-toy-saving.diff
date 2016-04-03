@@ -1,13 +1,13 @@
 diff --git a/new_toy.php b/new_toy.php
-index be83528..c197b6b 100644
+index 26a922f..0577e36 100644
 --- a/new_toy.php
 +++ b/new_toy.php
-@@ -8,8 +8,6 @@ $toys = get_great_pet_toys();
- $toys[] = ['name' => $name, 'description' => $description];
- $json = json_encode($toys, JSON_PRETTY_PRINT);
- file_put_contents('toys.json', $json);
+@@ -9,8 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+     $toys[] = ['name' => $name, 'description' => $description];
+     $json = json_encode($toys, JSON_PRETTY_PRINT);
+     file_put_contents('toys.json', $json);
 -
--var_dump(file_get_contents('toys.json'));
+-    var_dump(file_get_contents('toys.json'));
+ }
  ?>
  
- <form action="/new_toy.php" method="POST">
