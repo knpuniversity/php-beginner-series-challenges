@@ -1034,7 +1034,7 @@ createform_createhtmlformcoding:
         allowing other people to post their own vintage, organic, vegan toys on our
         site to sell.
     question_steps:
-        - Create an HTML form that submits a `POST` request to `/new_toy.php` and give it 2 fields: an `input` text field called `name` and a `textarea` field called `description`
+        - "Create an HTML form that submits a `POST` request to `/new_toy.php` and give it 2 fields: an `input` text field called `name` and a `textarea` field called `description`"
         - Reload to check out your form!
     step: create-form-create-html-form
     files:
