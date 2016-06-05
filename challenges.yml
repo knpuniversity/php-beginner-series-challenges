@@ -630,7 +630,7 @@ ifstatement_ifelseifelsecoding:
     question: |
         The toys are really getting complicated now, so be careful!
     question_steps:
-        - Use an `if - elseif - else` statement to handle the following 3 possible situations:
+        - "Use an `if - elseif - else` statement to handle the following 3 possible situations:"
         - If the `color` key exists and is set to `multiple`, print "Multiple Colors".
         - If the `color` key does not exist, print "no color"
         - Otherwise, print the actual color value
