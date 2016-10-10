@@ -667,6 +667,31 @@ ifstatement_fixerrorsifelsecoding:
     question_steps:
         - Submit the code to see the error.
         - Then find the bug and squash it!
+    explanation: |
+        Yes, you squashed all the bugs!
+
+        One more advice here: check out [Yoda Conditions](https://en.wikipedia.org/wiki/Yoda_conditions)
+        which help you to find some bugs with assignment sign instead of comparison more
+        quickly. The main idea is to swap variable with constant in a conditional statement,
+        i.e. instead of doing:
+
+        ```php
+        if ($variable == 'constant') {
+            // do something
+        }
+        ```
+
+        Move the constant in the beginning of conditional clause:
+
+        ```php
+        if ('constant' == $variable) {
+            // do something
+        }
+        ```
+
+        Because a constant (or scalar value) assingment to a variable is a valid
+        operation which performs *always*, but you can't do vice versa: assign any
+        variable to a constant - it will always throws syntax error that easy to debug.
     step: if-statement-fix-errors-if-else
     files:
         index.php: ~
