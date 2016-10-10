@@ -1224,10 +1224,14 @@ savingpets_formsubmitlogiccoding:
             type: php
             assertTrue: inputContains('toys.json', 'Bacon Bone')
             failure: I don't see `Bacon Bone` in `toys.json` - double-check that you're keeping the original pets, not replacing them entirely.
+        assert_post_request:
+            type: php
+            assertTrue: variable('_SERVER')['REQUEST_METHOD'] == 'POST'
+            failure: 'You should send a POST request: use the form in Browser to add a new toy with specific name.'
         look_for_text_2:
             type: php
             assertTrue: inputContains('toys.json', 'Fluffy Pig Stuffed Animal')
-            failure: I don't see the new `Fluffy Pig Stuffed Animal` toy in `toys.json`. Are you adding it to the toys array before calling `json_encode()` and saving the file?
+            failure: I don't see a new toy with name `Fluffy Pig Stuffed Animal` in `toys.json`. Are you adding it to the toys array before calling `json_encode()` and saving the file?
 
 savingpets_jsonencodereadablemc:
     question: |
