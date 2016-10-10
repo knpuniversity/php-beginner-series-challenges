@@ -708,7 +708,7 @@ ifstatement_fixerrorsifelsecoding:
         check_heading_1:
             type: http
             assertTrue: css("h4:contains('Surprise Color')").count() == 1
-            failure: I don't see the `Surprise Color` text inside the `h4` tag
+            failure: I don't see the `Surprise Color` text inside the `h4` tag only once on a page. Double check conditional clauses
         check_heading_2:
             type: http
             assertTrue: css("h4:contains('Yellow')").count() == 1
@@ -716,7 +716,7 @@ ifstatement_fixerrorsifelsecoding:
         check_heading_3:
             type: http
             assertTrue: css("h4:contains('no color')").count() == 1
-            failure: I don't see the `no color` text inside the `h4` tag
+            failure: I don't see the `no color` text inside the `h4` tag only once on a page. Double check conditional clauses
 
 # SystemSetup
 systemsetup_dnsfairymc:
