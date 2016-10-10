@@ -670,10 +670,11 @@ ifstatement_fixerrorsifelsecoding:
     explanation: |
         Yes, you squashed all the bugs!
 
-        One more advice here: check out [Yoda Conditions](https://en.wikipedia.org/wiki/Yoda_conditions)
-        which help you to find some bugs with assignment sign instead of comparison more
-        quickly. The main idea is to swap variable with constant in a conditional statement,
-        i.e. instead of doing:
+        One more piece of advice here: check out [Yoda Conditions](https://en.wikipedia.org/wiki/Yoda_conditions).
+        These are an alternate style that can help avoid forgetting to use the `==` instead of `=` in
+        the `if` statements.
+
+        The main idea is to reverse the order of the items in your `if` statement -  i.e. instead of doing:
 
         ```php
         if ($variable == 'constant') {
@@ -681,7 +682,7 @@ ifstatement_fixerrorsifelsecoding:
         }
         ```
 
-        Move the constant in the beginning of conditional clause:
+        Move the constant (i.e. the non-variable) in the beginning of conditional clause:
 
         ```php
         if ('constant' == $variable) {
@@ -689,9 +690,9 @@ ifstatement_fixerrorsifelsecoding:
         }
         ```
 
-        Because a constant (or scalar value) assingment to a variable is a valid
-        operation which performs *always*, but you can't do vice versa: assign any
-        variable to a constant - it will always throws syntax error that easy to debug.
+        Why might this be better? Well, it's the same really. But if you accidentally use a
+        single `=`, PHP will throw a syntax error that's easy to debug. That would have made
+        this challenge much easier to debug!
     step: if-statement-fix-errors-if-else
     files:
         index.php: ~
