@@ -1276,7 +1276,9 @@ savingpets_jsonencodereadablemc:
                     json_encode($toys, JSON_PRETTY_PRINT);
                     ```
                 b: |
-                     json_encode($toys, 'JSON_PRETTY_PRINT');
+                    ```php
+                    json_encode($toys, 'JSON_PRETTY_PRINT');
+                    ```
                 c: |
                     ```php
                     json_encode($toys, $JSON_PRETTY_PRINT);
