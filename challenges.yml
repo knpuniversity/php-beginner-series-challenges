@@ -1205,7 +1205,7 @@ readingformdata_playingwithservercoding:
             failure: "I don't see the correct `$_SERVER` key being printed yet!"
         look_for_post:
             type: http
-            assertTrue: body() matches '/Mozilla/'
+            assertTrue: body() matches '/Mozilla|Guzzle/'
             failure: "Are you printing the `$_SERVER['HTTP_USER_AGENT']`?"
 
 # SavingPets
