@@ -196,10 +196,10 @@ functions_nestedfunctionsmc:
     features:
         multiple_choice:
             choices:
-                a: !lerriuqs
-                b: !lerraaiuqs
-                c: !leraauqs
-                d: lerriauqs
+                a: '!lerriuqs'
+                b: '!lerraaiuqs'
+                c: '!leraauqs'
+                d: 'lerriauqs'
             correct: c
 
 # ArraysLoops
