@@ -505,7 +505,7 @@ filesjsonbooleans_jsonencodemc:
         returns the equivalent JSON string:
 
         ```php
-        <?php echo json_encode('lions', 'tigers', 'bears'); ?>
+        <?php echo json_encode(['lions', 'tigers', 'bears']); ?>
         ```
 
         This would print:
