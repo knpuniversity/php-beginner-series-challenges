@@ -1029,9 +1029,9 @@ requestnewpage_requestpostdatamc:
 # CreateForm
 createform_postversusgetmc:
     question: |
-        When you surf to a page, the user makes a `GET` request for that URL. When you
-        submit a form, the user makes a `POST` request to that URL. Which of the following
-        is NOT true about `GET` and `POST` requests:
+        When you surf to a page, your browser makes a `GET` request to that URL. When you
+        submit a form, your browser makes a `POST` request to that URL. Which of the following
+        is NOT true:
     explanation: |
         Even though `POST` requests are typically used to send data, data can be sent via
         both `POST` and `GET` requests (with, for example, a `<form method="GET">` form).
@@ -1042,8 +1042,7 @@ createform_postversusgetmc:
         multiple_choice:
             choices:
                 a: |
-                    `POST` is used when the user needs to send data. `GET` is used when a user
-                    just wants to fetch a page
+                    `POST` requests usually send data, but they don't have to.
                 b: |
                     A `GET` request cannot send any data (i.e. filled-in form fields)
                 c: |
