@@ -662,7 +662,7 @@ ifstatement_ifelseifelsecoding:
 
 ifstatement_fixerrorsifelsecoding:
     question: |
-        Oh no, management tried coding again, someone put a password
+        Oh no, management tried coding again. Someone put a password
         on the github repo!
     question_steps:
         - Submit the code to see the error.
@@ -708,7 +708,7 @@ ifstatement_fixerrorsifelsecoding:
             failure: I don't see `if` statement in your file
         check_heading_2:
             type: http
-            assertTrue: css("h4:contains('Yellow')").count() == 0
+            assertTrue: css("h4:contains('Yellow')").count() == 1
             failure: The Tennis ball is printing as `Surprise Color!`, but it *should* be `Yellow`. There's a more subtle mistake in the first part of the `if` statement...
         check_heading_3:
             type: http
