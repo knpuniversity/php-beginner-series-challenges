@@ -706,13 +706,9 @@ ifstatement_fixerrorsifelsecoding:
             type: php
             assertTrue: inputContains('index.php', 'if')
             failure: I don't see `if` statement in your file
-        check_heading_1:
-            type: http
-            assertTrue: css("h4:contains('Surprise Color')").count() == 1
-            failure: I don't see the `Surprise Color` text inside the `h4` tag only once on a page. Double check conditional clauses
         check_heading_2:
             type: http
-            assertTrue: css("h4:contains('Yellow')").count() == 1
+            assertTrue: css("h4:contains('Yellow')").count() == 0
             failure: The Tennis ball is printing as `Surprise Color!`, but it *should* be `Yellow`. There's a more subtle mistake in the first part of the `if` statement...
         check_heading_3:
             type: http
